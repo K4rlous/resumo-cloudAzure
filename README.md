@@ -1,331 +1,349 @@
-# 📚 Sumário do resumão Azure na DIO!
+# ☁️ Introdução à Computação em Nuvem AZ-900
 
-1. ☁️ [Introdução à Computação em Nuvem – AZ-900](#-introdução-à-computação-em-nuvem--az-900)  
-2. 🌐 [O que é Computação em Nuvem?](#-o-que-é-computação-em-nuvem)  
-3. ☁️ [Modelos de Nuvem](#-modelos-de-nuvem)  
-   - 🏢 [Nuvem Privada (Private Cloud)](#-1-nuvem-privada-private-cloud)  
-   - ☁️ [Nuvem Pública (Public Cloud)](#-2-nuvem-pública-public-cloud)  
-   - 🔁 [Nuvem Híbrida (Hybrid Cloud)](#-3-nuvem-híbrida-hybrid-cloud)  
-   - 🌐 [Nuvem Comunitária (Community Cloud)](#-4-nuvem-comunitária-community-cloud)  
-   - ☁️🔀 [Multicloud](#-multicloud)  
-4. 📊 [Comparação entre os Modelos de Nuvem](#-comparação-entre-os-modelos-de-nuvem)  
-5. 💸 [CAPEX vs OPEX](#-capex-vs-opex)  
-6. ⚙️ [Modelo Baseado em Consumo](#-modelo-baseado-em-consumo)  
-7. 🔐 [JumpServer](#-jumpserver)  
-8. 🧪 [Lab na Azure – Dica Importante](#-lab-na-azure--dica-importante)  
-9. ☁️ [Benefícios da Computação em Nuvem](#-benefícios-da-computação-em-nuvem)  
-   - 🔄 [Alta Disponibilidade](#-alta-disponibilidade)  
-   - 📊 [Escalabilidade](#-escalabilidade)  
-   - ⚡ [Elasticidade](#-elasticidade)  
-   - ✅ [Confiabilidade](#-confiabilidade)  
-   - 📏 [Previsibilidade](#-previsibilidade)  
-   - 🔐 [Segurança](#-segurança)  
-   - 🧱 [Azure Policy (Apólices)](#-azure-policy-apólices)  
-   - 🏛️ [Governança na Nuvem](#-governança-na-nuvem)  
-   - 🧩 [Gerenciabilidade](#-gerenciabilidade)
-
----
-
-# ☁️ Introdução à Computação em Nuvem – AZ-900
-
-**AZ-900** é uma certificação **de entrada** para quem está começando no mundo da computação em nuvem, especialmente com foco na **Microsoft Azure**. Ela é ideal para quem quer entender os **conceitos básicos de cloud**, mesmo sem experiência técnica prévia.
-
-> ⚠️ A Azure possui serviços gratuitos e pagos. Ao usar laboratórios e testes, **lembre-se de excluir os recursos após o uso** para evitar cobranças inesperadas.
+## 📚 Índice 
+- [AZ 900](#-az-900-é-uma-certificação-de-entrada-em-cloud-importante)
+- [Computação em Nuvem](#-computação-em-nuvem)
+- [Modelos de Nuvem](#-modelos-de-nuvem)
+  - [Nuvem Privada](#-1-nuvem-privada-private-cloud-ou-on-premises)
+  - [Nuvem Pública](#️-2-nuvem-pública-public-cloud)
+  - [Nuvem Híbrida](#️-3-nuvem-híbrida-hybrid-cloud)
+  - [Nuvem Comunitária](#️-4-nuvem-comunitária-community-cloud)
+  - [Multicloud](#️️-multicloud)
+- [Comparação de Modelos](#-comparação-de-modelos-de-nuvem)
+- [CAPEX vs OPEX](#-capex-capital-expenditure-vs-opex-operational-expenditure)
+- [Jumpserver](#-jumpserver)
+- [Lab Azure](#-lab-azure)
+- [Benefícios da Nuvem](#-beneficios-da-computação-em-nuvem)
+  - [Alta Disponibilidade](#-alta-disponibilidade)
+  - [SLA da Azure](#️-sla-da-azure--resumo)
+  - [Escalabilidade](#-escalabilidade)
+  - [Elasticidade](#️-elasticidade)
+  - [Confiabilidade](#️-confiabilidade)
+  - [Previsibilidade](#️-previsibilidade)
+  - [Segurança](#️-segurança)
+  - [Azure Policy](#️-o-que-são-apólices-no-azure-azure-policy)
+  - [Governança](#️-governança-na-nuvem)
+  - [Gerenciabilidade](#️-gerenciabilidade)
 
 ---
 
-## 🌐 O que é Computação em Nuvem?
+## 🔵 AZ 900 é uma certificação de entrada em cloud (importante!)
 
-É o fornecimento de **serviços de computação pela internet** (“a nuvem”), como:
-
-- Servidores
-- Armazenamento
-- Bancos de dados
-- Redes
-- Softwares
-- Análises e inteligência
-
-A nuvem permite **inovações mais rápidas**, **escalabilidade sob demanda** e **redução de custos**, pois **elimina a necessidade de datacenters físicos** (as famosas “salas frias”).
-
-A base da computação em nuvem é a **virtualização**, que permite que um único servidor físico simule várias **máquinas virtuais (VMs)**, otimizando o uso de recursos e facilitando o gerenciamento.
+A Azure possui serviços gratuitos e pagos, é recomendado excluir os serviços, laboratórios e outras coisas que usamos para aprendizado para evitar cobranças futuras
 
 ---
 
-## ☁️ Modelos de Nuvem
+## ☁️ Computação em Nuvem:
 
-### 🏢 1. Nuvem Privada (Private Cloud)
-Infraestrutura **exclusiva para uma organização**, localizada no próprio datacenter ou em um ambiente controlado por terceiros.
+É o fornecimento de serviços de computação (como servidores, armazenamento, bancos de dados, redes, software, análise e inteligência) por meio da internet ("a nuvem"). Ela permite inovações mais rápidas, recursos escaláveis sob demanda e economia de custos, pois elimina a necessidade de manter datacenters físicos locais (as chamadas "salas frias" com servidores).
 
-📌 **Vantagens**: mais controle, segurança, personalização e conformidade.
+A computação em nuvem é viabilizada principalmente por virtualização, uma tecnologia que permite que um único servidor físico simule múltiplas máquinas virtuais (VMs). Isso otimiza o uso dos recursos computacionais, aumenta a flexibilidade e facilita a automação e o gerenciamento.
 
 ---
+
+## 🌐 Modelos de nuvem
+
+### 🏢 1. Nuvem Privada (Private Cloud) ou "On premises"
+Infraestrutura exclusiva para uma única organização.
+
+Pode estar localizada no próprio datacenter da empresa ou hospedada por terceiros.
+
+Mais controle e segurança, uma vez que a organização é responsável por operar os serviços que fornecem, ideal para empresas com exigências rigorosas (banco, governo, etc.), não fornece acesso aos usuários fora da organização.
+
+📌 Vantagens: segurança, personalização, conformidade.
 
 ### ☁️ 2. Nuvem Pública (Public Cloud)
-Serviços fornecidos por terceiros (como **AWS, Azure, Google Cloud**), acessados via internet e **compartilhados entre vários clientes**.
+Recursos (servidores, armazenamento, etc.) são fornecidos por terceiros (como AWS, Azure, Google Cloud) e outros provedores de hosting.
 
-📌 **Vantagens**: baixo custo inicial, escalabilidade, sem necessidade de gerenciar infraestrutura.
+Tudo é acessado pela internet via conexão de rede segura.
 
----
+Compartilhada entre múltiplos clientes.
+
+Exemplo: usar o Google Drive ou hospedar um site na AWS.
+
+📌 Vantagens: escalabilidade, baixo custo inicial, sem necessidade de gerenciar infraestrutura.
 
 ### 🔁 3. Nuvem Híbrida (Hybrid Cloud)
-Combina nuvem pública e privada. Permite mover dados e aplicações entre ambientes.
+Combinação de nuvem pública e privada.
 
-📌 **Vantagens**: equilíbrio entre segurança e escalabilidade.
+Permite mover dados e aplicações entre ambientes, conforme a necessidade.
 
----
+Equilíbrio entre segurança e escalabilidade.
+
+📌 Exemplo: manter dados sensíveis em uma nuvem privada e usar nuvem pública para testes ou picos de demanda.
 
 ### 🌐 4. Nuvem Comunitária (Community Cloud)
-Infraestrutura compartilhada por **organizações com interesses comuns**, como hospitais ou órgãos públicos.
+Compartilhada por várias organizações com interesses ou requisitos comuns (por exemplo, órgãos governamentais ou hospitais).
 
-📌 **Vantagens**: custo dividido, colaboração segura, foco em necessidades específicas.
+Infraestrutura pode ser gerenciada por uma ou mais organizações, ou por terceiros.
 
----
+📌 Vantagens: colaboração segura entre entidades, custo dividido, foco em necessidades específicas.
 
 ### ☁️🔀 Multicloud
+Multicloud é o uso de dois ou mais provedores de nuvem pública diferentes ao mesmo tempo — por exemplo, uma empresa usando AWS + Azure + Google Cloud.
 
-**Multicloud** é o uso de **múltiplos provedores de nuvem pública** simultaneamente (ex: AWS + Azure + Google Cloud).
+🟡 Importante: Multicloud ≠ Nuvem híbrida
 
-🔸 **Multicloud ≠ Nuvem Híbrida**
+Multicloud = várias nuvens públicas diferentes.
 
-- **Multicloud**: várias nuvens públicas diferentes.
-- **Híbrida**: mistura de nuvem pública com privada.
+Híbrida = combinação de nuvem pública com nuvem privada.
 
-📌 **Benefícios**:
-- Evita dependência de um único fornecedor (vendor lock-in).
-- Aproveita o melhor de cada serviço.
-- Maior disponibilidade e redundância.
-- Otimização de custos.
+✅ Por que usar multicloud?
+Evitar dependência de um único fornecedor ("vendor lock-in").
 
-📌 **Exemplo prático**:
-- Hospedar site na AWS,
-- Usar banco de dados no Azure,
-- Armazenar backups no Google Cloud.
+Aproveitar o melhor de cada serviço (por exemplo, usar IA do Google e banco de dados da AWS).
 
----
+Alta disponibilidade e redundância (se um provedor falhar, outro assume).
 
-## 📊 Comparação entre os Modelos de Nuvem
+Custos otimizados, escolhendo o mais barato para cada serviço.
 
-| Modelo          | Características                                                                 |
-|-----------------|----------------------------------------------------------------------------------|
-| **Pública**     | Sem CAPEX, escalável, provisionamento rápido, pagamento pelo uso real           |
-| **Privada**     | Total controle sobre segurança e recursos, manutenção por conta da organização   |
-| **Híbrida**     | Flexibilidade, controle sobre segurança e conformidade, escolha de execução      |
+📌 Exemplo prático:
+Uma empresa pode:
+
+Hospedar seu site na AWS,
+
+Usar o banco de dados do Azure,
+
+Armazenar backups no Google Cloud.
 
 ---
 
-## 💸 CAPEX vs OPEX
+## 📊 Comparação de modelos de nuvem
 
-### 💰 CAPEX (Capital Expenditure)
-Despesas de capital com **infraestrutura de longo prazo**, como compra de servidores e construção de datacenters.
+Nuvem publica / Nenhuma despesa de capital para escalar verticalmente, aplicativos podem ser provisionados e desprovisionados rapidamente, organizações paga apenas pelo o que utilizam
 
-- Alto custo inicial
-- Registrado como ativo
-- Valor se deprecia com o tempo
+Nuvem privada / as organizações tem controle total sobre recursos e segurança, e são responsáveis pela manutenção e pelas atualizações de hardware e software
 
-> Com a nuvem, o CAPEX é reduzido ou eliminado, pois os recursos são alugados.
+Nuvem Hibrida / as organizações determinam onde executar os seus aplicativos, as organizações controlam a segurança e a confirmidade e requisitos legais, fornecem maior flexibilidade
 
 ---
 
-### 🔄 OPEX (Operational Expenditure)
-Despesas operacionais com **serviços e manutenção diária**, como assinaturas e pagamento por uso.
+## 💰 CAPEX (Capital Expenditure) vs OPEX (Operational Expenditure)
 
-- Baixo custo inicial
-- Flexível e escalável
-- Aumenta conforme a necessidade operacional
+CAPEX (Capital Expenditure) é o gasto com bens de capital ou investimentos de longo prazo, como a compra de servidores, equipamentos ou construção de datacenters. Esses gastos costumam ter um valor inicial alto e são usados por vários anos, sendo registrados como ativos e depreciados com o tempo. Na era pré-nuvem, empresas tinham grandes despesas de CAPEX para montar suas próprias infraestruturas de TI. Com a computação em nuvem, muitos desses custos foram substituídos por OPEX, já que agora as empresas alugam recursos ao invés de comprá-los, o valor do Capex se reduz com o tempo, ao contrário do Opex onde o valor aumenta conforme a necessidade operacional.
 
----
+OPEX (Operational Expenditure) é o gasto operacional do dia a dia, como pagamento de serviços, assinaturas e manutenção. Na computação em nuvem, é o modelo onde a empresa paga pelo uso dos recursos (como servidores, armazenamento ou software) sem precisar comprá-los. É mais flexível, com custos menores no início e pagamento conforme o uso, sendo ideal para escalar rapidamente sem grandes investimentos iniciais.
 
-## ⚙️ Modelo Baseado em Consumo
-
-Na nuvem, os serviços funcionam sob o modelo de **pagamento por uso real**:
-
-- Previsão de custos facilitada
-- Cobrança apenas pelo que for usado
-- Preços definidos por serviço/recurso
+Modelo baseado em consumo é operado através dos provedores de serviços, onde os usuários finais pagam somente pelos recursos que utilizam, possui uma melhor previsão de custos com preços para recursos e serviços individuais, com cobrança baseada no seu uso real
 
 ---
 
-## 🔐 JumpServer
-
-**JumpServer** é uma solução **open-source** de **bastion host** usada para gerenciar o **acesso remoto seguro a servidores** e dispositivos de rede.
-
-- Atua como um intermediário entre usuários e servidores de destino
-- Registra e audita conexões (SSH, RDP, etc.)
-- Aumenta a segurança e evita acessos diretos não autorizados
+## 🔐 Jumpserver - é uma plataforma open-source de bastion host (ou "jump host") usada para gerenciar o acesso remoto seguro a servidores e dispositivos de rede. Ele atua como um ponto intermediário entre os usuários e os servidores de destino, controlando, monitorando e registrando todas as conexões SSH, RDP, etc. É muito usado para reforçar a segurança de ambientes de TI, permitindo auditoria de acessos e evitando conexões diretas aos servidores críticos.
 
 ---
 
-## 🧪 Lab na Azure – Dica Importante
+## 🧪 Lab Azure
 
-> ⚠️ **Evite usar recursos em "versão prévia"** nos laboratórios, pois podem ser instáveis e causar problemas em ambientes de produção!
+Evite usar recursos 'Versão prévia' uma vez que eles podem ser 'instáveis' e isso na produção é caótico!
 
 ---
 
-# ☁️ Benefícios da Computação em Nuvem
+## 🚀 Beneficios da computação em nuvem
 
-## 🔄 Alta Disponibilidade
+### 🕒 Alta Disponibilidade
 
-Alta disponibilidade se concentra em garantir que os serviços estejam sempre funcionando, mesmo diante de falhas ou interrupções. Recursos ficam acessíveis de múltiplos locais, e com redundância e boas práticas, é possível garantir que o sistema continue operando.
+alta disponibilidade que se concentra em garantir a disponibilidade máxima, independentemente de interrupções ou eventos que possam ocorrer - Sempre funcionando, acesso de múltiplos locais, recursos sempre disponíveis
 
 ### 📈 SLA da Azure – Resumo
+SLA (Service Level Agreement) é o acordo de nível de serviço oferecido pela Microsoft Azure que garante uma disponibilidade mínima dos serviços de nuvem.
 
-| SLA     | Tempo máximo de indisponibilidade (mensal) |
-|---------|---------------------------------------------|
-| 99%     | 7h 12min                                    |
-| 99,9%   | 43min                                       |
-| 99,95%  | 21,6min                                     |
-| 99,99%  | 4,32min                                     |
+⏱ Exemplos comuns de SLA na Azure:
+SLA | Tempo máximo de indisponibilidade (mensal)
+--- | ---
+99% | 7h 12min
+99,9% | 43min
+99,95% | 21,6min
+99,99% | 4,32min
 
-> Quanto maior o SLA, menor o tempo que o serviço pode ficar fora do ar no mês.
+Quanto maior o SLA, menor o tempo que o serviço pode ficar fora do ar no mês.
 
-Para alcançar alta disponibilidade, é necessário usar:
-- Zonas de disponibilidade
-- Balanceamento de carga
-- Backups e replicação
+⚠️ Importante:
+O SLA varia conforme o serviço e a arquitetura. Por exemplo, uma VM sozinha pode ter 99,9%, mas com redundância (conjunto de disponibilidade) sobe para 99,95% ou mais.
 
-### 🔗 Status dos Serviços Azure  
-Acompanhe o status em tempo real:  
-👉 [https://status.azure.com](https://status.azure.com)
+Para alcançar alta disponibilidade, é preciso configurar corretamente zonas de disponibilidade, balanceamento de carga, backups, etc.
 
----
+O site oficial da Microsoft Azure para verificar o status dos serviços em tempo real é:
 
-## 📊 Escalabilidade
+🔗 [https://status.azure.com](https://status.azure.com)
 
-Escalabilidade é a capacidade de **aumentar ou reduzir** recursos computacionais para atender à demanda.
+✅ O que você encontra lá:
+- Disponibilidade global dos serviços da Azure.
+- Incidentes ou interrupções em regiões específicas.
+- Histórico de eventos passados.
+- Informações por produto e região.
 
-### 📌 Características:
-- Escala horizontal (scale-out) ou vertical (scale-up)
-- Redução de custos por uso eficiente
-- Você paga apenas pelo que consome
+Dica: Para ambientes críticos, é bom monitorar esse site regularmente ou configurar alertas por e-mail.
 
-### ⚠️ Diferença:
-- **Escalabilidade**: Ajuste conforme necessário
-- **Elasticidade**: Ajuste automático conforme a carga
+### 📊 Escalabilidade
+Escalabilidade é a capacidade de aumentar ou reduzir recursos computacionais para atender à demanda de uma aplicação ou serviço.
 
----
+Quando a necessidade de processamento, armazenamento ou tráfego cresce, o sistema pode escalar para cima (scale-up) ou escalar para fora (scale-out) automaticamente ou sob demanda.
 
-## ⚡ Elasticidade
+Da mesma forma, se a demanda cair, os recursos podem ser reduzidos, ajudando a otimizar os custos.
 
-Elasticidade é a **capacidade automática** da nuvem de expandir ou reduzir recursos conforme a carga.  
-Exemplo: Em uma Black Friday, o sistema aumenta os recursos automaticamente e reduz após o evento.
+📌 Principais pontos:
+- Permite crescimento eficiente conforme o negócio exige.
+- Reduz custos ao evitar superdimensionamento.
+- Você paga apenas pelo que realmente usa.
 
-### 📌 Benefícios:
-- Alta performance sob demanda
-- Economia de custos
-- Gerenciamento automático sem intervenção manual
+⚠️ Escalabilidade e elasticidade são conceitos parecidos, mas:
+- Escalabilidade: capacidade de ajustar recursos conforme necessário.
+- Elasticidade: capacidade de ajustar recursos automaticamente e rapidamente conforme as variações de carga.
 
----
+### 📈 Elasticidade
+Elasticidade é a capacidade da nuvem de aumentar ou reduzir automaticamente os recursos computacionais conforme a demanda.
 
-## ✅ Confiabilidade
+Um exemplo clássico é durante a Black Friday, onde um site pode receber muito mais acessos do que o normal. Nesse cenário:
+- A nuvem expande os recursos automaticamente (como instâncias de servidor, largura de banda, etc.) para atender ao pico de demanda.
+- Após o evento, com a queda no tráfego, os recursos são reduzidos automaticamente, evitando desperdício.
 
-Confiabilidade garante que os serviços continuem funcionando de forma consistente e resiliente, mesmo diante de falhas.
+📌 Benefícios:
+- Alta performance sob demanda.
+- Economia de custos (você só paga pelo que precisa no momento).
+- Escalabilidade inteligente, sem intervenção manual.
 
-### 📌 Como a nuvem garante confiabilidade:
-- Replicação entre zonas/regiões
-- Balanceamento de carga
-- Backups automáticos
-- Monitoramento e failover
+### ✅ Confiabilidade
+Confiabilidade é a capacidade de um sistema ou serviço em nuvem de funcionar de forma consistente e contínua, mesmo diante de falhas, picos de demanda ou problemas técnicos, o design descentralizado da nuvem a torna confiável e resiliente
 
----
+Um serviço confiável:
+- Minimiza o tempo de inatividade (downtime).
+- Garante disponibilidade alta (geralmente com SLA de 99,9% ou mais).
+- Possui redundância e recuperação de desastres integradas.
+- É monitorado continuamente para detectar e corrigir falhas automaticamente.
 
-## 📏 Previsibilidade
+📌 Como a nuvem garante confiabilidade:
+- Replicação de dados em múltiplas zonas ou regiões.
+- Balanceamento de carga.
+- Backups automáticos.
+- Failover (redirecionamento automático em caso de falha).
 
-Previsibilidade permite estimar custos, desempenho e uso futuro com maior controle.
+A confiabilidade é essencial para garantir que aplicações críticas continuem funcionando sem interrupções, mesmo em situações adversas.
 
-### 📌 Benefícios:
-- Controle financeiro com cobrança baseada em consumo
-- Planejamento estratégico da capacidade
-- Estabilidade operacional com uso de ferramentas como:
-  - Calculadoras de custo
-  - Azure Cost Management
-  - SLAs previsíveis
+### 📏 Previsibilidade
+Previsibilidade na computação em nuvem se refere à capacidade de estimar custos, desempenho e comportamento dos recursos de forma antecipada e controlada, esses aspectos são influenciados pelo Microsft Azure Well-Architected Framework
 
----
+Com a nuvem, é possível:
+- Ter previsão de custos, já que os serviços seguem modelos baseados em consumo (pay-as-you-go).
+- Estimar o desempenho esperado com base em SLAs e especificações técnicas.
+- Planejar capacidades futuras com mais segurança.
 
-## 🔐 Segurança
+📌 Benefícios da previsibilidade:
+- Controle financeiro: fácil monitorar gastos e evitar surpresas na fatura.
+- Planejamento estratégico: ajuda a dimensionar infraestrutura de forma mais eficaz.
+- Estabilidade operacional: evita picos ou quedas inesperadas de desempenho.
 
-Segurança na nuvem protege dados e aplicações contra acessos indevidos e ataques.
+Muitos provedores, como a Azure, oferecem calculadoras de custo e ferramentas de monitoramento que ajudam a manter a previsibilidade dos recursos e dos investimentos.
 
-### 📌 Recursos:
-- Criptografia em trânsito e repouso
-- Autenticação multifator (MFA) e RBAC
-- Firewalls, redes privadas e monitoramento
-- Backups e recuperação de desastres
+### 🔐 Segurança
+Segurança na computação em nuvem envolve o conjunto de práticas, tecnologias e políticas usadas para proteger dados, aplicações e infraestrutura contra acessos não autorizados, vazamentos e ataques cibernéticos.
 
-### 🧱 Modelo de responsabilidade compartilhada:
-- **Azure**: Segurança da nuvem (infraestrutura)
-- **Cliente**: Segurança na nuvem (dados e configurações)
+Os provedores de nuvem (como Azure, AWS e Google Cloud) implementam camadas robustas de segurança para garantir a proteção dos dados dos clientes, incluindo:
+- Criptografia de dados em trânsito e em repouso.
+- Controle de acesso com autenticação multifator (MFA) e identidade baseada em função (RBAC).
+- Firewalls e redes virtuais seguras.
+- Monitoramento contínuo e alertas contra atividades suspeitas.
+- Backups e recuperação de desastres.
 
----
+📌 Responsabilidade compartilhada:
+- O provedor é responsável pela segurança da nuvem (infraestrutura).
+- O cliente é responsável pela segurança na nuvem (dados, acessos, configurações).
 
-## 🛡️ Azure Policy (Apólices)
+A segurança é um dos pilares mais importantes da nuvem e precisa ser considerada desde o planejamento até a operação dos serviços, e a implementação das configurações de segurança por parte dos clientes devem ser feitas de forma correta!
 
-Azure Policy permite definir e aplicar regras que forçam padrões em seus recursos.
+Se você quiser o controle máximo da segurança, a infraestrutura como serviço irá fornecer os recursos fisicos, mas permitirá que você gerencie os sistemas operacionais e o software instalado, incluindo aplicação de patches e manutenção
 
-### ✅ Exemplos de uso:
-- Restringir regiões de criação
-- Exigir tags obrigatórias
-- Limitar tipos de máquinas virtuais
-- Garantir criptografia de discos
+### 🛡️ O que são Apólices no Azure (Azure Policy)
+📌 Definição:
+Azure Policy é um serviço que permite criar, atribuir e gerenciar regras (políticas) que forçam padrões ou restrições nos recursos do Azure. Isso ajuda a impedir configurações incorretas e a manter conformidade com normas internas ou externas.
 
-### 🔄 Como funciona:
-1. Criar ou escolher uma política pronta
-2. Atribuir a escopos (assinatura, grupo de recursos)
-3. Monitorar e aplicar automaticamente
+✅ Exemplos de uso:
+- Restringir regiões: impedir a criação de recursos fora de uma região específica (por exemplo, só permitir "Brazil South").
+- Obrigar tags: exigir que todo recurso criado tenha tags como projeto, ambiente, ou owner.
+- Controlar tipos de VMs: permitir apenas determinados tamanhos ou famílias de máquinas virtuais.
+- Enforçar criptografia: garantir que discos estejam sempre criptografados.
 
-### 🧩 Tipos de ação:
-- `Deny`: nega criação/modificação
-- `Audit`: apenas registra violação
-- `Append`: adiciona propriedades
-- `DeployIfNotExists`: implanta recurso se necessário
+🔄 Como funciona:
+1. Você cria ou usa uma política pronta (Azure oferece várias built-in).
+2. Atribui essa política a um escopo (assinatura, grupo de recursos, etc).
+3. O Azure aplica e monitora automaticamente se os recursos estão em conformidade.
+4. Se algo estiver fora da regra, pode bloquear a ação ou apenas alertar (modo de auditoria).
 
----
+🧩 Tipos de ações:
+- Deny (negar criação/alteração)
+- Audit (somente registrar violação)
+- Append (adicionar propriedades a um recurso)
+- DeployIfNotExists (implantar algo automaticamente se faltar)
 
-## 🏛️ Governança na Nuvem
+🧠 Importância:
+Azure Policy é fundamental para:
+- Governança e segurança
+- Conformidade com normas (LGPD, ISO, etc)
+- Controle de custos
+- Padronização de ambientes
 
-Governança é o conjunto de regras e ferramentas que garantem **uso seguro, controlado e eficiente da nuvem**.
+### 🏛️ Governança na Nuvem
+Governança é o conjunto de processos, regras, políticas e ferramentas que ajudam a organizar, controlar e padronizar o uso da nuvem dentro de uma organização.
 
-### 🎯 Objetivos:
-- Evitar desperdícios
-- Garantir conformidade (LGPD, ISO etc.)
-- Padronizar configurações e acessos
-- Proteger dados e monitorar uso
+A auditoria baseada em nuvem ajuda a sinalizar qualquer recurso que esteja fora da conformidade com seus padrões corporativos e fornece estrategias de mitigação
 
-### 🛠️ Ferramentas no Azure:
+Dependendo do seu modelo operacional, patches de software e atualizações também podem ser aplicados automaticamente, o que juda na governança e na segurança
 
-| Recurso                  | Função                                                                  |
-|--------------------------|-------------------------------------------------------------------------|
-| **Azure Policy**         | Regras automáticas de conformidade                                     |
-| **Management Groups**    | Organização hierárquica de assinaturas                                 |
-| **Resource Locks**       | Impede exclusão/modificação acidental de recursos                      |
-| **Tags**                 | Categorização e controle por metadados                                 |
-| **Azure Blueprints**     | Conjuntos de políticas, RBAC e templates padronizados                  |
-| **RBAC**                 | Controle de acesso baseado em funções                                  |
+Ao estabelecer uma presença de governança o mais cedo possivel, voce poderá manter sua presença de nuvem atualizada, protegida e bem gerenciada
 
----
+Ela garante que os recursos sejam utilizados de forma segura, eficiente, conforme as normas e com controle de custos.
 
-## 🧩 Gerenciabilidade
+🎯 Objetivos da governança:
+- Evitar desperdícios e uso indevido de recursos.
+- Manter conformidade com requisitos legais e regulatórios.
+- Padronizar configurações e boas práticas.
+- Proteger dados sensíveis e controlar acessos.
+- Monitorar o ambiente em tempo real.
 
-Gerenciabilidade é a capacidade de **monitorar, controlar e otimizar** recursos de nuvem de forma centralizada.
+🛠️ Ferramentas e práticas de governança no Azure:
 
-### 🎯 Objetivos:
-- Monitoramento de desempenho e segurança
-- Automação de tarefas administrativas
-- Auditoria e rastreamento de usuários
-- Organização com tags e relatórios detalhados
+| Recurso | Função |
+|---------|--------|
+| **Azure Policy** | Define e aplica regras de conformidade automaticamente. |
+| **Management Groups** | Organiza assinaturas em uma hierarquia para aplicar políticas em escala. |
+| **Resource Locks** | Impede a exclusão ou modificação acidental de recursos críticos. |
+| **Tags** | Ajudam a classificar e rastrear recursos (ex: por projeto ou ambiente). |
+| **Azure Blueprints** | Agrupamento de políticas, RBAC, e recursos para padronizar ambientes. |
+| **RBAC (Controle de Acesso Baseado em Funções)** | Controla quem pode fazer o quê com quais recursos. |
 
-### 🛠️ Ferramentas de Gerenciabilidade:
+📌 Exemplo prático:
+Você pode criar uma política para garantir que:
+- Todos os recursos estejam em uma região específica.
+- Todo recurso tenha uma tag com o nome do projeto.
+- Apenas VMs aprovadas possam ser criadas.
 
-| Recurso                   | Função                                                                  |
-|---------------------------|--------------------------------------------------------------------------|
-| **Azure Monitor**         | Métricas e logs em tempo real                                            |
-| **Azure Log Analytics**   | Análise e insights detalhados sobre logs                                |
-| **Azure Advisor**         | Sugestões de melhorias em custo, segurança e performance                |
-| **Azure Cost Management** | Controle de orçamentos e monitoramento de gastos                        |
-| **Azure Automation**      | Execução automatizada de tarefas (como desligar VMs fora do expediente) |
+### 🧩 Gerenciabilidade
+Gerenciabilidade na computação em nuvem refere-se à capacidade de monitorar, controlar, configurar e otimizar os recursos e serviços de forma eficiente e centralizada.
 
-### 📌 Benefícios:
-- Visibilidade total do ambiente
-- Redução de falhas
-- Eficiência operacional
-- Suporte à governança e conformidade
+Ela permite que administradores e equipes de TI tenham visibilidade e controle total do ambiente em nuvem, garantindo que tudo funcione corretamente, com segurança e dentro dos padrões definidos.
+
+Um dos principais beneficios da computação em nuvem são as opções de capacidade de gerenciamento, há dois tipos decapacidade de gerenciameto para a computação em nuvem que aprenderemos, e ambos trazem excelentes beneficios
+
+Gerenciamento da nuvem diz respeito a gerenciar os seus recursos, por exemplo: escalar automaticamente a implantação de recursos com base nas necessidades, implantar recursos com base em um modelo pré-configurado, removendo as necessidades de configurações manuais, isso pode ser feito usando também APIs e poweshell além é claro do portal da Azure!
+
+🎯 Objetivos da gerenciabilidade:
+- Monitoramento contínuo de desempenho, disponibilidade e segurança.
+- Automação de tarefas administrativas (provisionamento, escalonamento, alertas).
+- Auditoria e rastreamento de atividades dos usuários.
+- Organização e categorização de recursos (como via tags).
+- Facilidade na tomada de decisões, com base em dados e relatórios.
+
+🛠️ Ferramentas de Gerenciabilidade no Azure:
+
+| Recurso | Função |
+|---------|--------|
+| **Azure Monitor** | Coleta métricas, logs e eventos para monitoramento em tempo real. |
+| **Azure Log Analytics** | Analisa logs e fornece insights detalhados sobre o ambiente. |
+| **Azure Advisor** | Sugestões de boas práticas para melhorar desempenho, segurança e custo. |
+| **Azure Cost Management** | Monitoramento e controle de gastos e orçamentos. |
+| **Azure Automation** | Automação de tarefas repetitivas (como desligar VMs fora do horário). |
+
+📌 Benefícios:
+- Visibilidade total do ambiente.
+- Redução de falhas com alertas e automações.
+- Maior eficiência operacional.
+- Suporte à governança e conformidade.
