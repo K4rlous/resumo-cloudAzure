@@ -348,3 +348,104 @@ Gerenciamento da nuvem diz respeito a gerenciar os seus recursos, por exemplo: e
 - Redução de falhas com alertas e automações.
 - Maior eficiência operacional.
 - Suporte à governança e conformidade.
+
+# 🌩 Tipos de Serviço de Nuvem na Microsoft Azure  
+
+Na Microsoft Azure, os modelos de computação em nuvem **IaaS**, **PaaS** e **SaaS** são oferecidos com diversas soluções específicas.  
+
+---
+
+## 🔹 **IaaS (Infrastructure as a Service)**  
+### 📌 Definição:  
+Você aluga infraestrutura de TI (servidores, redes, sistemas operacionais, armazenamento) em vez de comprá-la e mantê-la.  
+
+### 🔧 **Responsabilidade do cliente:**  
+- Gerencia o sistema operacional, aplicações, dados e configurações.  
+- A Azure gerencia o hardware e a infraestrutura básica.  
+
+### 🖥 **Exemplos na Azure:**  
+- **Azure Virtual Machines (VMs)**: Máquinas virtuais personalizáveis.  
+- **Azure Virtual Network**: Redes privadas configuráveis.  
+- **Azure Load Balancer** e **Azure Storage**: Balanceamento de carga e armazenamento.  
+
+### � **Caso de uso:**  
+Hospedar sistemas legados, ambientes de teste, servidores personalizados.  
+
+---
+
+## 🔹 **PaaS (Platform as a Service)**  
+### 📌 Definição:  
+Plataforma gerenciada para desenvolvimento, execução e gerenciamento de aplicações sem preocupação com infraestrutura.  
+
+### 🔧 **Responsabilidade do cliente:**  
+- Gerencia apenas o código da aplicação e os dados.  
+- A Azure cuida do SO, middleware e escalabilidade.  
+
+### 🖥 **Exemplos na Azure:**  
+- **Azure App Service**: Hospedagem de apps web/APIs.  
+- **Azure SQL Database**: Banco de dados como serviço.  
+- **Azure Functions**: Serverless (código sob demanda).  
+- **Azure Kubernetes Service (AKS)**: Orquestração de containers.  
+
+### 🏗 **Caso de uso:**  
+Desenvolvimento ágil, CI/CD, apps web/móveis.  
+
+---
+
+## 🔹 **SaaS (Software as a Service)**  
+### 📌 Definição:  
+Software totalmente gerenciado, acessado via internet.  
+
+### 🔧 **Responsabilidade do cliente:**  
+- Apenas usa o software. Tudo é gerenciado pela Microsoft.  
+
+### 🖥 **Exemplos (via Microsoft):**  
+- **Microsoft 365** (Outlook, Teams, Word Online).  
+- **Dynamics 365**: CRM/ERP em nuvem.  
+- **Power BI**: Análise de dados.  
+
+### 📊 **Caso de uso:**  
+E-mail corporativo, CRM, análise de dados.  
+
+---
+
+## 🧩 **Resumo Comparativo**  
+
+| Característica          | IaaS                       | PaaS                      | SaaS                        |  
+|-------------------------|----------------------------|---------------------------|-----------------------------|  
+| **Nível de controle**   | Alto                       | Médio                     | Baixo                       |  
+| **Gerenciado pelo cliente** | Infraestrutura de software | Aplicações e dados        | Apenas uso final            |  
+| **Exemplo na Azure**    | Azure VM, Storage          | App Service, SQL Database | Microsoft 365, Dynamics 365 |  
+
+> ℹ **Observação:**  
+> Esses modelos não se limitam à nuvem pública. Em nuvens privadas, a empresa atua como "provedor interno".  
+
+---
+
+# 🛡️ **Modelo de Responsabilidade Compartilhada**  
+
+Define as responsabilidades do provedor (Azure) e do cliente, conforme o tipo de serviço (IaaS/PaaS/SaaS).  
+
+## 📊 **Visão Geral**  
+
+| Tipo de Serviço | **Provedor é responsável por...**               | **Cliente é responsável por...**                |  
+|-----------------|------------------------------------------------|------------------------------------------------|  
+| **IaaS**       | Infraestrutura física, rede, virtualização     | SO, aplicações, dados, segurança              |  
+| **PaaS**       | Infraestrutura, SO, middleware, runtime        | Aplicação, dados, contas de usuário           |  
+| **SaaS**       | Tudo (infraestrutura, aplicação, segurança)    | Dados, configurações, controle de acesso      |  
+
+### 🔐 **Exemplos na Azure:**  
+| Serviço               | Modelo | **Responsabilidade do Cliente**                          |  
+|-----------------------|--------|---------------------------------------------------------|  
+| **Azure VMs**         | IaaS   | Atualizar SO, configurar firewall, criptografar dados   |  
+| **Azure App Service** | PaaS   | Código da aplicação, proteger endpoints                 |  
+| **Microsoft 365**     | SaaS   | Gerenciar usuários, permissões, proteger dados          |  
+
+---
+
+## 🧠 **Por que isso importa?**  
+- **Segurança:** Evita brechas por mal-entendidos.  
+- **Compliance:** Essencial para LGPD, ISO 27001, etc.  
+- **Suporte:** Agiliza a resolução de problemas (define quem deve agir).  
+
+> ⚠ **Em modelos *on-premises*, todas as responsabilidades são do cliente!**  
