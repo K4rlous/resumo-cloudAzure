@@ -686,3 +686,30 @@ _Passo a passo ilustrado na pasta 'images'_
 -   **Exportar modelo ARM** (Infraestrutura como Código)
 
 ---
+
+# 🌐 Criação de Redes Virtuais (VNets)  
+
+_Passo a passo ilustrado na pasta 'images'_
+
+Uma vez que as **VMs precisam receber um IP**, criaremos uma **rede virtual** para abranger os recursos que criaremos futuramente!  
+
+### 📌 Passo a Passo:  
+
+1️⃣ **Localização da VNet**  
+   - As redes virtuais podem ser encontradas na aba **"Base da Rede"** no portal da Azure.  
+
+2️⃣ **Configuração Básica**  
+   - Escolhemos a **assinatura** e o **grupo de recursos** (vamos utilizar o que criamos previamente).  
+   - Definimos o **nome da rede virtual** e sua **região**.  
+
+3️⃣ **Configurações Avançadas (Opcional)**  
+   - Vamos resumir o processo, mas caso seja necessário, há como configurar:  
+     - 🔒 **Detalhes de segurança**  
+     - 📡 **Endereçamento IP**  
+     - 🏷️ **Rótulos** (que vimos nos grupos de recursos)  
+
+4️⃣ **Revisão e Criação**  
+   - Vamos revisar e criar a **VNet**.  
+
+5️⃣ **Implementação Concluída!**  
+   - ✅ Após a implementação, a **VNet já estará presente** em nosso grupo de recursos!  
