@@ -1,29 +1,30 @@
 # ☁️ Introdução à Computação em Nuvem AZ-900
 
-## 📚 Índice 
-- [AZ 900](#-az-900-é-uma-certificação-de-entrada-em-cloud-importante)
-- [Computação em Nuvem](#-computação-em-nuvem)
-- [Modelos de Nuvem](#-modelos-de-nuvem)
-  - [Nuvem Privada](#-1-nuvem-privada-private-cloud-ou-on-premises)
-  - [Nuvem Pública](#️-2-nuvem-pública-public-cloud)
-  - [Nuvem Híbrida](#️-3-nuvem-híbrida-hybrid-cloud)
-  - [Nuvem Comunitária](#️-4-nuvem-comunitária-community-cloud)
-  - [Multicloud](#️️-multicloud)
-- [Comparação de Modelos](#-comparação-de-modelos-de-nuvem)
-- [CAPEX vs OPEX](#-capex-capital-expenditure-vs-opex-operational-expenditure)
-- [Jumpserver](#-jumpserver)
-- [Lab Azure](#-lab-azure)
-- [Benefícios da Nuvem](#-beneficios-da-computação-em-nuvem)
-  - [Alta Disponibilidade](#-alta-disponibilidade)
-  - [SLA da Azure](#️-sla-da-azure--resumo)
-  - [Escalabilidade](#-escalabilidade)
-  - [Elasticidade](#️-elasticidade)
-  - [Confiabilidade](#️-confiabilidade)
-  - [Previsibilidade](#️-previsibilidade)
-  - [Segurança](#️-segurança)
-  - [Azure Policy](#️-o-que-são-apólices-no-azure-azure-policy)
-  - [Governança](#️-governança-na-nuvem)
-  - [Gerenciabilidade](#️-gerenciabilidade)
+## 📚 Índice
+
+-   [AZ 900](#-az-900-é-uma-certificação-de-entrada-em-cloud-importante)
+-   [Computação em Nuvem](#-computação-em-nuvem)
+-   [Modelos de Nuvem](#-modelos-de-nuvem)
+    -   [Nuvem Privada](#-1-nuvem-privada-private-cloud-ou-on-premises)
+    -   [Nuvem Pública](#️-2-nuvem-pública-public-cloud)
+    -   [Nuvem Híbrida](#️-3-nuvem-híbrida-hybrid-cloud)
+    -   [Nuvem Comunitária](#️-4-nuvem-comunitária-community-cloud)
+    -   [Multicloud](#️️-multicloud)
+-   [Comparação de Modelos](#-comparação-de-modelos-de-nuvem)
+-   [CAPEX vs OPEX](#-capex-capital-expenditure-vs-opex-operational-expenditure)
+-   [Jumpserver](#-jumpserver)
+-   [Lab Azure](#-lab-azure)
+-   [Benefícios da Nuvem](#-beneficios-da-computação-em-nuvem)
+    -   [Alta Disponibilidade](#-alta-disponibilidade)
+    -   [SLA da Azure](#️-sla-da-azure--resumo)
+    -   [Escalabilidade](#-escalabilidade)
+    -   [Elasticidade](#️-elasticidade)
+    -   [Confiabilidade](#️-confiabilidade)
+    -   [Previsibilidade](#️-previsibilidade)
+    -   [Segurança](#️-segurança)
+    -   [Azure Policy](#️-o-que-são-apólices-no-azure-azure-policy)
+    -   [Governança](#️-governança-na-nuvem)
+    -   [Gerenciabilidade](#️-gerenciabilidade)
 
 ---
 
@@ -44,6 +45,7 @@ A computação em nuvem é viabilizada principalmente por virtualização, uma t
 ## 🌐 Modelos de nuvem
 
 ### 🏢 1. Nuvem Privada (Private Cloud) ou "On premises"
+
 Infraestrutura exclusiva para uma única organização.
 
 Pode estar localizada no próprio datacenter da empresa ou hospedada por terceiros.
@@ -53,6 +55,7 @@ Mais controle e segurança, uma vez que a organização é responsável por oper
 📌 Vantagens: segurança, personalização, conformidade.
 
 ### ☁️ 2. Nuvem Pública (Public Cloud)
+
 Recursos (servidores, armazenamento, etc.) são fornecidos por terceiros (como AWS, Azure, Google Cloud) e outros provedores de hosting.
 
 Tudo é acessado pela internet via conexão de rede segura.
@@ -64,6 +67,7 @@ Exemplo: usar o Google Drive ou hospedar um site na AWS.
 📌 Vantagens: escalabilidade, baixo custo inicial, sem necessidade de gerenciar infraestrutura.
 
 ### 🔁 3. Nuvem Híbrida (Hybrid Cloud)
+
 Combinação de nuvem pública e privada.
 
 Permite mover dados e aplicações entre ambientes, conforme a necessidade.
@@ -73,6 +77,7 @@ Equilíbrio entre segurança e escalabilidade.
 📌 Exemplo: manter dados sensíveis em uma nuvem privada e usar nuvem pública para testes ou picos de demanda.
 
 ### 🌐 4. Nuvem Comunitária (Community Cloud)
+
 Compartilhada por várias organizações com interesses ou requisitos comuns (por exemplo, órgãos governamentais ou hospitais).
 
 Infraestrutura pode ser gerenciada por uma ou mais organizações, ou por terceiros.
@@ -80,6 +85,7 @@ Infraestrutura pode ser gerenciada por uma ou mais organizações, ou por tercei
 📌 Vantagens: colaboração segura entre entidades, custo dividido, foco em necessidades específicas.
 
 ### ☁️🔀 Multicloud
+
 Multicloud é o uso de dois ou mais provedores de nuvem pública diferentes ao mesmo tempo — por exemplo, uma empresa usando AWS + Azure + Google Cloud.
 
 🟡 Importante: Multicloud ≠ Nuvem híbrida
@@ -128,7 +134,8 @@ Modelo baseado em consumo é operado através dos provedores de serviços, onde 
 
 ---
 
-## 🔐 Jumpserver 
+## 🔐 Jumpserver
+
 É uma plataforma open-source de bastion host (ou "jump host") usada para gerenciar o acesso remoto seguro a servidores e dispositivos de rede. Ele atua como um ponto intermediário entre os usuários e os servidores de destino, controlando, monitorando e registrando todas as conexões SSH, RDP, etc. É muito usado para reforçar a segurança de ambientes de TI, permitindo auditoria de acessos e evitando conexões diretas aos servidores críticos.
 
 ---
@@ -146,6 +153,7 @@ Evite usar recursos 'Versão prévia' uma vez que eles podem ser 'instáveis' e 
 alta disponibilidade que se concentra em garantir a disponibilidade máxima, independentemente de interrupções ou eventos que possam ocorrer - Sempre funcionando, acesso de múltiplos locais, recursos sempre disponíveis
 
 ### 📈 SLA da Azure – Resumo
+
 SLA (Service Level Agreement) é o acordo de nível de serviço oferecido pela Microsoft Azure que garante uma disponibilidade mínima dos serviços de nuvem.
 
 ⏱ Exemplos comuns de SLA na Azure:
@@ -168,14 +176,16 @@ O site oficial da Microsoft Azure para verificar o status dos serviços em tempo
 🔗 [https://status.azure.com](https://status.azure.com)
 
 ✅ O que você encontra lá:
-- Disponibilidade global dos serviços da Azure.
-- Incidentes ou interrupções em regiões específicas.
-- Histórico de eventos passados.
-- Informações por produto e região.
+
+-   Disponibilidade global dos serviços da Azure.
+-   Incidentes ou interrupções em regiões específicas.
+-   Histórico de eventos passados.
+-   Informações por produto e região.
 
 Dica: Para ambientes críticos, é bom monitorar esse site regularmente ou configurar alertas por e-mail.
 
 ### 📊 Escalabilidade
+
 Escalabilidade é a capacidade de aumentar ou reduzir recursos computacionais para atender à demanda de uma aplicação ou serviço.
 
 Quando a necessidade de processamento, armazenamento ou tráfego cresce, o sistema pode escalar para cima (scale-up) ou escalar para fora (scale-out) automaticamente ou sob demanda.
@@ -183,106 +193,126 @@ Quando a necessidade de processamento, armazenamento ou tráfego cresce, o siste
 Da mesma forma, se a demanda cair, os recursos podem ser reduzidos, ajudando a otimizar os custos.
 
 📌 Principais pontos:
-- Permite crescimento eficiente conforme o negócio exige.
-- Reduz custos ao evitar superdimensionamento.
-- Você paga apenas pelo que realmente usa.
+
+-   Permite crescimento eficiente conforme o negócio exige.
+-   Reduz custos ao evitar superdimensionamento.
+-   Você paga apenas pelo que realmente usa.
 
 ⚠️ Escalabilidade e elasticidade são conceitos parecidos, mas:
-- Escalabilidade: capacidade de ajustar recursos conforme necessário.
-- Elasticidade: capacidade de ajustar recursos automaticamente e rapidamente conforme as variações de carga.
+
+-   Escalabilidade: capacidade de ajustar recursos conforme necessário.
+-   Elasticidade: capacidade de ajustar recursos automaticamente e rapidamente conforme as variações de carga.
 
 ### 📈 Elasticidade
+
 Elasticidade é a capacidade da nuvem de aumentar ou reduzir automaticamente os recursos computacionais conforme a demanda.
 
 Um exemplo clássico é durante a Black Friday, onde um site pode receber muito mais acessos do que o normal. Nesse cenário:
-- A nuvem expande os recursos automaticamente (como instâncias de servidor, largura de banda, etc.) para atender ao pico de demanda.
-- Após o evento, com a queda no tráfego, os recursos são reduzidos automaticamente, evitando desperdício.
+
+-   A nuvem expande os recursos automaticamente (como instâncias de servidor, largura de banda, etc.) para atender ao pico de demanda.
+-   Após o evento, com a queda no tráfego, os recursos são reduzidos automaticamente, evitando desperdício.
 
 📌 Benefícios:
-- Alta performance sob demanda.
-- Economia de custos (você só paga pelo que precisa no momento).
-- Escalabilidade inteligente, sem intervenção manual.
+
+-   Alta performance sob demanda.
+-   Economia de custos (você só paga pelo que precisa no momento).
+-   Escalabilidade inteligente, sem intervenção manual.
 
 ### ✅ Confiabilidade
+
 Confiabilidade é a capacidade de um sistema ou serviço em nuvem de funcionar de forma consistente e contínua, mesmo diante de falhas, picos de demanda ou problemas técnicos, o design descentralizado da nuvem a torna confiável e resiliente
 
 Um serviço confiável:
-- Minimiza o tempo de inatividade (downtime).
-- Garante disponibilidade alta (geralmente com SLA de 99,9% ou mais).
-- Possui redundância e recuperação de desastres integradas.
-- É monitorado continuamente para detectar e corrigir falhas automaticamente.
+
+-   Minimiza o tempo de inatividade (downtime).
+-   Garante disponibilidade alta (geralmente com SLA de 99,9% ou mais).
+-   Possui redundância e recuperação de desastres integradas.
+-   É monitorado continuamente para detectar e corrigir falhas automaticamente.
 
 📌 Como a nuvem garante confiabilidade:
-- Replicação de dados em múltiplas zonas ou regiões.
-- Balanceamento de carga.
-- Backups automáticos.
-- Failover (redirecionamento automático em caso de falha).
+
+-   Replicação de dados em múltiplas zonas ou regiões.
+-   Balanceamento de carga.
+-   Backups automáticos.
+-   Failover (redirecionamento automático em caso de falha).
 
 A confiabilidade é essencial para garantir que aplicações críticas continuem funcionando sem interrupções, mesmo em situações adversas.
 
 ### 📏 Previsibilidade
+
 Previsibilidade na computação em nuvem se refere à capacidade de estimar custos, desempenho e comportamento dos recursos de forma antecipada e controlada, esses aspectos são influenciados pelo Microsft Azure Well-Architected Framework
 
 Com a nuvem, é possível:
-- Ter previsão de custos, já que os serviços seguem modelos baseados em consumo (pay-as-you-go).
-- Estimar o desempenho esperado com base em SLAs e especificações técnicas.
-- Planejar capacidades futuras com mais segurança.
+
+-   Ter previsão de custos, já que os serviços seguem modelos baseados em consumo (pay-as-you-go).
+-   Estimar o desempenho esperado com base em SLAs e especificações técnicas.
+-   Planejar capacidades futuras com mais segurança.
 
 📌 Benefícios da previsibilidade:
-- Controle financeiro: fácil monitorar gastos e evitar surpresas na fatura.
-- Planejamento estratégico: ajuda a dimensionar infraestrutura de forma mais eficaz.
-- Estabilidade operacional: evita picos ou quedas inesperadas de desempenho.
+
+-   Controle financeiro: fácil monitorar gastos e evitar surpresas na fatura.
+-   Planejamento estratégico: ajuda a dimensionar infraestrutura de forma mais eficaz.
+-   Estabilidade operacional: evita picos ou quedas inesperadas de desempenho.
 
 Muitos provedores, como a Azure, oferecem calculadoras de custo e ferramentas de monitoramento que ajudam a manter a previsibilidade dos recursos e dos investimentos.
 
 ### 🔐 Segurança
+
 Segurança na computação em nuvem envolve o conjunto de práticas, tecnologias e políticas usadas para proteger dados, aplicações e infraestrutura contra acessos não autorizados, vazamentos e ataques cibernéticos.
 
 Os provedores de nuvem (como Azure, AWS e Google Cloud) implementam camadas robustas de segurança para garantir a proteção dos dados dos clientes, incluindo:
-- Criptografia de dados em trânsito e em repouso.
-- Controle de acesso com autenticação multifator (MFA) e identidade baseada em função (RBAC).
-- Firewalls e redes virtuais seguras.
-- Monitoramento contínuo e alertas contra atividades suspeitas.
-- Backups e recuperação de desastres.
+
+-   Criptografia de dados em trânsito e em repouso.
+-   Controle de acesso com autenticação multifator (MFA) e identidade baseada em função (RBAC).
+-   Firewalls e redes virtuais seguras.
+-   Monitoramento contínuo e alertas contra atividades suspeitas.
+-   Backups e recuperação de desastres.
 
 📌 Responsabilidade compartilhada:
-- O provedor é responsável pela segurança da nuvem (infraestrutura).
-- O cliente é responsável pela segurança na nuvem (dados, acessos, configurações).
+
+-   O provedor é responsável pela segurança da nuvem (infraestrutura).
+-   O cliente é responsável pela segurança na nuvem (dados, acessos, configurações).
 
 A segurança é um dos pilares mais importantes da nuvem e precisa ser considerada desde o planejamento até a operação dos serviços, e a implementação das configurações de segurança por parte dos clientes devem ser feitas de forma correta!
 
 Se você quiser o controle máximo da segurança, a infraestrutura como serviço irá fornecer os recursos fisicos, mas permitirá que você gerencie os sistemas operacionais e o software instalado, incluindo aplicação de patches e manutenção
 
 ### 🛡️ O que são Apólices no Azure (Azure Policy)
+
 📌 Definição:
 Azure Policy é um serviço que permite criar, atribuir e gerenciar regras (políticas) que forçam padrões ou restrições nos recursos do Azure. Isso ajuda a impedir configurações incorretas e a manter conformidade com normas internas ou externas.
 
 ✅ Exemplos de uso:
-- Restringir regiões: impedir a criação de recursos fora de uma região específica (por exemplo, só permitir "Brazil South").
-- Obrigar tags: exigir que todo recurso criado tenha tags como projeto, ambiente, ou owner.
-- Controlar tipos de VMs: permitir apenas determinados tamanhos ou famílias de máquinas virtuais.
-- Enforçar criptografia: garantir que discos estejam sempre criptografados.
+
+-   Restringir regiões: impedir a criação de recursos fora de uma região específica (por exemplo, só permitir "Brazil South").
+-   Obrigar tags: exigir que todo recurso criado tenha tags como projeto, ambiente, ou owner.
+-   Controlar tipos de VMs: permitir apenas determinados tamanhos ou famílias de máquinas virtuais.
+-   Enforçar criptografia: garantir que discos estejam sempre criptografados.
 
 🔄 Como funciona:
+
 1. Você cria ou usa uma política pronta (Azure oferece várias built-in).
 2. Atribui essa política a um escopo (assinatura, grupo de recursos, etc).
 3. O Azure aplica e monitora automaticamente se os recursos estão em conformidade.
 4. Se algo estiver fora da regra, pode bloquear a ação ou apenas alertar (modo de auditoria).
 
 🧩 Tipos de ações:
-- Deny (negar criação/alteração)
-- Audit (somente registrar violação)
-- Append (adicionar propriedades a um recurso)
-- DeployIfNotExists (implantar algo automaticamente se faltar)
+
+-   Deny (negar criação/alteração)
+-   Audit (somente registrar violação)
+-   Append (adicionar propriedades a um recurso)
+-   DeployIfNotExists (implantar algo automaticamente se faltar)
 
 🧠 Importância:
 Azure Policy é fundamental para:
-- Governança e segurança
-- Conformidade com normas (LGPD, ISO, etc)
-- Controle de custos
-- Padronização de ambientes
+
+-   Governança e segurança
+-   Conformidade com normas (LGPD, ISO, etc)
+-   Controle de custos
+-   Padronização de ambientes
 
 ### 🏛️ Governança na Nuvem
+
 Governança é o conjunto de processos, regras, políticas e ferramentas que ajudam a organizar, controlar e padronizar o uso da nuvem dentro de uma organização.
 
 A auditoria baseada em nuvem ajuda a sinalizar qualquer recurso que esteja fora da conformidade com seus padrões corporativos e fornece estrategias de mitigação
@@ -294,30 +324,33 @@ Ao estabelecer uma presença de governança o mais cedo possivel, voce poderá m
 Ela garante que os recursos sejam utilizados de forma segura, eficiente, conforme as normas e com controle de custos.
 
 🎯 Objetivos da governança:
-- Evitar desperdícios e uso indevido de recursos.
-- Manter conformidade com requisitos legais e regulatórios.
-- Padronizar configurações e boas práticas.
-- Proteger dados sensíveis e controlar acessos.
-- Monitorar o ambiente em tempo real.
+
+-   Evitar desperdícios e uso indevido de recursos.
+-   Manter conformidade com requisitos legais e regulatórios.
+-   Padronizar configurações e boas práticas.
+-   Proteger dados sensíveis e controlar acessos.
+-   Monitorar o ambiente em tempo real.
 
 🛠️ Ferramentas e práticas de governança no Azure:
 
-| Recurso | Função |
-|---------|--------|
-| **Azure Policy** | Define e aplica regras de conformidade automaticamente. |
-| **Management Groups** | Organiza assinaturas em uma hierarquia para aplicar políticas em escala. |
-| **Resource Locks** | Impede a exclusão ou modificação acidental de recursos críticos. |
-| **Tags** | Ajudam a classificar e rastrear recursos (ex: por projeto ou ambiente). |
-| **Azure Blueprints** | Agrupamento de políticas, RBAC, e recursos para padronizar ambientes. |
-| **RBAC (Controle de Acesso Baseado em Funções)** | Controla quem pode fazer o quê com quais recursos. |
+| Recurso                                          | Função                                                                   |
+| ------------------------------------------------ | ------------------------------------------------------------------------ |
+| **Azure Policy**                                 | Define e aplica regras de conformidade automaticamente.                  |
+| **Management Groups**                            | Organiza assinaturas em uma hierarquia para aplicar políticas em escala. |
+| **Resource Locks**                               | Impede a exclusão ou modificação acidental de recursos críticos.         |
+| **Tags**                                         | Ajudam a classificar e rastrear recursos (ex: por projeto ou ambiente).  |
+| **Azure Blueprints**                             | Agrupamento de políticas, RBAC, e recursos para padronizar ambientes.    |
+| **RBAC (Controle de Acesso Baseado em Funções)** | Controla quem pode fazer o quê com quais recursos.                       |
 
 📌 Exemplo prático:
 Você pode criar uma política para garantir que:
-- Todos os recursos estejam em uma região específica.
-- Todo recurso tenha uma tag com o nome do projeto.
-- Apenas VMs aprovadas possam ser criadas.
+
+-   Todos os recursos estejam em uma região específica.
+-   Todo recurso tenha uma tag com o nome do projeto.
+-   Apenas VMs aprovadas possam ser criadas.
 
 ### 🧩 Gerenciabilidade
+
 Gerenciabilidade na computação em nuvem refere-se à capacidade de monitorar, controlar, configurar e otimizar os recursos e serviços de forma eficiente e centralizada.
 
 Ela permite que administradores e equipes de TI tenham visibilidade e controle total do ambiente em nuvem, garantindo que tudo funcione corretamente, com segurança e dentro dos padrões definidos.
@@ -327,125 +360,329 @@ Um dos principais beneficios da computação em nuvem são as opções de capaci
 Gerenciamento da nuvem diz respeito a gerenciar os seus recursos, por exemplo: escalar automaticamente a implantação de recursos com base nas necessidades, implantar recursos com base em um modelo pré-configurado, removendo as necessidades de configurações manuais, isso pode ser feito usando também APIs e poweshell além é claro do portal da Azure!
 
 🎯 Objetivos da gerenciabilidade:
-- Monitoramento contínuo de desempenho, disponibilidade e segurança.
-- Automação de tarefas administrativas (provisionamento, escalonamento, alertas).
-- Auditoria e rastreamento de atividades dos usuários.
-- Organização e categorização de recursos (como via tags).
-- Facilidade na tomada de decisões, com base em dados e relatórios.
+
+-   Monitoramento contínuo de desempenho, disponibilidade e segurança.
+-   Automação de tarefas administrativas (provisionamento, escalonamento, alertas).
+-   Auditoria e rastreamento de atividades dos usuários.
+-   Organização e categorização de recursos (como via tags).
+-   Facilidade na tomada de decisões, com base em dados e relatórios.
 
 🛠️ Ferramentas de Gerenciabilidade no Azure:
 
-| Recurso | Função |
-|---------|--------|
-| **Azure Monitor** | Coleta métricas, logs e eventos para monitoramento em tempo real. |
-| **Azure Log Analytics** | Analisa logs e fornece insights detalhados sobre o ambiente. |
-| **Azure Advisor** | Sugestões de boas práticas para melhorar desempenho, segurança e custo. |
-| **Azure Cost Management** | Monitoramento e controle de gastos e orçamentos. |
-| **Azure Automation** | Automação de tarefas repetitivas (como desligar VMs fora do horário). |
+| Recurso                   | Função                                                                  |
+| ------------------------- | ----------------------------------------------------------------------- |
+| **Azure Monitor**         | Coleta métricas, logs e eventos para monitoramento em tempo real.       |
+| **Azure Log Analytics**   | Analisa logs e fornece insights detalhados sobre o ambiente.            |
+| **Azure Advisor**         | Sugestões de boas práticas para melhorar desempenho, segurança e custo. |
+| **Azure Cost Management** | Monitoramento e controle de gastos e orçamentos.                        |
+| **Azure Automation**      | Automação de tarefas repetitivas (como desligar VMs fora do horário).   |
 
 📌 Benefícios:
-- Visibilidade total do ambiente.
-- Redução de falhas com alertas e automações.
-- Maior eficiência operacional.
-- Suporte à governança e conformidade.
 
-# 🌩 Tipos de Serviço de Nuvem na Microsoft Azure  
+-   Visibilidade total do ambiente.
+-   Redução de falhas com alertas e automações.
+-   Maior eficiência operacional.
+-   Suporte à governança e conformidade.
 
-Na Microsoft Azure, os modelos de computação em nuvem **IaaS**, **PaaS** e **SaaS** são oferecidos com diversas soluções específicas.  
+# 🌩 Tipos de Serviço de Nuvem na Microsoft Azure
 
----
-
-## 🔹 **IaaS (Infrastructure as a Service)**  
-### 📌 Definição:  
-Você aluga infraestrutura de TI (servidores, redes, sistemas operacionais, armazenamento) em vez de comprá-la e mantê-la.  
-
-### 🔧 **Responsabilidade do cliente:**  
-- Gerencia o sistema operacional, aplicações, dados e configurações.  
-- A Azure gerencia o hardware e a infraestrutura básica.  
-
-### 🖥 **Exemplos na Azure:**  
-- **Azure Virtual Machines (VMs)**: Máquinas virtuais personalizáveis.  
-- **Azure Virtual Network**: Redes privadas configuráveis.  
-- **Azure Load Balancer** e **Azure Storage**: Balanceamento de carga e armazenamento.  
-
-### � **Caso de uso:**  
-Hospedar sistemas legados, ambientes de teste, servidores personalizados.  
+Na Microsoft Azure, os modelos de computação em nuvem **IaaS**, **PaaS** e **SaaS** são oferecidos com diversas soluções específicas.
 
 ---
 
-## 🔹 **PaaS (Platform as a Service)**  
-### 📌 Definição:  
-Plataforma gerenciada para desenvolvimento, execução e gerenciamento de aplicações sem preocupação com infraestrutura.  
+## 🔹 **IaaS (Infrastructure as a Service)**
 
-### 🔧 **Responsabilidade do cliente:**  
-- Gerencia apenas o código da aplicação e os dados.  
-- A Azure cuida do SO, middleware e escalabilidade.  
+### 📌 Definição:
 
-### 🖥 **Exemplos na Azure:**  
-- **Azure App Service**: Hospedagem de apps web/APIs.  
-- **Azure SQL Database**: Banco de dados como serviço.  
-- **Azure Functions**: Serverless (código sob demanda).  
-- **Azure Kubernetes Service (AKS)**: Orquestração de containers.  
+Você aluga infraestrutura de TI (servidores, redes, sistemas operacionais, armazenamento) em vez de comprá-la e mantê-la.
 
-### 🏗 **Caso de uso:**  
-Desenvolvimento ágil, CI/CD, apps web/móveis.  
+### 🔧 **Responsabilidade do cliente:**
 
----
+-   Gerencia o sistema operacional, aplicações, dados e configurações.
+-   A Azure gerencia o hardware e a infraestrutura básica.
 
-## 🔹 **SaaS (Software as a Service)**  
-### 📌 Definição:  
-Software totalmente gerenciado, acessado via internet.  
+### 🖥 **Exemplos na Azure:**
 
-### 🔧 **Responsabilidade do cliente:**  
-- Apenas usa o software. Tudo é gerenciado pela Microsoft.  
+-   **Azure Virtual Machines (VMs)**: Máquinas virtuais personalizáveis.
+-   **Azure Virtual Network**: Redes privadas configuráveis.
+-   **Azure Load Balancer** e **Azure Storage**: Balanceamento de carga e armazenamento.
 
-### 🖥 **Exemplos (via Microsoft):**  
-- **Microsoft 365** (Outlook, Teams, Word Online).  
-- **Dynamics 365**: CRM/ERP em nuvem.  
-- **Power BI**: Análise de dados.  
+### � **Caso de uso:**
 
-### 📊 **Caso de uso:**  
-E-mail corporativo, CRM, análise de dados.  
+Hospedar sistemas legados, ambientes de teste, servidores personalizados.
 
 ---
 
-## 🧩 **Resumo Comparativo**  
+## 🔹 **PaaS (Platform as a Service)**
 
-| Característica          | IaaS                       | PaaS                      | SaaS                        |  
-|-------------------------|----------------------------|---------------------------|-----------------------------|  
-| **Nível de controle**   | Alto                       | Médio                     | Baixo                       |  
-| **Gerenciado pelo cliente** | Infraestrutura de software | Aplicações e dados        | Apenas uso final            |  
-| **Exemplo na Azure**    | Azure VM, Storage          | App Service, SQL Database | Microsoft 365, Dynamics 365 |  
+### 📌 Definição:
+
+Plataforma gerenciada para desenvolvimento, execução e gerenciamento de aplicações sem preocupação com infraestrutura.
+
+### 🔧 **Responsabilidade do cliente:**
+
+-   Gerencia apenas o código da aplicação e os dados.
+-   A Azure cuida do SO, middleware e escalabilidade.
+
+### 🖥 **Exemplos na Azure:**
+
+-   **Azure App Service**: Hospedagem de apps web/APIs.
+-   **Azure SQL Database**: Banco de dados como serviço.
+-   **Azure Functions**: Serverless (código sob demanda).
+-   **Azure Kubernetes Service (AKS)**: Orquestração de containers.
+
+### 🏗 **Caso de uso:**
+
+Desenvolvimento ágil, CI/CD, apps web/móveis.
+
+---
+
+## 🔹 **SaaS (Software as a Service)**
+
+### 📌 Definição:
+
+Software totalmente gerenciado, acessado via internet.
+
+### 🔧 **Responsabilidade do cliente:**
+
+-   Apenas usa o software. Tudo é gerenciado pela Microsoft.
+
+### 🖥 **Exemplos (via Microsoft):**
+
+-   **Microsoft 365** (Outlook, Teams, Word Online).
+-   **Dynamics 365**: CRM/ERP em nuvem.
+-   **Power BI**: Análise de dados.
+
+### 📊 **Caso de uso:**
+
+E-mail corporativo, CRM, análise de dados.
+
+---
+
+## 🧩 **Resumo Comparativo**
+
+| Característica              | IaaS                       | PaaS                      | SaaS                        |
+| --------------------------- | -------------------------- | ------------------------- | --------------------------- |
+| **Nível de controle**       | Alto                       | Médio                     | Baixo                       |
+| **Gerenciado pelo cliente** | Infraestrutura de software | Aplicações e dados        | Apenas uso final            |
+| **Exemplo na Azure**        | Azure VM, Storage          | App Service, SQL Database | Microsoft 365, Dynamics 365 |
 
 > ℹ **Observação:**  
-> Esses modelos não se limitam à nuvem pública. Em nuvens privadas, a empresa atua como "provedor interno".  
+> Esses modelos não se limitam à nuvem pública. Em nuvens privadas, a empresa atua como "provedor interno".
 
 ---
 
-# 🛡️ **Modelo de Responsabilidade Compartilhada**  
+# 🛡️ **Modelo de Responsabilidade Compartilhada**
 
-Define as responsabilidades do provedor (Azure) e do cliente, conforme o tipo de serviço (IaaS/PaaS/SaaS).  
+Define as responsabilidades do provedor (Azure) e do cliente, conforme o tipo de serviço (IaaS/PaaS/SaaS).
 
-## 📊 **Visão Geral**  
+## 📊 **Visão Geral**
 
-| Tipo de Serviço | **Provedor é responsável por...**               | **Cliente é responsável por...**                |  
-|-----------------|------------------------------------------------|------------------------------------------------|  
-| **IaaS**       | Infraestrutura física, rede, virtualização     | SO, aplicações, dados, segurança              |  
-| **PaaS**       | Infraestrutura, SO, middleware, runtime        | Aplicação, dados, contas de usuário           |  
-| **SaaS**       | Tudo (infraestrutura, aplicação, segurança)    | Dados, configurações, controle de acesso      |  
+| Tipo de Serviço | **Provedor é responsável por...**           | **Cliente é responsável por...**         |
+| --------------- | ------------------------------------------- | ---------------------------------------- |
+| **IaaS**        | Infraestrutura física, rede, virtualização  | SO, aplicações, dados, segurança         |
+| **PaaS**        | Infraestrutura, SO, middleware, runtime     | Aplicação, dados, contas de usuário      |
+| **SaaS**        | Tudo (infraestrutura, aplicação, segurança) | Dados, configurações, controle de acesso |
 
-### 🔐 **Exemplos na Azure:**  
-| Serviço               | Modelo | **Responsabilidade do Cliente**                          |  
-|-----------------------|--------|---------------------------------------------------------|  
-| **Azure VMs**         | IaaS   | Atualizar SO, configurar firewall, criptografar dados   |  
-| **Azure App Service** | PaaS   | Código da aplicação, proteger endpoints                 |  
-| **Microsoft 365**     | SaaS   | Gerenciar usuários, permissões, proteger dados          |  
+### 🔐 **Exemplos na Azure:**
+
+| Serviço               | Modelo | **Responsabilidade do Cliente**                       |
+| --------------------- | ------ | ----------------------------------------------------- |
+| **Azure VMs**         | IaaS   | Atualizar SO, configurar firewall, criptografar dados |
+| **Azure App Service** | PaaS   | Código da aplicação, proteger endpoints               |
+| **Microsoft 365**     | SaaS   | Gerenciar usuários, permissões, proteger dados        |
 
 ---
 
-## 🧠 **Por que isso importa?**  
-- **Segurança:** Evita brechas por mal-entendidos.  
-- **Compliance:** Essencial para LGPD, ISO 27001, etc.  
-- **Suporte:** Agiliza a resolução de problemas (define quem deve agir).  
+## 🧠 **Por que isso importa?**
 
-> ⚠ **Em modelos *on-premises*, todas as responsabilidades são do cliente!**  
+-   **Segurança:** Evita brechas por mal-entendidos.
+-   **Compliance:** Essencial para LGPD, ISO 27001, etc.
+-   **Suporte:** Agiliza a resolução de problemas (define quem deve agir).
+
+> ⚠ **Em modelos _on-premises_, todas as responsabilidades são do cliente!**
+
+# 🏗️ Componentes de Arquitetura do Azure
+
+## 🌍 Regiões
+
+### ❓ O que são Regiões no Azure?
+
+No Microsoft Azure, uma região representa uma área geográfica específica que contém um ou mais datacenters altamente conectados entre si e gerenciados como uma única entidade lógica. Essas regiões são fundamentais para garantir alta disponibilidade, redução de latência e residência dos dados, além de facilitar o atendimento a exigências legais e regulatórias em diferentes países.
+
+### 📌 Características das Regiões do Azure
+
+1. **Maior cobertura global**
+
+    - A Azure possui mais de 60 regiões distribuídas globalmente, mais do que qualquer outro provedor de nuvem (como AWS ou Google Cloud).
+    - Atendem a mais de 140 países, possibilitando que empresas escolham onde hospedar seus dados e aplicações de acordo com sua localização ou requisitos legais.
+
+2. **Datacenters interconectados**
+
+    - Cada região pode ter múltiplos datacenters (trabalhamos com a ideia de 3), chamados de _availability zones_ (zonas de disponibilidade), que são isolados fisicamente e oferecem alta tolerância a falhas.
+    - Isso garante resiliência: se um datacenter falhar, os serviços podem continuar operando a partir de outro.
+
+3. **Baixa latência e desempenho**
+
+    - Hospedar serviços em uma região próxima aos seus usuários finais permite respostas mais rápidas e melhor desempenho.
+
+4. **Residência e conformidade dos dados**
+
+    - Permitem que você mantenha os dados dentro das fronteiras legais de um país ou continente, importante para leis como:
+        - LGPD (Brasil)
+        - GDPR (Europa)
+
+5. **Redundância e recuperação de desastres**
+    - Você pode replicar dados entre regiões (_geo-replicação_), o que permite planos de recuperação de desastres (DR) robustos.
+
+---
+
+## 🔁 Pares de Regiões
+
+### ❓ O que são Pares de Regiões no Azure?
+
+Um par de regiões no Azure é uma relação geográfica e lógica entre duas regiões dentro da mesma área geopolítica (no mínimo 300 milhas de separação entre pares de regiões).
+
+**Exemplos:**
+
+-   _Brazil South_ é emparelhada com _South Central US_
+-   _East US_ é emparelhada com _West US_
+
+### ✅ Vantagens dos Pares de Regiões
+
+1. **Recuperação de Desastres (Disaster Recovery)**
+2. **Atualizações planejadas com segurança**
+3. **Prioridade na recuperação**
+4. **Sincronização de dados**
+
+📌 **Considerações:**
+
+-   Nem todos os serviços estão disponíveis em todas as regiões.
+-   Consulte os pares oficiais: [Documentação da Microsoft](https://learn.microsoft.com/azure/best-practices-availability-paired-regions)
+
+---
+
+## 🛡️ Regiões Soberanas do Azure
+
+### ❓ O que são Regiões Soberanas do Azure?
+
+São instâncias separadas da nuvem Azure pública, projetadas para atender a requisitos específicos de conformidade, segurança e soberania de dados.
+
+### 🔐 Principais Características
+
+-   **Isolamento Total**
+-   **Soberania dos Dados**
+-   **Operadas por Parceiros Locais ou pelo Governo**
+-   **Conformidade Rigorosa**
+
+### 🌐 Exemplos
+
+1. **Azure Government (EUA)**
+2. **Azure China**
+3. **Azure Germany** (descontinuado)
+
+---
+
+## 📦 Grupos de Recursos no Azure
+
+### ❓ O que são Grupos de Recursos?
+
+Um _Grupo de Recursos_ é um container lógico que agrupa vários recursos do Azure (como VMs, bancos de dados, redes, etc.) que compartilham um mesmo ciclo de vida.
+
+### 🎯 Objetivos
+
+-   **Gerenciamento unificado**
+-   **Organização lógica**
+-   **Automação e infraestrutura como código**
+
+📌 **Regras Importantes:**
+
+-   Todos os recursos do Azure **devem** estar vinculados a um Grupo de Recursos.
+-   **Não podem ser renomeados!**
+
+---
+
+## 🔧 Recursos do Azure
+
+### 🖥️ Máquinas Virtuais (Virtual Machines)
+
+-   Hospedagem de aplicações legadas
+-   Ambientes de desenvolvimento/teste
+
+### 🗃️ Contas de Armazenamento (Storage Accounts)
+
+-   Armazenamento de backup e dados não estruturados
+-   Alta durabilidade (99.999999999%)
+
+### 🌐 Redes Virtuais (Virtual Networks)
+
+-   Conexão segura entre recursos
+-   VPNs com redes locais
+
+### 🌍 Serviços de Aplicativos (App Services)
+
+-   Hospedagem de aplicações web e APIs
+-   Escalabilidade automática
+
+### 🛢️ Bancos de Dados SQL (Azure SQL Database)
+
+-   Banco de dados relacional gerenciado
+-   Backup automático
+
+### ⚡ Funções (Azure Functions)
+
+-   Serviço _serverless_ para execução de código
+
+---
+
+## 💳 Assinaturas do Azure
+
+-   Uma conta pode ter **diversas assinaturas**.
+-   Cada assinatura possui **recursos próprios, políticas e controle de acesso isolado**.
+
+**Hierarquia:**  
+`Grupos de Gerenciamento → Assinaturas → Grupos de Recursos → Recursos`
+
+---
+
+## 🖥️ Criação de Grupo de Recursos
+
+_Passo a passo ilustrado na pasta 'images'_
+
+1. **Encontre o serviço** na aba "Geral".
+2. **Escolha a assinatura**, nome e região.
+3. **Defina marcações** (organização e faturamento).
+4. **Valide e crie**.
+
+### 📊 Funcionalidades do Grupo de Recursos
+
+-   **Visão geral**
+-   **Log de atividade**
+-   **IAM (Controle de acesso)**
+-   **Marcações**
+-   **Visualizador de recursos**
+
+🔧 **Configurações Avançadas:**
+
+-   **Implantações** (templates ARM)
+-   **Segurança** (Microsoft Defender for Cloud)
+-   **Políticas**
+-   **Bloqueios** (proteção contra exclusão acidental)
+
+💰 **Gerenciamento de Custos:**
+
+-   **Análise de custo**
+-   **Alertas de custo**
+-   **Orçamentos**
+
+📈 **Monitoramento:**
+
+-   **Alertas**
+-   **Métricas**
+-   **Logs**
+
+🤖 **Automação:**
+
+-   **Exportar modelo ARM** (Infraestrutura como Código)
+
+---
