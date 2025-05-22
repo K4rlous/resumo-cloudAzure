@@ -502,214 +502,400 @@ Define as responsabilidades do provedor (Azure) e do cliente, conforme o tipo de
 
 > ⚠ **Em modelos _on-premises_, todas as responsabilidades são do cliente!**
 
-# 🏗️ Componentes de Arquitetura do Azure
+# 🌍 Componentes de Arquitetura do Azure
 
-## 🌍 Regiões
+## 📌 Regiões
 
-### ❓ O que são Regiões no Azure?
-
+### 🌍 O que são Regiões no Azure?
 No Microsoft Azure, uma região representa uma área geográfica específica que contém um ou mais datacenters altamente conectados entre si e gerenciados como uma única entidade lógica. Essas regiões são fundamentais para garantir alta disponibilidade, redução de latência e residência dos dados, além de facilitar o atendimento a exigências legais e regulatórias em diferentes países.
 
 ### 📌 Características das Regiões do Azure
+1. **Maior cobertura global**  
+   A Azure possui mais de 60 regiões distribuídas globalmente, mais do que qualquer outro provedor de nuvem (como AWS ou Google Cloud).  
 
-1. **Maior cobertura global**
+   Essas regiões atendem a mais de 140 países, possibilitando que empresas escolham onde hospedar seus dados e aplicações de acordo com sua localização ou requisitos legais.
 
-    - A Azure possui mais de 60 regiões distribuídas globalmente, mais do que qualquer outro provedor de nuvem (como AWS ou Google Cloud).
-    - Atendem a mais de 140 países, possibilitando que empresas escolham onde hospedar seus dados e aplicações de acordo com sua localização ou requisitos legais.
+2. **Datacenters interconectados**  
+   Cada região pode ter múltiplos datacenters (trabalhamos com a ideia de 3), chamados de availability zones (zonas de disponibilidade), que são isolados fisicamente e oferecem alta tolerância a falhas.  
 
-2. **Datacenters interconectados**
+   Isso garante resiliência: se um datacenter falhar, os serviços podem continuar operando a partir de outro.
 
-    - Cada região pode ter múltiplos datacenters (trabalhamos com a ideia de 3), chamados de _availability zones_ (zonas de disponibilidade), que são isolados fisicamente e oferecem alta tolerância a falhas.
-    - Isso garante resiliência: se um datacenter falhar, os serviços podem continuar operando a partir de outro.
+3. **Baixa latência e desempenho**  
+   Hospedar serviços em uma região próxima aos seus usuários finais permite respostas mais rápidas e melhor desempenho, já que os dados não precisam percorrer grandes distâncias.
 
-3. **Baixa latência e desempenho**
+4. **Residência e conformidade dos dados**  
+   As regiões permitem que você mantenha os dados dentro das fronteiras legais de um país ou continente, importante para leis como:  
 
-    - Hospedar serviços em uma região próxima aos seus usuários finais permite respostas mais rápidas e melhor desempenho.
+   - LGPD (Brasil)  
+   - GDPR (Europa)  
 
-4. **Residência e conformidade dos dados**
+   Isso facilita o cumprimento de normas de conformidade e segurança, exigidas por setores como saúde, finanças e governo.
 
-    - Permitem que você mantenha os dados dentro das fronteiras legais de um país ou continente, importante para leis como:
-        - LGPD (Brasil)
-        - GDPR (Europa)
-
-5. **Redundância e recuperação de desastres**
-    - Você pode replicar dados entre regiões (_geo-replicação_), o que permite planos de recuperação de desastres (DR) robustos.
+5. **Redundância e recuperação de desastres**  
+   Você pode replicar dados entre regiões (geo-replicação), o que permite planos de recuperação de desastres (DR) robustos, mantendo os sistemas disponíveis mesmo em eventos extremos.
 
 ---
 
 ## 🔁 Pares de Regiões
 
-### ❓ O que são Pares de Regiões no Azure?
+### 🔁 O que são Pares de Regiões no Azure?
+Um par de regiões no Azure é uma relação geográfica e lógica entre duas regiões dentro da mesma área geopolítica (no mínimmo 300 milhas de separação entre pares de regiões), como o mesmo país ou continente. Esses pares são definidos pela própria Microsoft e têm como objetivo oferecer resiliência e continuidade dos serviços em cenários de falhas ou desastres.  
 
-Um par de regiões no Azure é uma relação geográfica e lógica entre duas regiões dentro da mesma área geopolítica (no mínimo 300 milhas de separação entre pares de regiões).
-
-**Exemplos:**
-
--   _Brazil South_ é emparelhada com _South Central US_
--   _East US_ é emparelhada com _West US_
+**Por exemplo:**  
+- Brazil South é emparelhada com South Central US  
+- East US é emparelhada com West US  
 
 ### ✅ Vantagens dos Pares de Regiões
+1. **Recuperação de Desastres (Disaster Recovery)**  
+   Se uma região sofrer uma falha grave (como um desastre natural ou problema de energia em larga escala), a outra região do par está pronta para assumir o funcionamento dos serviços, pois ela está fisicamente separada, mas ainda próxima o suficiente para permitir replicação automática eficiente (para alguns serviços).
 
-1. **Recuperação de Desastres (Disaster Recovery)**
-2. **Atualizações planejadas com segurança**
-3. **Prioridade na recuperação**
-4. **Sincronização de dados**
+2. **Atualizações planejadas com segurança**  
+   Durante as atualizações de software ou manutenção da infraestrutura, o Azure nunca atualiza ambas as regiões de um par ao mesmo tempo. Isso reduz o risco de falhas simultâneas e ajuda a manter seus serviços disponíveis, ou seja atualizações distribuidas sequencialmente para minimizar o tempo de inatividade.
 
-📌 **Considerações:**
+3. **Prioridade na recuperação**  
+   Se ocorrer uma falha em escala global (muito rara), o Azure dá prioridade à restauração de serviços nas regiões que fazem parte de um par oficial, garantindo que os dados críticos tenham maior chance de recuperação rápida.
 
--   Nem todos os serviços estão disponíveis em todas as regiões.
--   Consulte os pares oficiais: [Documentação da Microsoft](https://learn.microsoft.com/azure/best-practices-availability-paired-regions)
+4. **Sincronização de dados**  
+   Alguns serviços do Azure, como o Azure Storage com geo-redundância (GRS), usam automaticamente os pares de regiões para replicar os dados entre datacenters, garantindo redundância geográfica transparente.
+
+### 🌐 Exemplo Prático
+Suponha que você está hospedando um sistema crítico na região **East US**:  
+- O Azure irá usar a região **West US** (o par oficial) como backup.  
+- Os dados podem ser replicados automaticamente para essa região.  
+- Se a região **East US** cair, você pode ativar os serviços manualmente ou automaticamente em **West US**.  
+- Durante atualizações, uma região é atualizada por vez para evitar interrupções simultâneas.  
+
+### 📌 Considerações
+- Nem todos os serviços estão disponíveis em todas as regiões.  
+- Você pode consultar os pares oficiais de regiões nesta documentação da Microsoft:  
+  👉 [https://learn.microsoft.com/azure/best-practices-availability-paired-regions](https://learn.microsoft.com/azure/best-practices-availability-paired-regions)
 
 ---
 
 ## 🛡️ Regiões Soberanas do Azure
 
-### ❓ O que são Regiões Soberanas do Azure?
-
-São instâncias separadas da nuvem Azure pública, projetadas para atender a requisitos específicos de conformidade, segurança e soberania de dados.
+### 🛡️ O que são Regiões Soberanas do Azure?
+As regiões soberanas do Azure são instâncias separadas da nuvem Azure pública, projetadas para atender a requisitos específicos de conformidade, segurança e soberania de dados. Elas são isoladas da infraestrutura global padrão do Azure e possuem controles mais rigorosos, muitas vezes exigidos por leis nacionais ou por organizações governamentais.
 
 ### 🔐 Principais Características
+- **Isolamento Total**  
+  As regiões soberanas são fisicamente e logicamente separadas da nuvem pública do Azure.  
+  Nenhuma comunicação direta entre a nuvem pública e as nuvens soberanas.  
 
--   **Isolamento Total**
--   **Soberania dos Dados**
--   **Operadas por Parceiros Locais ou pelo Governo**
--   **Conformidade Rigorosa**
+- **Soberania dos Dados**  
+  Os dados permanecem dentro da jurisdição legal exigida (como o território nacional).  
+  Ideal para governos e órgãos que não podem permitir que seus dados saiam do país.  
 
-### 🌐 Exemplos
+- **Operadas por Parceiros Locais ou pelo Governo**  
+  Algumas dessas regiões são geridas por entidades governamentais ou empresas locais, em parceria com a Microsoft.  
 
-1. **Azure Government (EUA)**
-2. **Azure China**
-3. **Azure Germany** (descontinuado)
+- **Conformidade Rigorosa**  
+  Atendem a padrões de segurança como:  
+  - FedRAMP (EUA)  
+  - DoD IL (níveis de segurança do Departamento de Defesa dos EUA)  
+  - ITAR (controle internacional de exportação de armamentos)  
+  - CJIS (para justiça criminal)  
+
+### 🌐 Exemplos de Regiões Soberanas do Azure
+1. **Azure Government (EUA)**  
+   - Projetado para agências do governo dos Estados Unidos.  
+   - Isolado da nuvem pública.  
+   - Atende a altos níveis de conformidade: FedRAMP High, DoD Impact Level 5.  
+   - Localizado exclusivamente nos EUA e operado por funcionários com autorização do governo.  
+
+2. **Azure China**  
+   - Operado pela 21Vianet, uma empresa local chinesa.  
+   - Totalmente separado da Azure global.  
+   - Atende às exigências de soberania de dados impostas pelo governo da China.  
+
+3. **Azure Germany (descontinuado como soberano exclusivo)**  
+   - Era operado de forma independente por um parceiro alemão (T-Systems).  
+   - Oferecia uma nuvem isolada para atender às rigorosas leis de proteção de dados da Alemanha.  
+   - Foi integrado posteriormente à nova estrutura de Azure Regiões da União Europeia, mantendo foco em conformidade.  
+
+### ✅ Por que usar uma Região Soberana?
+Essas regiões são ideais quando você precisa de:  
+- Conformidade legal e regulatória rígida  
+- Soberania de dados  
+- Segurança nacional  
+- Ambientes altamente sensíveis (defesa, justiça, inteligência)  
+
+Essas regiões são relacionadas com o **Azure Governamental**, uma instância separada do Azure, fisicamente isolada de implantações que não sejam do governo dos EUA, acessível apenas para pessoal verificado e autorizado.  
+
+Há outra instância do Azure separada chamada **Azure China**, a Microsoft atua como o primeiro provedor estrangeiro de serviços de nuvem publica para a China, em conformidade com as regulamentações governamentais.
 
 ---
 
 ## 📦 Grupos de Recursos no Azure
 
-### ❓ O que são Grupos de Recursos?
+### 📦 O que são Grupos de Recursos no Azure?
+Um **Grupo de Recursos** é um container lógico que agrupa vários recursos do Azure (como VMs, bancos de dados, redes, contas de armazenamento etc.) que compartilham um mesmo ciclo de vida, como implantação, atualização e exclusão.
 
-Um _Grupo de Recursos_ é um container lógico que agrupa vários recursos do Azure (como VMs, bancos de dados, redes, etc.) que compartilham um mesmo ciclo de vida.
+### 🎯 Objetivos dos Grupos de Recursos
+- **Gerenciamento unificado**: Permite aplicar políticas, monitoramento, controle de acesso (RBAC), e tags a um conjunto inteiro de recursos de uma só vez.  
+- **Organização lógica**: Facilita a organização por projeto, ambiente (produção, teste), cliente ou departamento.  
+- **Automação e infraestrutura como código**: Pode ser usado em conjunto com templates ARM ou Bicep para implantar ambientes completos com um clique.  
 
-### 🎯 Objetivos
+### 🔗 1. Agrupamento Unificado 
+Todos os recursos de uma solução (ex.: aplicação web, banco de dados, máquina virtual e armazenamento) são colocados em um único grupo de recursos.  
 
--   **Gerenciamento unificado**
--   **Organização lógica**
--   **Automação e infraestrutura como código**
+**Vantagens:**  
+- Mais fácil de gerenciar e excluir em conjunto  
+- Simples para ambientes pequenos ou aplicações autônomas  
 
-📌 **Regras Importantes:**
+### 🔄 2. Agrupamento Separado por Função
+Recursos são distribuídos entre diferentes grupos de recursos, como:  
+- Um grupo para web e banco de dados  
+- Um grupo para máquina virtual  
+- Um grupo para armazenamento  
 
--   Todos os recursos do Azure **devem** estar vinculados a um Grupo de Recursos.
--   **Não podem ser renomeados!**
+**Vantagens:**  
+- Mais controle e flexibilidade em ambientes complexos  
+- Permite aplicar permissões específicas para diferentes times  
+- Ideal quando os recursos têm ciclos de vida distintos  
+
+### 🔐 Considerações sobre uso
+- Todos os recursos em um grupo devem estar em uma única região (exceto os que são globais).  
+- O recurso pode ser movido entre grupos (com algumas limitações).  
+- Importante para RBAC (controle de acesso baseado em função): você pode definir quem pode acessar e o que pode fazer dentro de um grupo.  
+
+**OS GRUPOS DE RECURSOS NÃO PODEM SER RENOMEADOS!**  
+**TODOS OS RECURSOS DO AZURE TEM QUE ESTAR VINCULADOS A UM GRUPO DE RECURSOS**  
+
+### ✅ Por que isso é obrigatório?
+O Grupo de Recursos é a unidade básica de organização e gerenciamento no Azure. Ele fornece:  
+- 🌐 Localização lógica para os recursos  
+- 🔐 Controle de acesso (RBAC) por grupo  
+- 📊 Monitoramento e métricas agregadas  
+- ⚙️ Gerenciamento de ciclo de vida (você pode deletar todos os recursos de uma vez ao excluir o grupo)  
+- 🧾 Aplicação de políticas e tags  
 
 ---
 
 ## 🔧 Recursos do Azure
 
 ### 🖥️ Máquinas Virtuais (Virtual Machines)
-
--   Hospedagem de aplicações legadas
--   Ambientes de desenvolvimento/teste
+As VMs do Azure permitem criar e executar sistemas operacionais completos na nuvem. São ideais para:  
+- Hospedar aplicações legadas  
+- Ambientes de desenvolvimento/teste  
+- Migração de servidores físicos (lift and shift)  
+É possível escolher diferentes tamanhos, regiões e sistemas operacionais, além de configurar escalabilidade sob demanda.  
 
 ### 🗃️ Contas de Armazenamento (Storage Accounts)
-
--   Armazenamento de backup e dados não estruturados
--   Alta durabilidade (99.999999999%)
+Serviço usado para armazenar blobs (arquivos), filas, tabelas e discos. Suporta:  
+- Armazenamento de backup e dados não estruturados  
+- Alta durabilidade (99.999999999%)  
+- Opções de replicação geográfica (GRS, LRS)  
+É fundamental para aplicações que exigem persistência de dados na nuvem.  
 
 ### 🌐 Redes Virtuais (Virtual Networks)
-
--   Conexão segura entre recursos
--   VPNs com redes locais
+São como “redes privadas” na nuvem. Permitem:  
+- Conectar recursos do Azure de forma segura  
+- Estabelecer VPNs com redes locais (on-premises)  
+- Controlar tráfego com Network Security Groups (NSG)  
+Elas formam a base da comunicação entre serviços, sendo essenciais para arquiteturas seguras e escaláveis.  
 
 ### 🌍 Serviços de Aplicativos (App Services)
-
--   Hospedagem de aplicações web e APIs
--   Escalabilidade automática
+Serviço PaaS (Platform as a Service) que facilita a hospedagem de aplicações web, APIs REST e backends móveis sem se preocupar com infraestrutura. Oferece:  
+- Escalabilidade automática  
+- Suporte a várias linguagens (.NET, Node.js, Java, Python)  
+- Integração contínua com GitHub, Azure DevOps  
 
 ### 🛢️ Bancos de Dados SQL (Azure SQL Database)
-
--   Banco de dados relacional gerenciado
--   Backup automático
+Banco de dados relacional gerenciado baseado no SQL Server. Fornece:  
+- Alta disponibilidade integrada  
+- Backup automático  
+- Escalabilidade e performance sob demanda  
+Ideal para aplicações empresariais que necessitam de dados estruturados e transações ACID.  
 
 ### ⚡ Funções (Azure Functions)
-
--   Serviço _serverless_ para execução de código
-
----
-
-## 💳 Assinaturas do Azure
-
--   Uma conta pode ter **diversas assinaturas**.
--   Cada assinatura possui **recursos próprios, políticas e controle de acesso isolado**.
-
-**Hierarquia:**  
-`Grupos de Gerenciamento → Assinaturas → Grupos de Recursos → Recursos`
+Serviço serverless para executar pequenos trechos de código em resposta a eventos. Vantagens:  
+- Você paga apenas pelo tempo de execução  
+- Integração com eventos de armazenamento, filas, HTTP, etc.  
+- Redução significativa da complexidade e custo para tarefas automatizadas  
 
 ---
 
-## 🖥️ Criação de Grupo de Recursos
+## 📌 Assinaturas do Azure
 
-_Passo a passo ilustrado na pasta 'images'_
+- Uma conta pode ter diversas assinaturas (grupos de gerenciamento), mas uma assinatura pode haver apenas uma conta, uma estratégia de refinamento de custos no Azure é criar uma assinatura diferente para cada grupo de trabalho.  
 
-1. **Encontre o serviço** na aba "Geral".
-2. **Escolha a assinatura**, nome e região.
-3. **Defina marcações** (organização e faturamento).
-4. **Valide e crie**.
+- Uma assinatura do Azure fornece acesso autenticado e autorizado às contas do Azure (note que autenticação não é a mesma coisa que autorização).  
 
-### 📊 Funcionalidades do Grupo de Recursos
+- O limite de cobrança permite que você gere relatórios de cobrança e faturas separadas para cada assinatura, o limite de controle de acesso permite gerenciar e controlar o acesso aos recursos que os usuários podem provisionar com assinaturas especificas  
 
--   **Visão geral**
--   **Log de atividade**
--   **IAM (Controle de acesso)**
--   **Marcações**
--   **Visualizador de recursos**
+### 🔹 Hierarquia de Gerenciamento no Azure
+1. **Conta do Azure**: É a identidade principal (usuário ou empresa) usada para acessar e gerenciar os serviços do Azure. Está associada a um e-mail e a um método de pagamento.  
 
-🔧 **Configurações Avançadas:**
+2. **Assinaturas**: São divisões dentro da conta do Azure que separam ambientes ou projetos. Exemplos:  
+   - Assinatura de Desenvolvimento  
+   - Assinatura de Teste  
+   - Assinatura de Produção  
+   Cada assinatura possui recursos próprios, políticas e controle de acesso isolado.  
 
--   **Implantações** (templates ARM)
--   **Segurança** (Microsoft Defender for Cloud)
--   **Políticas**
--   **Bloqueios** (proteção contra exclusão acidental)
+3. **Conta de Cobrança**: Agrupa os custos de uma ou mais assinaturas para fins de faturamento.  
 
-💰 **Gerenciamento de Custos:**
+4. **Perfil de Cobrança**: Subdivisão da conta de cobrança que gera faturas específicas para diferentes áreas ou departamentos.  
 
--   **Análise de custo**
--   **Alertas de custo**
--   **Orçamentos**
-
-📈 **Monitoramento:**
-
--   **Alertas**
--   **Métricas**
--   **Logs**
-
-🤖 **Automação:**
-
--   **Exportar modelo ARM** (Infraestrutura como Código)
+5. **Seção de Fatura**: Subdivisão do perfil de cobrança que organiza o faturamento de assinaturas específicas dentro da mesma fatura.  
 
 ---
 
-# 🌐 Criação de Redes Virtuais (VNets)  
+## 🏢 Grupos de Gerenciamento
 
-_Passo a passo ilustrado na pasta 'images'_
+### 🏢 1. Grupos de Gerenciamento
+- Estão no topo da hierarquia.  
+- Usados para aplicar políticas e controle de acesso de forma centralizada.  
+- Podem agrupar várias assinaturas.  
+- As assinaturas herdam as condições aplicadas ao grupo de gerenciamento.  
+- Ideal para grandes organizações com múltiplas áreas, departamentos ou projetos.  
 
-Uma vez que as **VMs precisam receber um IP**, criaremos uma **rede virtual** para abranger os recursos que criaremos futuramente!  
+### 📄 2. Assinaturas (Subscriptions)
+- Ficam dentro dos grupos de gerenciamento.  
+- Controlam limites de uso, cobrança e acesso a recursos do Azure.  
+- Cada assinatura pode ter vários grupos de recursos.  
 
-### 📌 Passo a Passo:  
+### 🗂️ 3. Grupos de Recursos (Resource Groups)
+- Contêm os recursos do Azure (como VMs, bancos de dados, etc.).  
+- Servem para organizar recursos relacionados que compartilham o mesmo ciclo de vida.  
+- Permitem gerenciamento conjunto (por exemplo, exclusão ou aplicação de tags).  
 
-1️⃣ **Localização da VNet**  
-   - As redes virtuais podem ser encontradas na aba **"Base da Rede"** no portal da Azure.  
+### ⚙️ 4. Recursos (Resources)
+- São os componentes reais usados na nuvem, como:  
+  - Máquinas virtuais (VMs)  
+  - Bancos de dados SQL  
+  - Armazenamento  
+  - Serviços de rede  
+- Esses recursos são criados dentro dos grupos de recursos.  
 
-2️⃣ **Configuração Básica**  
-   - Escolhemos a **assinatura** e o **grupo de recursos** (vamos utilizar o que criamos previamente).  
-   - Definimos o **nome da rede virtual** e sua **região**.  
+### 📌 Conclusão:
+A hierarquia é:  
+**Grupos de Gerenciamento → Assinaturas → Grupos de Recursos → Recursos**  
 
-3️⃣ **Configurações Avançadas (Opcional)**  
-   - Vamos resumir o processo, mas caso seja necessário, há como configurar:  
-     - 🔒 **Detalhes de segurança**  
-     - 📡 **Endereçamento IP**  
-     - 🏷️ **Rótulos** (que vimos nos grupos de recursos)  
+Essa estrutura permite controle eficiente, governança, segurança e organização escalável em ambientes corporativos no Azure.  
 
-4️⃣ **Revisão e Criação**  
-   - Vamos revisar e criar a **VNet**.  
+---
 
-5️⃣ **Implementação Concluída!**  
-   - ✅ Após a implementação, a **VNet já estará presente** em nosso grupo de recursos!  
+## 🛠️ Criação de Grupo de Recursos
+*A pasta 'images' contém capturas de tela que visam auxiliar no processo de criação de recursos no Azure!*
+
+**01** - O grupo de recursos pode ser encontrado na aba "Geral" no painel de serviços do Azure  
+
+**02** - Escolhemos a assinatura que iremos utilizar (empresas costumam ter várias assinaturas), definimos o nome do grupo de recursos e sua região  
+
+**03** - Se necessário definimos as marcações do grupo de recursos, isso auxiliará a compreender a fatura, uma vez que a formatação dela possa ser confusa na ausência de informações, as marcações também tem um propósito organizacional  
+
+**04** - Por fim podemos validar e finalmente criar nosso grupo de recursos  
+
+**05** - Nosso grupo de recursos será criado, e já poderemos criar outros recursos como VMs e etc em seu interior  
+
+**06** - No interior do grupo de recursos temos acesso a várias abas com incontáveis funcionalidades, vamos resumir brevemente as operações que se encontram no painel esquerdo do portal  
+
+### 📌 Visão geral:
+Exibe informações gerais sobre o grupo de recursos, como localização, assinaturas associadas, e os recursos contidos nele.  
+
+### 📜 Log de atividade:
+Mostra um histórico das ações realizadas no grupo de recursos, útil para auditoria e rastreamento de mudanças.  
+
+### 🔐 IAM (Controle de acesso):
+Gerencia permissões de usuários e grupos no grupo de recursos. Aqui você define quem pode acessar e o que pode fazer (RBAC – Controle de Acesso Baseado em Funções), é ideal sempre dar o menor nível de acesso para os usuários.  
+
+### 🏷️ Marcações:
+Permite adicionar pares chave-valor aos recursos, facilitando a organização, categorização e a gestão de custos.  
+
+### 🌐 Visualizador de recursos:
+Apresenta uma visualização hierárquica dos recursos no grupo, mostrando dependências e relações entre eles.  
+
+### ⚠️ Eventos:
+Exibe eventos de diagnóstico e alertas configurados para os recursos do grupo, auxiliando no monitoramento e resposta a incidentes.  
+
+---
+
+### 🔧 ABA DE CONFIGURAÇÕES:
+
+#### 🚀 Implantações:
+Lista e detalha todas as implantações feitas no grupo de recursos, como templates ARM. Útil para rastrear o histórico e reverter configurações.  
+
+#### 🔒 Segurança:
+Exibe recomendações de segurança e o status atual baseado no Microsoft Defender for Cloud. Ajuda a identificar vulnerabilidades nos recursos.  
+
+#### 🏗️ Pilhas de implantação:
+Gerencia configurações de infraestrutura como código (IaC) com controle total de ciclo de vida dos recursos criados por uma pilha.  
+
+#### 📜 Políticas:
+Mostra as políticas do Azure atreladas ao grupo de recursos, como restrições de tipos de recursos ou exigência de marcações.  
+
+#### 📋 Propriedades:
+Exibe metadados do grupo, como ID, assinatura, região e data de criação.  
+
+#### 🔒 Bloqueios:
+Permite adicionar bloqueios de leitura ou exclusão para proteger os recursos contra modificações ou remoções acidentais.  
+
+---
+
+### 💰 ABA DE GERENCIAMENTO DE CUSTOS 
+
+#### 📊 Análise de custo:
+Permite visualizar detalhadamente os custos dos recursos utilizados no grupo. Você pode filtrar por período, serviço, região, etc., para entender onde estão sendo gerados os maiores gastos.  
+
+#### 🔔 Alertas de custo (versão prévia):
+Cria alertas automáticos com base em valores de gasto pré-definidos. Ajuda a detectar picos de custo antes que ultrapassem o orçamento.  
+
+#### 💸 Orçamentos:
+Define limites de gastos e períodos (mensal, trimestral, etc.). Quando o gasto se aproxima ou ultrapassa o valor definido, você recebe notificações.  
+
+#### 💡 Recomendações do supervisor:
+Exibe sugestões automatizadas de economia, como redução de tamanho de máquinas virtuais subutilizadas, desligamento de recursos ociosos, entre outras.  
+
+---
+
+### 📊 ABA DE MONITORAMENTO
+
+#### 🔍 Insights (versão prévia):
+Visualização centralizada e inteligente do desempenho e integridade dos recursos. Fornece recomendações e gráficos baseados em dados de monitoramento.  
+
+#### ⚠️ Alertas:
+Permite configurar alertas com base em métricas, logs ou eventos. Por exemplo, enviar um e-mail se o uso de CPU ultrapassar um limite.  
+
+#### 📈 Métrica:
+Visualiza dados de desempenho em tempo real, como uso de CPU, memória, disco e rede dos recursos. Essencial para análise técnica.  
+
+#### ⚙️ Configurações de diagnóstico:
+Define quais logs e métricas devem ser coletados e enviados para destinos como Log Analytics, Event Hub ou Armazenamento.  
+
+#### 📜 Logs:
+Acesso ao Azure Monitor Logs, onde você pode usar a linguagem Kusto Query Language (KQL) para consultar eventos e diagnósticos.  
+
+#### 💡 Recomendações do supervisor:
+Sugestões para melhorar desempenho, segurança e reduzir custos com base na análise dos recursos.  
+
+#### 📊 Pastas de trabalho:
+Dashboards interativos que permitem combinar métricas, logs e visualizações personalizadas para monitoramento avançado.  
+
+---
+
+### ⚙️ ABA DE AUTOMAÇÃO 
+
+O botão **Exportar modelo** permite gerar um modelo ARM (Azure Resource Manager) em formato JSON com a definição de todos os recursos presentes no grupo de recursos atual.  
+
+**Para que serve:**  
+- Infraestrutura como código (IaC): você pode reutilizar esse modelo para criar grupos de recursos idênticos em outros ambientes.  
+- Automatização de deploys: integra com pipelines DevOps ou scripts.  
+- Backup de configuração: serve como registro da estrutura dos recursos e suas configurações.  
+
+--- 
+
+## 🌐 Criação de Redes Virtuais (VNets)  
+
+Uma vez que VMs precisam receber um IP, criaremos uma rede virtual para abranger os recursos que criaremos futuramente!  
+
+**01** - As redes virtuais podem ser encontradas na aba 'Base da Rede' no portal da Azure  
+
+**02** - Escolhemos a assinatura e o grupo de recursos (vamos utilizar o que criamos previamente), definimos o nome da rede virtual e sua região  
+
+**03** - Vamos resumir o processo, mas caso seja necessário há como configurar detalhes de segurança, endereçamento IP e rótulos (que vimos nos grupos de recursos)  
+
+**04** - Vamos revisar e criar a VNet  
+
+**05** - Após a implementação, a VNet já estará presente em nosso grupo de recursos!  
+
