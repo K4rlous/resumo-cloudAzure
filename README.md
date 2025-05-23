@@ -1425,7 +1425,7 @@ Os planos Defender (proteção ativa) são pagos por recurso protegido (ex: por 
    | **IA Conversacional**                        | Interage por voz ou texto                   | Chatbots, assistentes virtuais         |  
 
 4. **O que é Machine Learning (ML)?**  
-   Subcampo da IA que permite que modelos aprendam com dados sem serem programados explicitamente.  
+   Subcampo da IA que permite que modelos aprendam com dados sem serem programados explicitamente, modelos preditivos baseados em dados e estatísticas
 
    **Ciclo de vida básico:**  
    - Coleta de dados  
@@ -1463,3 +1463,341 @@ Os planos Defender (proteção ativa) são pagos por recurso protegido (ex: por 
    | **Cognitive Services**     | APIs pré-treinadas para visão, linguagem, fala e tomada de decisão |  
    | **Azure OpenAI Service**   | Modelos avançados como GPT                                         |  
    | **Bot Framework**          | Criação de chatbots inteligentes                                   |  
+
+### 🧾 Inteligência de Documentos
+
+É o uso de IA para ler, entender e extrair informações de documentos não estruturados ou semiestruturados (como PDFs, imagens digitalizadas, formulários, notas fiscais, contratos etc.).
+
+🧠 **O objetivo?**
+Automatizar tarefas que antes eram feitas manualmente, como:
+
+Digitar dados de notas fiscais
+
+Ler e-mails com anexos
+
+Processar contratos
+
+Organizar formulários
+
+🧩 **Onde isso se encaixa na IA?**
+Faz parte da Visão Computacional + Processamento de Linguagem Natural (NLP), pois lida com:
+
+Imagens (OCR)
+
+Texto (compreensão e extração)
+
+Estrutura de documentos (campos, tabelas, layout)
+
+🔧 **No Azure: Azure AI Document Intelligence (antigo Form Recognizer)**
+É o serviço da Microsoft criado para esse tipo de tarefa. Ele:
+
+📌 **Funcionalidades principais:**
+| Função                          | O que faz                                                     |
+| ------------------------------- | ------------------------------------------------------------- |
+| **Extração de texto com OCR**   | Lê texto de PDFs e imagens                                    |
+| **Extração de layout**          | Detecta tabelas, colunas, posições                            |
+| **Modelos pré-treinados**       | Para faturas, recibos, identidades, contratos, etc.           |
+| **Modelos personalizados**      | Você treina um modelo com seus próprios documentos            |
+| **Classificação de documentos** | Identifica o tipo de documento (ex: nota fiscal vs. contrato) |
+
+⚙️ **Exemplo prático**
+Você envia uma imagem de uma nota fiscal → O serviço detecta automaticamente:
+
+Nome do fornecedor
+
+Data de emissão
+
+Valor total
+
+Número da nota
+
+E devolve isso em JSON estruturado, pronto para ser usado em um sistema.
+
+✅ **Benefícios**
+Reduz erro humano
+
+Acelera processos manuais
+
+Automatiza captura de dados
+
+Funciona com documentos em massa
+
+🛠 **Quando usar?**
+Contas a pagar (AP automation)
+
+Recursos Humanos (leitura de CVs, formulários)
+
+Jurídico (extração de cláusulas de contratos)
+
+Financeiro (processamento de extratos, recibos)
+
+
+### 🧠 Mineração de Conhecimento
+
+🧠 **O que é Mineração de Conhecimentos no Azure?**
+No Azure, Mineração de Conhecimentos (Knowledge Mining) é o uso combinado de IA + busca inteligente para extrair informações úteis de conteúdos não estruturados, como PDFs, imagens, e-mails, contratos, etc.
+
+📦 **Enquadramento no Azure**
+A mineração de conhecimento é viabilizada principalmente por três serviços principais:
+
+1. **Azure AI Search**
+Um serviço de busca inteligente.
+
+Indexa documentos e permite pesquisa com linguagem natural.
+
+2. **Azure AI Vision + Document Intelligence**
+Faz OCR (leitura de texto em imagens/PDFs).
+
+Extrai texto, tabelas, formulários, entidades (como nomes, datas, valores).
+
+3. **Cognitive Skills**
+APIs de IA que enriquecem os dados durante a indexação:
+
+Detecção de idioma
+
+Extração de entidades (nomes, locais)
+
+Análise de sentimento
+
+Tradução automática
+
+Classificação de texto
+
+🔁 **Como funciona o pipeline no Azure?**
+Você conecta os dados (Blob Storage, SharePoint, SQL, etc.)
+
+Azure analisa e enriquece os dados com IA (OCR + NLP)
+
+O conteúdo é indexado pelo Azure AI Search
+
+Você faz buscas avançadas em uma interface (ex: portal, chatbot, app)
+
+✅ **Resultado prático**
+Um buscador inteligente que entende o conteúdo dos documentos
+
+Respostas rápidas a perguntas complexas sobre seus dados
+
+Possibilidade de integrar com chatbots, apps, dashboards
+
+🧭 **Quando usar?**
+Use Mineração de Conhecimentos no Azure quando você tem:
+
+Muitos documentos não estruturados
+
+Dificuldade em localizar informações críticas
+
+Desejo de automatizar análise de documentos
+
+
+### 🤖 IA Generativa
+
+🤖 **O que é IA Generativa?**
+IA Generativa é um tipo de inteligência artificial que cria novo conteúdo a partir de dados de entrada — como texto, imagem, áudio ou código.
+
+Exemplos: gerar textos, responder perguntas, criar imagens, resumir documentos, escrever código, entre outros.
+
+📦 **IA Generativa no Azure**
+No Azure, a IA Generativa é oferecida principalmente por meio do:
+
+🔹 **Azure OpenAI Service**
+É a integração oficial da Microsoft com os modelos da OpenAI (como GPT-4, GPT-3.5, Codex, DALL·E).
+Permite usar IA generativa de forma segura, escalável e corporativa.
+
+📌 **Funcionalidades principais com Azure OpenAI:**
+| Função                          | O que faz                                    |
+| ------------------------------- | -------------------------------------------- |
+| **Chatbot com GPT**             | Cria assistentes de conversação              |
+| **Geração de texto**            | Completa, reescreve, resume, traduz          |
+| **Análise de linguagem**        | Classificação, extração, insights            |
+| **Geração de código**           | Gera scripts, funções, ajuda na programação  |
+| **Criação de imagens (DALL·E)** | Gera imagens a partir de descrições em texto |
+
+🧩 **Como a IA Generativa se encaixa no Azure?**
+| Serviço                    | Papel                                                                                    |
+| -------------------------- | ---------------------------------------------------------------------------------------- |
+| **Azure OpenAI**           | Fornece os modelos (GPT, Codex, DALL·E)                                                  |
+| **Azure AI Studio**        | Ambiente visual para construir soluções com IA generativa                                |
+| **Azure Cognitive Search** | Pode ser combinado com IA generativa para fazer **RAG** (Retrieval-Augmented Generation) |
+| **Azure Machine Learning** | Treinamento, tuning e monitoramento de modelos de IA generativa personalizados           |
+| **Azure Content Safety**   | Avalia e modera o conteúdo gerado (toxicidade, violência, etc.)                          |
+
+✅ **Exemplos de uso no Azure**
+Copilot interno: Ajuda funcionários a buscar informações internas com linguagem natural
+
+Geração automática de relatórios: A partir de dados e PDFs
+
+Resumo de contratos: Para áreas jurídicas e compliance
+
+Ajuda a programadores: Com sugestões de código e documentação
+
+🔐 **Segurança e governança no Azure**
+Controle de acesso via Azure Active Directory
+
+Auditoria e monitoramento
+
+Conformidade com padrões corporativos
+
+Uso controlado de conteúdo sensível com Azure Content Safety
+
+🧭 **Quando usar IA Generativa no Azure?**
+Use IA Generativa no Azure quando você precisa:
+
+Automatizar tarefas complexas de linguagem
+
+Criar experiências conversacionais
+
+Transformar texto, código ou imagens com alta qualidade
+
+Ter controle seguro e governado da IA em ambientes corporativos
+
+
+### ⚖️ Imparcialidade
+
+⚖️ **O que é Imparcialidade em IA?**
+Imparcialidade significa garantir que um sistema de IA trate todos os usuários de forma justa e equitativa, sem favorecer nem prejudicar grupos específicos com base em atributos como:
+
+Gênero
+
+Raça
+
+Idade
+
+Localização
+
+Condições sociais
+
+🚨 **Por que isso é importante?**
+Modelos de IA aprendem com dados históricos — que muitas vezes contêm vieses humanos.
+Se não forem tratados, esses vieses podem ser reproduzidos ou amplificados pelo sistema de IA.
+
+Exemplo: Um modelo que aprova crédito pode negar mais frequentemente para certos grupos, mesmo que isso não seja intencional.
+
+✅ **Boas práticas de imparcialidade em IA**
+Analisar dados de entrada para possíveis vieses
+
+Testar o modelo com diferentes grupos demográficos
+
+Monitorar decisões automatizadas em produção
+
+Ser transparente sobre os limites e riscos do sistema
+
+Incluir diversidade na equipe de desenvolvimento
+
+🧠 **Em resumo para o AI-900:**
+Imparcialidade é um princípio ético da IA.
+
+Evita discriminação e decisões injustas.
+
+Azure oferece ferramentas práticas para medir e corrigir vieses.
+
+Faz parte do esforço da Microsoft de promover IA confiável e responsável.
+
+🧰 **Como a Microsoft e o Azure tratam a Imparcialidade?**
+A Microsoft aplica princípios de IA Responsável em todos os seus serviços de IA. No Azure, isso se reflete em:
+
+🛠️ **Ferramentas e práticas:**
+| Recurso                                                 | Função                                                  |
+| ------------------------------------------------------- | ------------------------------------------------------- |
+| **Azure Machine Learning – Responsible AI dashboard**   | Permite visualizar, medir e mitigar vieses no modelo    |
+| **Fairlearn toolkit (open-source)**                     | Usado para detectar e corrigir desigualdade em modelos  |
+| **Model interpretability tools**                        | Ajudam a entender por que o modelo toma certas decisões |
+| **Avaliação de métricas de justiça (fairness metrics)** | Permite comparar o desempenho entre grupos diferentes   |
+
+
+### 🔒 Confiabilidade e Segurança
+
+🔒 **Confiabilidade e Segurança em IA**
+Confiabilidade significa que sistemas de IA devem funcionar de maneira consistente e previsível, entregando resultados corretos e que possam ser replicados, mesmo em situações novas ou inesperadas. É fundamental que a IA seja estável e que seus resultados possam ser confiados pelos usuários.
+
+Segurança envolve proteger os sistemas de IA contra ataques e acessos não autorizados, garantindo a integridade dos dados e modelos, além de preservar a privacidade dos usuários e das informações processadas.
+
+**Por que isso importa?**
+Sistemas de IA podem ser alvos de tentativas de manipulação, como ataques adversariais que confundem o modelo, ou podem vazar dados sensíveis se não estiverem protegidos. Além disso, falhas no sistema podem causar danos, especialmente em aplicações críticas.
+
+**Como o Azure ajuda?**
+O Azure oferece controles rigorosos de segurança, incluindo autenticação forte via Azure Active Directory, criptografia de dados em repouso e em trânsito, monitoramento contínuo e ferramentas para proteger os modelos e dados usados pela IA. Além disso, o Azure fornece práticas para garantir a confiabilidade, como monitoramento de desempenho e testes regulares dos modelos para evitar erros.
+
+**No AI-900, lembre-se:**
+Confiabilidade garante que a IA funcione corretamente e consistentemente.
+
+Segurança protege os dados, modelos e acesso ao sistema de IA.
+
+Azure incorpora esses princípios para oferecer soluções de IA seguras e confiáveis.
+
+
+### 🔐 Privacidade e Segurança
+
+🔐 **Privacidade e Segurança em IA no Azure**
+Privacidade significa proteger os dados pessoais e sensíveis das pessoas para que não sejam usados indevidamente ou expostos sem consentimento. Em IA, isso é crucial porque modelos aprendem com dados que podem conter informações pessoais.
+
+Segurança é garantir que os sistemas de IA, os dados usados e os resultados gerados estejam protegidos contra acessos não autorizados, ataques cibernéticos, vazamentos e manipulações.
+
+**Por que isso é importante?**
+Dados pessoais expostos podem causar danos às pessoas e à reputação da empresa.
+
+Violações de privacidade podem resultar em multas e problemas legais (ex: GDPR).
+
+Sistemas inseguros podem ser alvo de ataques que prejudicam o funcionamento e a confiabilidade da IA.
+
+**Como o Azure protege a privacidade e a segurança?**
+Usa criptografia forte para proteger dados em trânsito e em repouso.
+
+Implementa controle de acesso via Azure Active Directory para garantir que só pessoas autorizadas acessem dados e modelos.
+
+Oferece monitoramento e auditoria para detectar acessos suspeitos.
+
+Suporta políticas de conformidade com normas internacionais de privacidade e segurança.
+
+Fornece ferramentas para anonimizar dados e garantir o uso responsável dos dados na IA.
+
+**No AI-900, é importante entender que:**
+Privacidade e segurança são pilares da IA responsável.
+
+Azure oferece recursos integrados para proteger dados e sistemas.
+
+Garantir a privacidade ajuda a manter a confiança dos usuários e cumprir a legislação.
+
+
+### 🤝 Inclusão e Transparência
+
+🤝 **Inclusão em IA**
+Inclusão significa criar sistemas de IA que sejam acessíveis e úteis para todas as pessoas, independentemente de suas habilidades, idiomas, cultura ou condições. É garantir que a IA não exclua nenhum grupo, promovendo diversidade e equidade no uso e nos resultados da tecnologia.
+
+No Azure, a inclusão é levada a sério, com ferramentas que suportam múltiplos idiomas, acessibilidade para pessoas com deficiência, e designs que consideram diferentes realidades culturais e sociais.
+
+🔍 **Transparência em IA**
+Transparência refere-se a tornar claro como os sistemas de IA funcionam — como eles tomam decisões, quais dados usam e quais limitações possuem. Isso ajuda usuários e organizações a confiar na tecnologia, compreender seus riscos e responsabilidades.
+
+O Azure oferece ferramentas para interpretar modelos, explicar previsões e monitorar comportamento da IA, facilitando a transparência nos processos automatizados.
+
+**Por que isso importa?**
+A inclusão garante que a IA beneficie toda a sociedade.
+
+A transparência cria confiança e responsabilidade no uso da IA.
+
+Juntas, elas ajudam a construir sistemas de IA éticos e responsáveis.
+
+
+### ⚖️ Responsabilidade
+
+⚖️ **Responsabilidade em IA**
+Responsabilidade significa que os desenvolvedores, organizações e usuários de IA devem ser responsáveis pelas ações e impactos dos sistemas de IA que criam e utilizam. Isso envolve garantir que a IA seja usada de forma ética, segura e em conformidade com leis e políticas.
+
+**Por que é importante?**
+Sistemas de IA podem afetar pessoas e negócios de formas significativas. A responsabilidade ajuda a prevenir danos, abusos ou usos indevidos, e assegura que haja prestação de contas quando algo sai errado.
+
+**Como o Azure apoia a responsabilidade?**
+Oferece ferramentas para monitorar, auditar e controlar o uso de modelos de IA.
+
+Suporta práticas de IA responsável, incluindo mitigação de vieses, explicabilidade e conformidade regulatória.
+
+Permite rastrear decisões feitas por IA para investigação e correção.
+
+Incentiva a transparência e governança de dados.
+
+**No AI-900, lembre-se:**
+Responsabilidade é fundamental para construir IA confiável e ética.
+
+Envolve garantir controle humano, monitoramento e conformidade.
+
+Azure fornece recursos para apoiar essa responsabilidade.
