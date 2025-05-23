@@ -1802,7 +1802,7 @@ Envolve garantir controle humano, monitoramento e conformidade.
 
 Azure fornece recursos para apoiar essa responsabilidade.
 
-
+2
 ## Processamento de Linguagem Natural
 
 O que é Processamento de Linguagem Natural (PLN)?
