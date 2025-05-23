@@ -1,4 +1,5 @@
-# ☁️ Introdução à Computação em Nuvem AZ-900
+# ☁️ Introdução à Computação em Nuvem AZ-900 & Conceitos Básicos de IA do Azure AI-900
+
 
 ## 📚 Índice
 
@@ -1395,3 +1396,70 @@ Os planos Defender (proteção ativa) são pagos por recurso protegido (ex: por 
 | CWPP (Defender Plans) | Protege cargas de trabalho específicas           |
 | Multicloud            | Suporta Azure, AWS, GCP e ambientes híbridos     |
 | Integrações           | Funciona com Sentinel, Arc, Intune, Defender XDR |
+
+---
+
+# AI-900: Conceitos Básicos de IA do Azure
+
+## Conceitos Fundamentais de IA 🤖
+
+1. **O que é Inteligência Artificial (IA)?**  
+   Capacidade de uma máquina imitar funções humanas como raciocínio, aprendizado, percepção e tomada de decisão.  
+
+   **Objetivo:** permitir que sistemas executem tarefas inteligentes com pouca ou nenhuma intervenção humana.  
+
+2. **Principais tipos de IA**  
+   | Tipo de IA                            | Descrição                                                                                  | Exemplo                                                |  
+   | ------------------------------------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------ |  
+   | **IA fraca (Narrow AI)**              | Focada em tarefas específicas                                                              | Assistentes virtuais (Cortana, Siri)                   |  
+   | **IA forte (General AI)**             | Teoricamente, executa qualquer tarefa humana                                               | Ainda em pesquisa                                      |  
+   | **IA simbólica vs. baseada em dados** | IA tradicional baseada em regras (simbólica) vs. IA moderna baseada em aprendizado (dados) | Diagnóstico médico baseado em regras vs. modelos de ML |  
+
+3. **Áreas da IA**  
+   | Área                                         | O que faz                                   | Exemplo                                |  
+   | -------------------------------------------- | ------------------------------------------- | -------------------------------------- |  
+   | **Machine Learning (ML)**                    | Ensina a máquina a aprender com dados       | Previsão de vendas, análise de crédito |  
+   | **Visão Computacional (CV)**                 | Interpreta imagens e vídeos                 | Reconhecimento facial, OCR             |  
+   | **Processamento de Linguagem Natural (NLP)** | Entende e gera linguagem humana             | Chatbots, tradução automática          |  
+   | **Sistemas de Recomendação**                 | Sugerem conteúdos com base em comportamento | Netflix, Spotify                       |  
+   | **IA Conversacional**                        | Interage por voz ou texto                   | Chatbots, assistentes virtuais         |  
+
+4. **O que é Machine Learning (ML)?**  
+   Subcampo da IA que permite que modelos aprendam com dados sem serem programados explicitamente.  
+
+   **Ciclo de vida básico:**  
+   - Coleta de dados  
+   - Preparação de dados  
+   - Treinamento do modelo  
+   - Avaliação  
+   - Implantação  
+   - Monitoramento  
+
+5. **Tipos de Aprendizado de Máquina**  
+   | Tipo                        | Descrição                                   | Exemplo                              |  
+   | --------------------------- | ------------------------------------------- | ------------------------------------ |  
+   | **Supervisionado**          | Dados rotulados (entrada + saída conhecida) | Classificação de e-mails como spam   |  
+   | **Não supervisionado**      | Dados sem rótulos                           | Agrupamento de clientes (clustering) |  
+   | **Aprendizado por reforço** | Baseado em recompensas                      | Robôs aprendendo a andar             |  
+
+6. **Conceitos importantes**  
+   - **Modelo:** resultado do aprendizado  
+   - **Rótulo (Label):** valor conhecido usado em aprendizado supervisionado  
+   - **Feature (atributo):** característica usada para treinar o modelo  
+   - **Treinamento:** processo de ensinar o modelo  
+   - **Inferência/predição:** uso do modelo treinado para prever resultados  
+
+7. **Ética e Responsabilidade em IA**  
+   - Imparcialidade (fairness)  
+   - Privacidade e segurança  
+   - Explicabilidade (por que o modelo tomou certa decisão?)  
+   - Transparência  
+   - Impacto social  
+
+8. **Serviços de IA no Azure (visão geral)**  
+   | Serviço                    | Função                                                             |  
+   | -------------------------- | ------------------------------------------------------------------ |  
+   | **Azure Machine Learning** | Plataforma completa de ML                                          |  
+   | **Cognitive Services**     | APIs pré-treinadas para visão, linguagem, fala e tomada de decisão |  
+   | **Azure OpenAI Service**   | Modelos avançados como GPT                                         |  
+   | **Bot Framework**          | Criação de chatbots inteligentes                                   |  
