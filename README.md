@@ -899,3 +899,182 @@ Uma vez que VMs precisam receber um IP, criaremos uma rede virtual para abranger
 
 **05** - Após a implementação, a VNet já estará presente em nosso grupo de recursos!  
 
+---
+
+# 🖥️ Computação e Rede no Azure  
+
+A computação do Azure é um serviço sob demanda que fornece recursos de computação como discos, processadores, memória, rede e sistemas operacionais.  
+
+Entre os principais serviços estão:  
+
+## 🖥️ Máquinas Virtuais (Virtual Machines)  
+- Permitem a criação de instâncias de computação configuráveis, facilitando a execução de aplicativos e cargas de trabalho específicas.  
+- É possível fazer o balanceamento de carga para dimensionar os recursos das máquinas virtuais através de **conjuntos de dimensionamento**.  
+
+### 🔄 Conjuntos de Dimensionamento de Máquinas Virtuais (VM Scale Sets)  
+- Permitem criar e gerenciar um grupo de VMs com balanceamento de carga.  
+- Ajustam automaticamente o número de instâncias conforme a demanda.  
+- Oferecem **alta disponibilidade** e **resiliência** ao distribuir VMs entre **zonas de disponibilidade** ou **domínios de falha**.  
+
+### 🛡️ Conjuntos de Disponibilidade (Availability Sets)  
+- Garantem que as VMs sejam distribuídas entre múltiplos **domínios de falha** dentro de um datacenter.  
+- Reduzem o impacto de falhas de hardware.  
+- Melhoram a **confiabilidade do sistema**.  
+
+### ⚠️ Domínios de Falha (Fault Domains)  
+- Grupos de VMs distribuídas entre diferentes racks de hardware dentro de um datacenter.  
+- Se um rack falhar, as VMs em outros racks continuam operando normalmente.  
+
+### 🔄 Domínios de Atualização (Update Domains)  
+- Garantem que as VMs sejam atualizadas em momentos diferentes.  
+- Evitam reinicializações simultâneas durante manutenção.  
+
+---  
+
+## 🌐 Serviços de Aplicativos (App Services)  
+- Plataforma para hospedar e gerenciar aplicações web, APIs e aplicativos móveis **sem se preocupar com infraestrutura subjacente**.  
+
+---  
+
+## 🐳 Instâncias de Contêiner (Container Instances)  
+- Solução prática para executar contêineres no Azure **sem gerenciar servidores ou clusters**.  
+- **Containers são leves, efêmeros e descartáveis** — uma das grandes vantagens deles.  
+
+### ❓ Por que containers são leves e descartáveis?  
+✔ **Compartilham o kernel do sistema operacional**: diferente de VMs, que precisam de um sistema completo.  
+✔ **Isolamento leve**: isolam a aplicação e suas dependências sem a sobrecarga de um SO completo.  
+✔ **Rápida inicialização e parada**: criados, iniciados, parados e deletados em segundos.  
+✔ **Descarte seguro**: apagar um container não afeta o SO nem outros containers.  
+
+### ❓ O que acontece ao apagar um container?  
+🗑️ O container é removido, junto com o estado e dados não persistidos.  
+💾 **Dados importantes devem usar volumes externos (armazenamento persistente)**.  
+📦 A **imagem do container** (template) permanece intacta, a menos que apagada separadamente.  
+
+---  
+
+## 🐳 **Principais Serviços de Containers no Azure**  
+
+| Serviço                          | Descrição                                                                 | Ideal para                                                                 |
+|----------------------------------|---------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| **⚙️ Azure Kubernetes Service (AKS)** | Serviço gerenciado de Kubernetes.                                        | Aplicações complexas, microserviços, produção em escala.                  |
+| **🧪 Azure Container Instances (ACI)** | Execução rápida de containers individuais **sem orquestrador**.          | Tarefas pontuais, jobs batch, APIs simples, testes, automações.           |
+| **🚢 App Service com Docker Support** | Implantação de containers personalizados diretamente em um App Service.  | Web apps em container com menor complexidade que o AKS.                   |
+| **🧱 Azure Container Registry (ACR)** | Registro privado para armazenar imagens Docker.                          | Armazenar e gerenciar imagens em ambientes corporativos.                  |
+| **🧰 Azure Red Hat OpenShift (ARO)**  | Plataforma de containers baseada em OpenShift (Red Hat).                 | Empresas que já adotam o ecossistema Red Hat.                             |
+
+---  
+
+## 🖥️ Área de Trabalho Virtual do Azure (Azure Virtual Desktop)  
+- Serviço para **virtualização de desktops e aplicativos**.  
+- Útil para ambientes corporativos que demandam **acesso remoto**.  
+- **Reduz riscos** (ex: evitar perda de notebooks com colaboradores desligados).  
+
+### 🔄 **Múltiplas Sessões**  
+- Várias pessoas podem usar a mesma máquina virtual simultaneamente.  
+- **Reduz custos** e otimiza recursos.  
+- **Microsoft Intune** suporta gestão de ambientes de várias sessões.  
+
+---  
+
+## 🔥 **Azure Functions**  
+- Serviço **serverless** para executar pequenos trechos de código (“funções”) em resposta a eventos.  
+
+### 🚀 Principais características:  
+✔ **Serverless**: sem gerenciar servidores, SO ou clusters.  
+✔ **Event-driven**: acionado por HTTP requests, mensagens em filas, mudanças em bancos, timers.  
+✔ **Escalabilidade automática**: ajusta instâncias conforme demanda.  
+✔ **Suporta várias linguagens**: C#, JavaScript, Python, Java, PowerShell.  
+
+### 💡 Exemplos de uso:  
+- APIs simples e endpoints RESTful.  
+- Processamento de dados em background.  
+- Automação de workflows.  
+- Tarefas agendadas (ex: limpar bases de dados).  
+
+### 📈 Benefícios:  
+✔ **Custo eficiente**: paga apenas pelo tempo de execução.  
+✔ **Rápida implementação**: foca só na lógica, sem infraestrutura.  
+✔ **Flexível e escalável**: ideal para cargas variáveis.  
+
+---  
+
+## 🏗️ **Lift and Shift**  
+- Migração de aplicações do ambiente local (**on-premises**) para a nuvem **sem mudanças significativas**.  
+
+### 🔄 Como funciona?  
+1️⃣ **Lift (levantar)**: pega a aplicação exatamente como está.  
+2️⃣ **Shift (mover)**: muda para a nuvem (ex: VMs no Azure).  
+
+### ✔ Prós:  
+- Rápido e simples (não exige reescrever código).  
+- Pode ser um primeiro passo para modernização futura.  
+
+### ❌ Contras:  
+- Nem sempre otimizado para a nuvem.  
+- Pode gerar custos maiores ou desempenho subótimo.  
+
+**Exemplo**: Mover um servidor físico para uma VM no Azure sem alterar o sistema.  
+
+---  
+
+## 🌐 **Principais Recursos de Rede do Azure**  
+
+| Serviço                     | Função Principal                                      |
+|----------------------------|------------------------------------------------------|
+| **Virtual Network (VNet)** | Rede privada na nuvem para conectar recursos.         |
+| **Load Balancer**          | Balanceamento de carga básico (TCP/UDP).             |
+| **Application Gateway**    | Balanceamento HTTP/HTTPS + WAF + roteamento avançado.|
+| **VPN Gateway**            | Conexão segura via VPN (IPsec/IKE).                  |
+| **ExpressRoute**           | Conexão privada dedicada (baixa latência, mais cara).|
+| **Azure DNS**              | Gerenciamento de domínios e resolução.               |
+| **Azure Firewall**         | Firewall gerenciado para proteger redes Azure.       |
+| **Azure Front Door**       | CDN + balanceamento global para aplicações web.      |
+| **Azure DDoS Protection**  | Proteção contra ataques DDoS.                        |
+
+---  
+
+## 🛠️ **Criação de Máquinas Virtuais**  
+
+### 01 - Encontre VMs na aba **"Computação"** no painel do Azure.  
+
+### 02 - Escolha entre máquinas **predefinidas** ou **customizadas**:  
+| Tipo                     | Descrição                                                                 |
+|--------------------------|---------------------------------------------------------------------------|
+| **Customizada**          | Escolha SO, tamanho (CPU, RAM), disco, rede. Flexível para cargas específicas. |
+| **Predefinida (imagem)** | Imagens prontas (Windows Server, Ubuntu, SQL Server, etc.). Valores mais altos. |
+
+### 03 - **Aba "Básico"**:  
+- Nome da VM, grupo de recursos (obrigatório), região, zona de disponibilidade.  
+- Imagem do SO ou app.  
+- **Spot do Azure** (uso de capacidade ociosa, não recomendado para produção).  
+- Tamanho da VM (CPU, RAM, disco).  
+- Nome de usuário e senha.  
+- Portas de entrada.  
+
+### 04 - **Aba "Discos"**:  
+- Tamanho e tipo de discos.  
+- **"Excluir com VM"** (evita discos órfãos).  
+- Adicionar/anexar discos novos ou existentes.  
+
+### 05 - **Aba "Rede"**:  
+- Configuração de rede virtual.  
+- **"Excluir IP público e a NIC quando a VM for excluída"** (evita recursos órfãos).  
+
+### 06 - **Aba "Gerenciamento"**:  
+- Atribuições de identidade.  
+- **Desligamento automático** (não há ligamento automático).  
+- Backup (configurável separadamente).  
+
+### 07 - **Aba "Monitoramento"**:  
+- Alertas (notificações para eventos).  
+- Diagnóstico (pode consumir recursos).  
+
+### 08 - **Aba "Avançado"**:  
+- Extensões, aplicativos de VM (opcional).  
+
+### 09 - **Aba "Marcas"**:  
+- Tags para classificar recursos (facilita gestão de custos).  
+
+### 10 - **Aba "Revisar + criar"**:  
+- Confirme as configurações antes de criar a VM.  
