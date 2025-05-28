@@ -2330,3 +2330,147 @@ Você pode combinar os dois estúdios para criar experiências completas:
 | Principal função | Conversão e síntese de fala    | Compreensão e análise de texto        |  
 | Personalização   | Voz personalizada              | Classificação e NER personalizada     |  
 | Casos de uso     | Assistente de voz, transcrição | Chatbots, análise de sentimento, Q&A  |  
+
+---
+
+## 🔍 Soluções de Pesquisa Cognitiva do Azure  
+
+✅ **Enriquecimento e Índice de IA**  
+Refere-se ao uso de inteligência artificial para processar e transformar dados brutos em informações pesquisáveis e úteis, antes ou durante o processo de indexação.  
+
+🔹 **"Permite uma compreensão mais profunda"**  
+O enriquecimento com IA permite entender melhor o conteúdo por trás dos dados. Por exemplo:  
+
+- Extração de entidades (pessoas, locais, datas).  
+- Classificação automática de documentos.  
+- Tradução ou correção linguística para textos em diferentes idiomas.  
+
+No Azure Search, isso é possível através da **Skillset Pipeline**, que aplica **Cognitive Skills** (habilidades cognitivas) ao conteúdo antes da indexação.  
+
+🔹 **"Visão, Processamento de Linguagem Natural, etc."**  
+Isso se refere a múltiplas habilidades que podem ser aplicadas ao conteúdo, como:  
+
+- **Visão computacional**: extrair texto de imagens (OCR), identificar objetos ou cenas.  
+- **Processamento de Linguagem Natural (PLN)**: detectar idioma, analisar sentimento, extrair frases-chave.  
+- **Custom Skills**: lógica personalizada para enriquecer os dados.  
+
+O Azure AI Search permite encadear essas habilidades para enriquecer documentos automaticamente.  
+
+🔹 **"A indexação torna o conteúdo pesquisável"**  
+Depois do enriquecimento, o conteúdo é:  
+
+- Organizado em um índice de busca estruturado.  
+- Consultável com filtros, ranking por relevância e inteligência semântica.  
+
+No Azure Search, esse índice pode ser consultado com:  
+
+- Consulta full-text (como no Google).  
+- Facetas e filtros estruturados (como num e-commerce).  
+- Pesquisa semântica e de perguntas e respostas com integração a OpenAI.  
+
+---
+
+### 🔎 **Azure Search**  
+
+⚙️ **O que é o Azure AI Search?**  
+É um serviço de busca inteligente da Microsoft Azure que permite:  
+
+- Indexar grandes volumes de dados (documentos, PDFs, sites, bancos de dados, etc).  
+- Aplicar inteligência artificial para entender e enriquecer esse conteúdo.  
+- Realizar buscas rápidas e relevantes com linguagem natural.  
+- Integrar com aplicações (web, mobile, bots, etc).  
+
+É como criar um **"Google privado"** para os seus dados.  
+
+⚙️ **Como funciona o Azure AI Search?**  
+O processo é dividido em **3 etapas principais**:  
+
+1. **Importação de dados (data ingestion)**  
+   Você conecta sua fonte de dados:  
+   - Armazenamento no Azure (Blob Storage, Cosmos DB, SQL, etc).  
+   - Arquivos (PDF, DOCX, TXT).  
+   - APIs personalizadas.  
+
+2. **Enriquecimento com IA (AI enrichment)**  
+   Antes de indexar os dados, o serviço pode aplicar um conjunto de **Cognitive Skills**:  
+   - OCR (extrair texto de imagens ou PDFs escaneados).  
+   - Detecção de idioma.  
+   - Extração de frases-chave.  
+   - Análise de sentimento.  
+   - Reconhecimento de entidades (nomes, datas, lugares).  
+   - Tradução.  
+   - Classificação de texto.  
+
+   Essas habilidades são executadas em uma **Skillset**, que é uma espécie de pipeline de enriquecimento.  
+
+3. **Indexação e Pesquisa**  
+   O conteúdo enriquecido é indexado em um **search index**. A partir daí:  
+   - Você pode buscar com texto livre, como no Google.  
+   - Pode aplicar filtros, facetas, ordenações.  
+   - Pode usar pesquisa semântica e até Q&A com GPT-4 (se integrado com OpenAI no Azure).  
+
+🔍 **Exemplo de uso**  
+Imagine que você tenha **10 mil documentos jurídicos em PDF**:  
+- O Azure Search lê os PDFs do Azure Blob Storage.  
+- Usa OCR + NLP para extrair texto e entender entidades (cliente, data, valor).  
+- Cria um índice com os documentos enriquecidos.  
+- Um usuário faz uma busca: **"decisões judiciais sobre rescisão contratual em 2022"**.  
+- O sistema retorna os documentos mais relevantes, com trechos destacados e filtros aplicáveis (ano, tribunal, tipo de ação).  
+
+---
+
+### 🧠 **Busca Cognitiva no Azure**  
+
+🔄 **O que é busca cognitiva?**  
+É um tipo de busca inteligente que vai além da simples correspondência de palavras. A busca cognitiva combina IA com mecanismos de indexação para:  
+- Entender o conteúdo (compreensão semântica).  
+- Extrair conhecimento de documentos.  
+- Enriquecer e transformar dados brutos em informação estruturada.  
+- Responder perguntas complexas com base no contexto.  
+
+No Azure, isso é feito com o serviço **Azure AI Search**, que integra:  
+- **Azure Cognitive Services** (visão, linguagem, tradução, etc).  
+- **Azure OpenAI** (modelos como GPT-4 para perguntas e respostas ou geração de texto).  
+
+🔄 **Como funciona o processo de busca cognitiva?**  
+1. **Ingestão dos dados**  
+   Você conecta fontes como:  
+   - Azure Blob Storage (PDFs, DOCX, imagens, JSON).  
+   - Bancos de dados (Cosmos DB, Azure SQL).  
+   - APIs personalizadas.  
+
+2. **Enriquecimento cognitivo**  
+   É aqui que entra a inteligência artificial. O Azure usa **skillsets** com **Cognitive Skills** para:  
+   - OCR (extrair texto de imagens e PDFs escaneados).  
+   - Extração de entidades (pessoas, locais, datas, números).  
+   - Análise de sentimento.  
+   - Tradução automática.  
+   - Detecção de linguagem.  
+   - Classificação e categorização de texto.  
+
+   Também é possível usar **skills personalizadas**, com seu próprio código (Azure Functions, por exemplo).  
+
+3. **Criação do índice**  
+   O conteúdo enriquecido é transformado em um **índice pesquisável**. Você pode definir:  
+   - Campos pesquisáveis.  
+   - Campos filtráveis/facetáveis.  
+   - Campos com autocompletar.  
+   - Relevância personalizada.  
+
+4. **Pesquisa e consulta**  
+   O usuário pode então buscar usando:  
+   - Consulta full-text simples: **"relatórios financeiros 2022"**.  
+   - Busca semântica: entende o contexto e sinônimos.  
+   - Busca por perguntas (Q&A): **"Qual foi o lucro da empresa no segundo trimestre?"**.  
+   - Filtros avançados: por datas, autor, categoria, etc.  
+   - Integração com GPT: para chatbots com conhecimento dos seus próprios documentos.  
+
+✅ **Benefícios da Busca Cognitiva no Azure**  
+
+| Benefício                             | Descrição                                                                             |  
+| ------------------------------------- | ------------------------------------------------------------------------------------- |  
+| **🚀 IA pronta para uso**             | Não precisa treinar modelos — usa habilidades cognitivas já treinadas pela Microsoft. |  
+| **⚡ Alta performance e escalabilidade** | Ideal para grandes volumes de documentos.                                             |  
+| **🔒 Segurança corporativa**          | Integra com Azure AD, roles e permissões.                                             |  
+| **💡 Busca semântica e Q&A**         | Busca mais parecida com linguagem natural, e integração com GPT.                      |  
+| **🌐 Visão unificada**               | Une dados de diversas fontes em um só ponto de consulta inteligente.                  |  
