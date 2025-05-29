@@ -1,6 +1,5 @@
 # ☁️ Introdução à Computação em Nuvem AZ-900 & Conceitos Básicos de IA do Azure AI-900
 
-
 ## 📚 Índice
 
 -   [AZ 900](#-az-900-é-uma-certificação-de-entrada-em-cloud-importante)
@@ -508,29 +507,31 @@ Define as responsabilidades do provedor (Azure) e do cliente, conforme o tipo de
 ## 📌 Regiões
 
 ### 🌍 O que são Regiões no Azure?
+
 No Microsoft Azure, uma região representa uma área geográfica específica que contém um ou mais datacenters altamente conectados entre si e gerenciados como uma única entidade lógica. Essas regiões são fundamentais para garantir alta disponibilidade, redução de latência e residência dos dados, além de facilitar o atendimento a exigências legais e regulatórias em diferentes países.
 
 ### 📌 Características das Regiões do Azure
-1. **Maior cobertura global**  
-   A Azure possui mais de 60 regiões distribuídas globalmente, mais do que qualquer outro provedor de nuvem (como AWS ou Google Cloud).  
 
-   Essas regiões atendem a mais de 140 países, possibilitando que empresas escolham onde hospedar seus dados e aplicações de acordo com sua localização ou requisitos legais.
+1. **Maior cobertura global**  
+   A Azure possui mais de 60 regiões distribuídas globalmente, mais do que qualquer outro provedor de nuvem (como AWS ou Google Cloud).
+
+    Essas regiões atendem a mais de 140 países, possibilitando que empresas escolham onde hospedar seus dados e aplicações de acordo com sua localização ou requisitos legais.
 
 2. **Datacenters interconectados**  
-   Cada região pode ter múltiplos datacenters (trabalhamos com a ideia de 3), chamados de availability zones (zonas de disponibilidade), que são isolados fisicamente e oferecem alta tolerância a falhas.  
+   Cada região pode ter múltiplos datacenters (trabalhamos com a ideia de 3), chamados de availability zones (zonas de disponibilidade), que são isolados fisicamente e oferecem alta tolerância a falhas.
 
-   Isso garante resiliência: se um datacenter falhar, os serviços podem continuar operando a partir de outro.
+    Isso garante resiliência: se um datacenter falhar, os serviços podem continuar operando a partir de outro.
 
 3. **Baixa latência e desempenho**  
    Hospedar serviços em uma região próxima aos seus usuários finais permite respostas mais rápidas e melhor desempenho, já que os dados não precisam percorrer grandes distâncias.
 
 4. **Residência e conformidade dos dados**  
-   As regiões permitem que você mantenha os dados dentro das fronteiras legais de um país ou continente, importante para leis como:  
+   As regiões permitem que você mantenha os dados dentro das fronteiras legais de um país ou continente, importante para leis como:
 
-   - LGPD (Brasil)  
-   - GDPR (Europa)  
+    - LGPD (Brasil)
+    - GDPR (Europa)
 
-   Isso facilita o cumprimento de normas de conformidade e segurança, exigidas por setores como saúde, finanças e governo.
+    Isso facilita o cumprimento de normas de conformidade e segurança, exigidas por setores como saúde, finanças e governo.
 
 5. **Redundância e recuperação de desastres**  
    Você pode replicar dados entre regiões (geo-replicação), o que permite planos de recuperação de desastres (DR) robustos, mantendo os sistemas disponíveis mesmo em eventos extremos.
@@ -540,13 +541,16 @@ No Microsoft Azure, uma região representa uma área geográfica específica que
 ## 🔁 Pares de Regiões
 
 ### 🔁 O que são Pares de Regiões no Azure?
-Um par de regiões no Azure é uma relação geográfica e lógica entre duas regiões dentro da mesma área geopolítica (no mínimmo 300 milhas de separação entre pares de regiões), como o mesmo país ou continente. Esses pares são definidos pela própria Microsoft e têm como objetivo oferecer resiliência e continuidade dos serviços em cenários de falhas ou desastres.  
 
-**Por exemplo:**  
-- Brazil South é emparelhada com South Central US  
-- East US é emparelhada com West US  
+Um par de regiões no Azure é uma relação geográfica e lógica entre duas regiões dentro da mesma área geopolítica (no mínimmo 300 milhas de separação entre pares de regiões), como o mesmo país ou continente. Esses pares são definidos pela própria Microsoft e têm como objetivo oferecer resiliência e continuidade dos serviços em cenários de falhas ou desastres.
+
+**Por exemplo:**
+
+-   Brazil South é emparelhada com South Central US
+-   East US é emparelhada com West US
 
 ### ✅ Vantagens dos Pares de Regiões
+
 1. **Recuperação de Desastres (Disaster Recovery)**  
    Se uma região sofrer uma falha grave (como um desastre natural ou problema de energia em larga escala), a outra região do par está pronta para assumir o funcionamento dos serviços, pois ela está fisicamente separada, mas ainda próxima o suficiente para permitir replicação automática eficiente (para alguns serviços).
 
@@ -560,68 +564,78 @@ Um par de regiões no Azure é uma relação geográfica e lógica entre duas re
    Alguns serviços do Azure, como o Azure Storage com geo-redundância (GRS), usam automaticamente os pares de regiões para replicar os dados entre datacenters, garantindo redundância geográfica transparente.
 
 ### 🌐 Exemplo Prático
-Suponha que você está hospedando um sistema crítico na região **East US**:  
-- O Azure irá usar a região **West US** (o par oficial) como backup.  
-- Os dados podem ser replicados automaticamente para essa região.  
-- Se a região **East US** cair, você pode ativar os serviços manualmente ou automaticamente em **West US**.  
-- Durante atualizações, uma região é atualizada por vez para evitar interrupções simultâneas.  
+
+Suponha que você está hospedando um sistema crítico na região **East US**:
+
+-   O Azure irá usar a região **West US** (o par oficial) como backup.
+-   Os dados podem ser replicados automaticamente para essa região.
+-   Se a região **East US** cair, você pode ativar os serviços manualmente ou automaticamente em **West US**.
+-   Durante atualizações, uma região é atualizada por vez para evitar interrupções simultâneas.
 
 ### 📌 Considerações
-- Nem todos os serviços estão disponíveis em todas as regiões.  
-- Você pode consultar os pares oficiais de regiões nesta documentação da Microsoft:  
-  👉 [https://learn.microsoft.com/azure/best-practices-availability-paired-regions](https://learn.microsoft.com/azure/best-practices-availability-paired-regions)
+
+-   Nem todos os serviços estão disponíveis em todas as regiões.
+-   Você pode consultar os pares oficiais de regiões nesta documentação da Microsoft:  
+    👉 [https://learn.microsoft.com/azure/best-practices-availability-paired-regions](https://learn.microsoft.com/azure/best-practices-availability-paired-regions)
 
 ---
 
 ## 🛡️ Regiões Soberanas do Azure
 
 ### 🛡️ O que são Regiões Soberanas do Azure?
+
 As regiões soberanas do Azure são instâncias separadas da nuvem Azure pública, projetadas para atender a requisitos específicos de conformidade, segurança e soberania de dados. Elas são isoladas da infraestrutura global padrão do Azure e possuem controles mais rigorosos, muitas vezes exigidos por leis nacionais ou por organizações governamentais.
 
 ### 🔐 Principais Características
-- **Isolamento Total**  
-  As regiões soberanas são fisicamente e logicamente separadas da nuvem pública do Azure.  
-  Nenhuma comunicação direta entre a nuvem pública e as nuvens soberanas.  
 
-- **Soberania dos Dados**  
-  Os dados permanecem dentro da jurisdição legal exigida (como o território nacional).  
-  Ideal para governos e órgãos que não podem permitir que seus dados saiam do país.  
+-   **Isolamento Total**  
+    As regiões soberanas são fisicamente e logicamente separadas da nuvem pública do Azure.  
+    Nenhuma comunicação direta entre a nuvem pública e as nuvens soberanas.
 
-- **Operadas por Parceiros Locais ou pelo Governo**  
-  Algumas dessas regiões são geridas por entidades governamentais ou empresas locais, em parceria com a Microsoft.  
+-   **Soberania dos Dados**  
+    Os dados permanecem dentro da jurisdição legal exigida (como o território nacional).  
+    Ideal para governos e órgãos que não podem permitir que seus dados saiam do país.
 
-- **Conformidade Rigorosa**  
-  Atendem a padrões de segurança como:  
-  - FedRAMP (EUA)  
-  - DoD IL (níveis de segurança do Departamento de Defesa dos EUA)  
-  - ITAR (controle internacional de exportação de armamentos)  
-  - CJIS (para justiça criminal)  
+-   **Operadas por Parceiros Locais ou pelo Governo**  
+    Algumas dessas regiões são geridas por entidades governamentais ou empresas locais, em parceria com a Microsoft.
+
+-   **Conformidade Rigorosa**  
+    Atendem a padrões de segurança como:
+    -   FedRAMP (EUA)
+    -   DoD IL (níveis de segurança do Departamento de Defesa dos EUA)
+    -   ITAR (controle internacional de exportação de armamentos)
+    -   CJIS (para justiça criminal)
 
 ### 🌐 Exemplos de Regiões Soberanas do Azure
-1. **Azure Government (EUA)**  
-   - Projetado para agências do governo dos Estados Unidos.  
-   - Isolado da nuvem pública.  
-   - Atende a altos níveis de conformidade: FedRAMP High, DoD Impact Level 5.  
-   - Localizado exclusivamente nos EUA e operado por funcionários com autorização do governo.  
 
-2. **Azure China**  
-   - Operado pela 21Vianet, uma empresa local chinesa.  
-   - Totalmente separado da Azure global.  
-   - Atende às exigências de soberania de dados impostas pelo governo da China.  
+1. **Azure Government (EUA)**
 
-3. **Azure Germany (descontinuado como soberano exclusivo)**  
-   - Era operado de forma independente por um parceiro alemão (T-Systems).  
-   - Oferecia uma nuvem isolada para atender às rigorosas leis de proteção de dados da Alemanha.  
-   - Foi integrado posteriormente à nova estrutura de Azure Regiões da União Europeia, mantendo foco em conformidade.  
+    - Projetado para agências do governo dos Estados Unidos.
+    - Isolado da nuvem pública.
+    - Atende a altos níveis de conformidade: FedRAMP High, DoD Impact Level 5.
+    - Localizado exclusivamente nos EUA e operado por funcionários com autorização do governo.
+
+2. **Azure China**
+
+    - Operado pela 21Vianet, uma empresa local chinesa.
+    - Totalmente separado da Azure global.
+    - Atende às exigências de soberania de dados impostas pelo governo da China.
+
+3. **Azure Germany (descontinuado como soberano exclusivo)**
+    - Era operado de forma independente por um parceiro alemão (T-Systems).
+    - Oferecia uma nuvem isolada para atender às rigorosas leis de proteção de dados da Alemanha.
+    - Foi integrado posteriormente à nova estrutura de Azure Regiões da União Europeia, mantendo foco em conformidade.
 
 ### ✅ Por que usar uma Região Soberana?
-Essas regiões são ideais quando você precisa de:  
-- Conformidade legal e regulatória rígida  
-- Soberania de dados  
-- Segurança nacional  
-- Ambientes altamente sensíveis (defesa, justiça, inteligência)  
 
-Essas regiões são relacionadas com o **Azure Governamental**, uma instância separada do Azure, fisicamente isolada de implantações que não sejam do governo dos EUA, acessível apenas para pessoal verificado e autorizado.  
+Essas regiões são ideais quando você precisa de:
+
+-   Conformidade legal e regulatória rígida
+-   Soberania de dados
+-   Segurança nacional
+-   Ambientes altamente sensíveis (defesa, justiça, inteligência)
+
+Essas regiões são relacionadas com o **Azure Governamental**, uma instância separada do Azure, fisicamente isolada de implantações que não sejam do governo dos EUA, acessível apenas para pessoal verificado e autorizado.
 
 Há outra instância do Azure separada chamada **Azure China**, a Microsoft atua como o primeiro provedor estrangeiro de serviços de nuvem publica para a China, em conformidade com as regulamentações governamentais.
 
@@ -630,455 +644,537 @@ Há outra instância do Azure separada chamada **Azure China**, a Microsoft atua
 ## 📦 Grupos de Recursos no Azure
 
 ### 📦 O que são Grupos de Recursos no Azure?
+
 Um **Grupo de Recursos** é um container lógico que agrupa vários recursos do Azure (como VMs, bancos de dados, redes, contas de armazenamento etc.) que compartilham um mesmo ciclo de vida, como implantação, atualização e exclusão.
 
 ### 🎯 Objetivos dos Grupos de Recursos
-- **Gerenciamento unificado**: Permite aplicar políticas, monitoramento, controle de acesso (RBAC), e tags a um conjunto inteiro de recursos de uma só vez.  
-- **Organização lógica**: Facilita a organização por projeto, ambiente (produção, teste), cliente ou departamento.  
-- **Automação e infraestrutura como código**: Pode ser usado em conjunto com templates ARM ou Bicep para implantar ambientes completos com um clique.  
 
-### 🔗 1. Agrupamento Unificado 
-Todos os recursos de uma solução (ex.: aplicação web, banco de dados, máquina virtual e armazenamento) são colocados em um único grupo de recursos.  
+-   **Gerenciamento unificado**: Permite aplicar políticas, monitoramento, controle de acesso (RBAC), e tags a um conjunto inteiro de recursos de uma só vez.
+-   **Organização lógica**: Facilita a organização por projeto, ambiente (produção, teste), cliente ou departamento.
+-   **Automação e infraestrutura como código**: Pode ser usado em conjunto com templates ARM ou Bicep para implantar ambientes completos com um clique.
 
-**Vantagens:**  
-- Mais fácil de gerenciar e excluir em conjunto  
-- Simples para ambientes pequenos ou aplicações autônomas  
+### 🔗 1. Agrupamento Unificado
+
+Todos os recursos de uma solução (ex.: aplicação web, banco de dados, máquina virtual e armazenamento) são colocados em um único grupo de recursos.
+
+**Vantagens:**
+
+-   Mais fácil de gerenciar e excluir em conjunto
+-   Simples para ambientes pequenos ou aplicações autônomas
 
 ### 🔄 2. Agrupamento Separado por Função
-Recursos são distribuídos entre diferentes grupos de recursos, como:  
-- Um grupo para web e banco de dados  
-- Um grupo para máquina virtual  
-- Um grupo para armazenamento  
 
-**Vantagens:**  
-- Mais controle e flexibilidade em ambientes complexos  
-- Permite aplicar permissões específicas para diferentes times  
-- Ideal quando os recursos têm ciclos de vida distintos  
+Recursos são distribuídos entre diferentes grupos de recursos, como:
+
+-   Um grupo para web e banco de dados
+-   Um grupo para máquina virtual
+-   Um grupo para armazenamento
+
+**Vantagens:**
+
+-   Mais controle e flexibilidade em ambientes complexos
+-   Permite aplicar permissões específicas para diferentes times
+-   Ideal quando os recursos têm ciclos de vida distintos
 
 ### 🔐 Considerações sobre uso
-- Todos os recursos em um grupo devem estar em uma única região (exceto os que são globais).  
-- O recurso pode ser movido entre grupos (com algumas limitações).  
-- Importante para RBAC (controle de acesso baseado em função): você pode definir quem pode acessar e o que pode fazer dentro de um grupo.  
+
+-   Todos os recursos em um grupo devem estar em uma única região (exceto os que são globais).
+-   O recurso pode ser movido entre grupos (com algumas limitações).
+-   Importante para RBAC (controle de acesso baseado em função): você pode definir quem pode acessar e o que pode fazer dentro de um grupo.
 
 **OS GRUPOS DE RECURSOS NÃO PODEM SER RENOMEADOS!**  
-**TODOS OS RECURSOS DO AZURE TEM QUE ESTAR VINCULADOS A UM GRUPO DE RECURSOS**  
+**TODOS OS RECURSOS DO AZURE TEM QUE ESTAR VINCULADOS A UM GRUPO DE RECURSOS**
 
 ### ✅ Por que isso é obrigatório?
-O Grupo de Recursos é a unidade básica de organização e gerenciamento no Azure. Ele fornece:  
-- 🌐 Localização lógica para os recursos  
-- 🔐 Controle de acesso (RBAC) por grupo  
-- 📊 Monitoramento e métricas agregadas  
-- ⚙️ Gerenciamento de ciclo de vida (você pode deletar todos os recursos de uma vez ao excluir o grupo)  
-- 🧾 Aplicação de políticas e tags  
+
+O Grupo de Recursos é a unidade básica de organização e gerenciamento no Azure. Ele fornece:
+
+-   🌐 Localização lógica para os recursos
+-   🔐 Controle de acesso (RBAC) por grupo
+-   📊 Monitoramento e métricas agregadas
+-   ⚙️ Gerenciamento de ciclo de vida (você pode deletar todos os recursos de uma vez ao excluir o grupo)
+-   🧾 Aplicação de políticas e tags
 
 ---
 
 ## 🔧 Recursos do Azure
 
 ### 🖥️ Máquinas Virtuais (Virtual Machines)
-As VMs do Azure permitem criar e executar sistemas operacionais completos na nuvem. São ideais para:  
-- Hospedar aplicações legadas  
-- Ambientes de desenvolvimento/teste  
-- Migração de servidores físicos (lift and shift)  
-É possível escolher diferentes tamanhos, regiões e sistemas operacionais, além de configurar escalabilidade sob demanda.  
+
+As VMs do Azure permitem criar e executar sistemas operacionais completos na nuvem. São ideais para:
+
+-   Hospedar aplicações legadas
+-   Ambientes de desenvolvimento/teste
+-   Migração de servidores físicos (lift and shift)  
+    É possível escolher diferentes tamanhos, regiões e sistemas operacionais, além de configurar escalabilidade sob demanda.
 
 ### 🗃️ Contas de Armazenamento (Storage Accounts)
-Serviço usado para armazenar blobs (arquivos), filas, tabelas e discos. Suporta:  
-- Armazenamento de backup e dados não estruturados  
-- Alta durabilidade (99.999999999%)  
-- Opções de replicação geográfica (GRS, LRS)  
-É fundamental para aplicações que exigem persistência de dados na nuvem.  
+
+Serviço usado para armazenar blobs (arquivos), filas, tabelas e discos. Suporta:
+
+-   Armazenamento de backup e dados não estruturados
+-   Alta durabilidade (99.999999999%)
+-   Opções de replicação geográfica (GRS, LRS)  
+    É fundamental para aplicações que exigem persistência de dados na nuvem.
 
 ### 🌐 Redes Virtuais (Virtual Networks)
-São como “redes privadas” na nuvem. Permitem:  
-- Conectar recursos do Azure de forma segura  
-- Estabelecer VPNs com redes locais (on-premises)  
-- Controlar tráfego com Network Security Groups (NSG)  
-Elas formam a base da comunicação entre serviços, sendo essenciais para arquiteturas seguras e escaláveis.  
+
+São como “redes privadas” na nuvem. Permitem:
+
+-   Conectar recursos do Azure de forma segura
+-   Estabelecer VPNs com redes locais (on-premises)
+-   Controlar tráfego com Network Security Groups (NSG)  
+    Elas formam a base da comunicação entre serviços, sendo essenciais para arquiteturas seguras e escaláveis.
 
 ### 🌍 Serviços de Aplicativos (App Services)
-Serviço PaaS (Platform as a Service) que facilita a hospedagem de aplicações web, APIs REST e backends móveis sem se preocupar com infraestrutura. Oferece:  
-- Escalabilidade automática  
-- Suporte a várias linguagens (.NET, Node.js, Java, Python)  
-- Integração contínua com GitHub, Azure DevOps  
+
+Serviço PaaS (Platform as a Service) que facilita a hospedagem de aplicações web, APIs REST e backends móveis sem se preocupar com infraestrutura. Oferece:
+
+-   Escalabilidade automática
+-   Suporte a várias linguagens (.NET, Node.js, Java, Python)
+-   Integração contínua com GitHub, Azure DevOps
 
 ### 🛢️ Bancos de Dados SQL (Azure SQL Database)
-Banco de dados relacional gerenciado baseado no SQL Server. Fornece:  
-- Alta disponibilidade integrada  
-- Backup automático  
-- Escalabilidade e performance sob demanda  
-Ideal para aplicações empresariais que necessitam de dados estruturados e transações ACID.  
+
+Banco de dados relacional gerenciado baseado no SQL Server. Fornece:
+
+-   Alta disponibilidade integrada
+-   Backup automático
+-   Escalabilidade e performance sob demanda  
+    Ideal para aplicações empresariais que necessitam de dados estruturados e transações ACID.
 
 ### ⚡ Funções (Azure Functions)
-Serviço serverless para executar pequenos trechos de código em resposta a eventos. Vantagens:  
-- Você paga apenas pelo tempo de execução  
-- Integração com eventos de armazenamento, filas, HTTP, etc.  
-- Redução significativa da complexidade e custo para tarefas automatizadas  
+
+Serviço serverless para executar pequenos trechos de código em resposta a eventos. Vantagens:
+
+-   Você paga apenas pelo tempo de execução
+-   Integração com eventos de armazenamento, filas, HTTP, etc.
+-   Redução significativa da complexidade e custo para tarefas automatizadas
 
 ---
 
 ## 📌 Assinaturas do Azure
 
-- Uma conta pode ter diversas assinaturas (grupos de gerenciamento), mas uma assinatura pode haver apenas uma conta, uma estratégia de refinamento de custos no Azure é criar uma assinatura diferente para cada grupo de trabalho.  
+-   Uma conta pode ter diversas assinaturas (grupos de gerenciamento), mas uma assinatura pode haver apenas uma conta, uma estratégia de refinamento de custos no Azure é criar uma assinatura diferente para cada grupo de trabalho.
 
-- Uma assinatura do Azure fornece acesso autenticado e autorizado às contas do Azure (note que autenticação não é a mesma coisa que autorização).  
+-   Uma assinatura do Azure fornece acesso autenticado e autorizado às contas do Azure (note que autenticação não é a mesma coisa que autorização).
 
-- O limite de cobrança permite que você gere relatórios de cobrança e faturas separadas para cada assinatura, o limite de controle de acesso permite gerenciar e controlar o acesso aos recursos que os usuários podem provisionar com assinaturas especificas  
+-   O limite de cobrança permite que você gere relatórios de cobrança e faturas separadas para cada assinatura, o limite de controle de acesso permite gerenciar e controlar o acesso aos recursos que os usuários podem provisionar com assinaturas especificas
 
 ### 🔹 Hierarquia de Gerenciamento no Azure
-1. **Conta do Azure**: É a identidade principal (usuário ou empresa) usada para acessar e gerenciar os serviços do Azure. Está associada a um e-mail e a um método de pagamento.  
 
-2. **Assinaturas**: São divisões dentro da conta do Azure que separam ambientes ou projetos. Exemplos:  
-   - Assinatura de Desenvolvimento  
-   - Assinatura de Teste  
-   - Assinatura de Produção  
-   Cada assinatura possui recursos próprios, políticas e controle de acesso isolado.  
+1. **Conta do Azure**: É a identidade principal (usuário ou empresa) usada para acessar e gerenciar os serviços do Azure. Está associada a um e-mail e a um método de pagamento.
 
-3. **Conta de Cobrança**: Agrupa os custos de uma ou mais assinaturas para fins de faturamento.  
+2. **Assinaturas**: São divisões dentro da conta do Azure que separam ambientes ou projetos. Exemplos:
 
-4. **Perfil de Cobrança**: Subdivisão da conta de cobrança que gera faturas específicas para diferentes áreas ou departamentos.  
+    - Assinatura de Desenvolvimento
+    - Assinatura de Teste
+    - Assinatura de Produção  
+      Cada assinatura possui recursos próprios, políticas e controle de acesso isolado.
 
-5. **Seção de Fatura**: Subdivisão do perfil de cobrança que organiza o faturamento de assinaturas específicas dentro da mesma fatura.  
+3. **Conta de Cobrança**: Agrupa os custos de uma ou mais assinaturas para fins de faturamento.
+
+4. **Perfil de Cobrança**: Subdivisão da conta de cobrança que gera faturas específicas para diferentes áreas ou departamentos.
+
+5. **Seção de Fatura**: Subdivisão do perfil de cobrança que organiza o faturamento de assinaturas específicas dentro da mesma fatura.
 
 ---
 
 ## 🏢 Grupos de Gerenciamento
 
 ### 🏢 1. Grupos de Gerenciamento
-- Estão no topo da hierarquia.  
-- Usados para aplicar políticas e controle de acesso de forma centralizada.  
-- Podem agrupar várias assinaturas.  
-- As assinaturas herdam as condições aplicadas ao grupo de gerenciamento.  
-- Ideal para grandes organizações com múltiplas áreas, departamentos ou projetos.  
+
+-   Estão no topo da hierarquia.
+-   Usados para aplicar políticas e controle de acesso de forma centralizada.
+-   Podem agrupar várias assinaturas.
+-   As assinaturas herdam as condições aplicadas ao grupo de gerenciamento.
+-   Ideal para grandes organizações com múltiplas áreas, departamentos ou projetos.
 
 ### 📄 2. Assinaturas (Subscriptions)
-- Ficam dentro dos grupos de gerenciamento.  
-- Controlam limites de uso, cobrança e acesso a recursos do Azure.  
-- Cada assinatura pode ter vários grupos de recursos.  
+
+-   Ficam dentro dos grupos de gerenciamento.
+-   Controlam limites de uso, cobrança e acesso a recursos do Azure.
+-   Cada assinatura pode ter vários grupos de recursos.
 
 ### 🗂️ 3. Grupos de Recursos (Resource Groups)
-- Contêm os recursos do Azure (como VMs, bancos de dados, etc.).  
-- Servem para organizar recursos relacionados que compartilham o mesmo ciclo de vida.  
-- Permitem gerenciamento conjunto (por exemplo, exclusão ou aplicação de tags).  
+
+-   Contêm os recursos do Azure (como VMs, bancos de dados, etc.).
+-   Servem para organizar recursos relacionados que compartilham o mesmo ciclo de vida.
+-   Permitem gerenciamento conjunto (por exemplo, exclusão ou aplicação de tags).
 
 ### ⚙️ 4. Recursos (Resources)
-- São os componentes reais usados na nuvem, como:  
-  - Máquinas virtuais (VMs)  
-  - Bancos de dados SQL  
-  - Armazenamento  
-  - Serviços de rede  
-- Esses recursos são criados dentro dos grupos de recursos.  
+
+-   São os componentes reais usados na nuvem, como:
+    -   Máquinas virtuais (VMs)
+    -   Bancos de dados SQL
+    -   Armazenamento
+    -   Serviços de rede
+-   Esses recursos são criados dentro dos grupos de recursos.
 
 ### 📌 Conclusão:
-A hierarquia é:  
-**Grupos de Gerenciamento → Assinaturas → Grupos de Recursos → Recursos**  
 
-Essa estrutura permite controle eficiente, governança, segurança e organização escalável em ambientes corporativos no Azure.  
+A hierarquia é:  
+**Grupos de Gerenciamento → Assinaturas → Grupos de Recursos → Recursos**
+
+Essa estrutura permite controle eficiente, governança, segurança e organização escalável em ambientes corporativos no Azure.
 
 ---
 
 ## 🛠️ Criação de Grupo de Recursos
-*A pasta 'images' contém capturas de tela que visam auxiliar no processo de criação de recursos no Azure!*
 
-**01** - O grupo de recursos pode ser encontrado na aba "Geral" no painel de serviços do Azure  
+_A pasta 'images' contém capturas de tela que visam auxiliar no processo de criação de recursos no Azure!_
 
-**02** - Escolhemos a assinatura que iremos utilizar (empresas costumam ter várias assinaturas), definimos o nome do grupo de recursos e sua região  
+**01** - O grupo de recursos pode ser encontrado na aba "Geral" no painel de serviços do Azure
 
-**03** - Se necessário definimos as marcações do grupo de recursos, isso auxiliará a compreender a fatura, uma vez que a formatação dela possa ser confusa na ausência de informações, as marcações também tem um propósito organizacional  
+**02** - Escolhemos a assinatura que iremos utilizar (empresas costumam ter várias assinaturas), definimos o nome do grupo de recursos e sua região
 
-**04** - Por fim podemos validar e finalmente criar nosso grupo de recursos  
+**03** - Se necessário definimos as marcações do grupo de recursos, isso auxiliará a compreender a fatura, uma vez que a formatação dela possa ser confusa na ausência de informações, as marcações também tem um propósito organizacional
 
-**05** - Nosso grupo de recursos será criado, e já poderemos criar outros recursos como VMs e etc em seu interior  
+**04** - Por fim podemos validar e finalmente criar nosso grupo de recursos
 
-**06** - No interior do grupo de recursos temos acesso a várias abas com incontáveis funcionalidades, vamos resumir brevemente as operações que se encontram no painel esquerdo do portal  
+**05** - Nosso grupo de recursos será criado, e já poderemos criar outros recursos como VMs e etc em seu interior
+
+**06** - No interior do grupo de recursos temos acesso a várias abas com incontáveis funcionalidades, vamos resumir brevemente as operações que se encontram no painel esquerdo do portal
 
 ### 📌 Visão geral:
-Exibe informações gerais sobre o grupo de recursos, como localização, assinaturas associadas, e os recursos contidos nele.  
+
+Exibe informações gerais sobre o grupo de recursos, como localização, assinaturas associadas, e os recursos contidos nele.
 
 ### 📜 Log de atividade:
-Mostra um histórico das ações realizadas no grupo de recursos, útil para auditoria e rastreamento de mudanças.  
+
+Mostra um histórico das ações realizadas no grupo de recursos, útil para auditoria e rastreamento de mudanças.
 
 ### 🔐 IAM (Controle de acesso):
-Gerencia permissões de usuários e grupos no grupo de recursos. Aqui você define quem pode acessar e o que pode fazer (RBAC – Controle de Acesso Baseado em Funções), é ideal sempre dar o menor nível de acesso para os usuários.  
+
+Gerencia permissões de usuários e grupos no grupo de recursos. Aqui você define quem pode acessar e o que pode fazer (RBAC – Controle de Acesso Baseado em Funções), é ideal sempre dar o menor nível de acesso para os usuários.
 
 ### 🏷️ Marcações:
-Permite adicionar pares chave-valor aos recursos, facilitando a organização, categorização e a gestão de custos.  
+
+Permite adicionar pares chave-valor aos recursos, facilitando a organização, categorização e a gestão de custos.
 
 ### 🌐 Visualizador de recursos:
-Apresenta uma visualização hierárquica dos recursos no grupo, mostrando dependências e relações entre eles.  
+
+Apresenta uma visualização hierárquica dos recursos no grupo, mostrando dependências e relações entre eles.
 
 ### ⚠️ Eventos:
-Exibe eventos de diagnóstico e alertas configurados para os recursos do grupo, auxiliando no monitoramento e resposta a incidentes.  
+
+Exibe eventos de diagnóstico e alertas configurados para os recursos do grupo, auxiliando no monitoramento e resposta a incidentes.
 
 ---
 
 ### 🔧 ABA DE CONFIGURAÇÕES:
 
 #### 🚀 Implantações:
-Lista e detalha todas as implantações feitas no grupo de recursos, como templates ARM. Útil para rastrear o histórico e reverter configurações.  
+
+Lista e detalha todas as implantações feitas no grupo de recursos, como templates ARM. Útil para rastrear o histórico e reverter configurações.
 
 #### 🔒 Segurança:
-Exibe recomendações de segurança e o status atual baseado no Microsoft Defender for Cloud. Ajuda a identificar vulnerabilidades nos recursos.  
+
+Exibe recomendações de segurança e o status atual baseado no Microsoft Defender for Cloud. Ajuda a identificar vulnerabilidades nos recursos.
 
 #### 🏗️ Pilhas de implantação:
-Gerencia configurações de infraestrutura como código (IaC) com controle total de ciclo de vida dos recursos criados por uma pilha.  
+
+Gerencia configurações de infraestrutura como código (IaC) com controle total de ciclo de vida dos recursos criados por uma pilha.
 
 #### 📜 Políticas:
-Mostra as políticas do Azure atreladas ao grupo de recursos, como restrições de tipos de recursos ou exigência de marcações.  
+
+Mostra as políticas do Azure atreladas ao grupo de recursos, como restrições de tipos de recursos ou exigência de marcações.
 
 #### 📋 Propriedades:
-Exibe metadados do grupo, como ID, assinatura, região e data de criação.  
+
+Exibe metadados do grupo, como ID, assinatura, região e data de criação.
 
 #### 🔒 Bloqueios:
-Permite adicionar bloqueios de leitura ou exclusão para proteger os recursos contra modificações ou remoções acidentais.  
+
+Permite adicionar bloqueios de leitura ou exclusão para proteger os recursos contra modificações ou remoções acidentais.
 
 ---
 
-### 💰 ABA DE GERENCIAMENTO DE CUSTOS 
+### 💰 ABA DE GERENCIAMENTO DE CUSTOS
 
 #### 📊 Análise de custo:
-Permite visualizar detalhadamente os custos dos recursos utilizados no grupo. Você pode filtrar por período, serviço, região, etc., para entender onde estão sendo gerados os maiores gastos.  
+
+Permite visualizar detalhadamente os custos dos recursos utilizados no grupo. Você pode filtrar por período, serviço, região, etc., para entender onde estão sendo gerados os maiores gastos.
 
 #### 🔔 Alertas de custo (versão prévia):
-Cria alertas automáticos com base em valores de gasto pré-definidos. Ajuda a detectar picos de custo antes que ultrapassem o orçamento.  
+
+Cria alertas automáticos com base em valores de gasto pré-definidos. Ajuda a detectar picos de custo antes que ultrapassem o orçamento.
 
 #### 💸 Orçamentos:
-Define limites de gastos e períodos (mensal, trimestral, etc.). Quando o gasto se aproxima ou ultrapassa o valor definido, você recebe notificações.  
+
+Define limites de gastos e períodos (mensal, trimestral, etc.). Quando o gasto se aproxima ou ultrapassa o valor definido, você recebe notificações.
 
 #### 💡 Recomendações do supervisor:
-Exibe sugestões automatizadas de economia, como redução de tamanho de máquinas virtuais subutilizadas, desligamento de recursos ociosos, entre outras.  
+
+Exibe sugestões automatizadas de economia, como redução de tamanho de máquinas virtuais subutilizadas, desligamento de recursos ociosos, entre outras.
 
 ---
 
 ### 📊 ABA DE MONITORAMENTO
 
 #### 🔍 Insights (versão prévia):
-Visualização centralizada e inteligente do desempenho e integridade dos recursos. Fornece recomendações e gráficos baseados em dados de monitoramento.  
+
+Visualização centralizada e inteligente do desempenho e integridade dos recursos. Fornece recomendações e gráficos baseados em dados de monitoramento.
 
 #### ⚠️ Alertas:
-Permite configurar alertas com base em métricas, logs ou eventos. Por exemplo, enviar um e-mail se o uso de CPU ultrapassar um limite.  
+
+Permite configurar alertas com base em métricas, logs ou eventos. Por exemplo, enviar um e-mail se o uso de CPU ultrapassar um limite.
 
 #### 📈 Métrica:
-Visualiza dados de desempenho em tempo real, como uso de CPU, memória, disco e rede dos recursos. Essencial para análise técnica.  
+
+Visualiza dados de desempenho em tempo real, como uso de CPU, memória, disco e rede dos recursos. Essencial para análise técnica.
 
 #### ⚙️ Configurações de diagnóstico:
-Define quais logs e métricas devem ser coletados e enviados para destinos como Log Analytics, Event Hub ou Armazenamento.  
+
+Define quais logs e métricas devem ser coletados e enviados para destinos como Log Analytics, Event Hub ou Armazenamento.
 
 #### 📜 Logs:
-Acesso ao Azure Monitor Logs, onde você pode usar a linguagem Kusto Query Language (KQL) para consultar eventos e diagnósticos.  
+
+Acesso ao Azure Monitor Logs, onde você pode usar a linguagem Kusto Query Language (KQL) para consultar eventos e diagnósticos.
 
 #### 💡 Recomendações do supervisor:
-Sugestões para melhorar desempenho, segurança e reduzir custos com base na análise dos recursos.  
+
+Sugestões para melhorar desempenho, segurança e reduzir custos com base na análise dos recursos.
 
 #### 📊 Pastas de trabalho:
-Dashboards interativos que permitem combinar métricas, logs e visualizações personalizadas para monitoramento avançado.  
+
+Dashboards interativos que permitem combinar métricas, logs e visualizações personalizadas para monitoramento avançado.
 
 ---
 
-### ⚙️ ABA DE AUTOMAÇÃO 
+### ⚙️ ABA DE AUTOMAÇÃO
 
-O botão **Exportar modelo** permite gerar um modelo ARM (Azure Resource Manager) em formato JSON com a definição de todos os recursos presentes no grupo de recursos atual.  
+O botão **Exportar modelo** permite gerar um modelo ARM (Azure Resource Manager) em formato JSON com a definição de todos os recursos presentes no grupo de recursos atual.
 
-**Para que serve:**  
-- Infraestrutura como código (IaC): você pode reutilizar esse modelo para criar grupos de recursos idênticos em outros ambientes.  
-- Automatização de deploys: integra com pipelines DevOps ou scripts.  
-- Backup de configuração: serve como registro da estrutura dos recursos e suas configurações.  
+**Para que serve:**
 
---- 
-
-## 🌐 Criação de Redes Virtuais (VNets)  
-
-Uma vez que VMs precisam receber um IP, criaremos uma rede virtual para abranger os recursos que criaremos futuramente!  
-
-**01** - As redes virtuais podem ser encontradas na aba 'Base da Rede' no portal da Azure  
-
-**02** - Escolhemos a assinatura e o grupo de recursos (vamos utilizar o que criamos previamente), definimos o nome da rede virtual e sua região  
-
-**03** - Vamos resumir o processo, mas caso seja necessário há como configurar detalhes de segurança, endereçamento IP e rótulos (que vimos nos grupos de recursos)  
-
-**04** - Vamos revisar e criar a VNet  
-
-**05** - Após a implementação, a VNet já estará presente em nosso grupo de recursos!  
+-   Infraestrutura como código (IaC): você pode reutilizar esse modelo para criar grupos de recursos idênticos em outros ambientes.
+-   Automatização de deploys: integra com pipelines DevOps ou scripts.
+-   Backup de configuração: serve como registro da estrutura dos recursos e suas configurações.
 
 ---
 
-# 🖥️ Computação e Rede no Azure  
+## 🌐 Criação de Redes Virtuais (VNets)
 
-A computação do Azure é um serviço sob demanda que fornece recursos de computação como discos, processadores, memória, rede e sistemas operacionais.  
+Uma vez que VMs precisam receber um IP, criaremos uma rede virtual para abranger os recursos que criaremos futuramente!
 
-Entre os principais serviços estão:  
+**01** - As redes virtuais podem ser encontradas na aba 'Base da Rede' no portal da Azure
 
-## 🖥️ Máquinas Virtuais (Virtual Machines)  
-- Permitem a criação de instâncias de computação configuráveis, facilitando a execução de aplicativos e cargas de trabalho específicas.  
-- É possível fazer o balanceamento de carga para dimensionar os recursos das máquinas virtuais através de **conjuntos de dimensionamento**.  
+**02** - Escolhemos a assinatura e o grupo de recursos (vamos utilizar o que criamos previamente), definimos o nome da rede virtual e sua região
 
-### 🔄 Conjuntos de Dimensionamento de Máquinas Virtuais (VM Scale Sets)  
-- Permitem criar e gerenciar um grupo de VMs com balanceamento de carga.  
-- Ajustam automaticamente o número de instâncias conforme a demanda.  
-- Oferecem **alta disponibilidade** e **resiliência** ao distribuir VMs entre **zonas de disponibilidade** ou **domínios de falha**.  
+**03** - Vamos resumir o processo, mas caso seja necessário há como configurar detalhes de segurança, endereçamento IP e rótulos (que vimos nos grupos de recursos)
 
-### 🛡️ Conjuntos de Disponibilidade (Availability Sets)  
-- Garantem que as VMs sejam distribuídas entre múltiplos **domínios de falha** dentro de um datacenter.  
-- Reduzem o impacto de falhas de hardware.  
-- Melhoram a **confiabilidade do sistema**.  
+**04** - Vamos revisar e criar a VNet
 
-### ⚠️ Domínios de Falha (Fault Domains)  
-- Grupos de VMs distribuídas entre diferentes racks de hardware dentro de um datacenter.  
-- Se um rack falhar, as VMs em outros racks continuam operando normalmente.  
+**05** - Após a implementação, a VNet já estará presente em nosso grupo de recursos!
 
-### 🔄 Domínios de Atualização (Update Domains)  
-- Garantem que as VMs sejam atualizadas em momentos diferentes.  
-- Evitam reinicializações simultâneas durante manutenção.  
+---
 
----  
+# 🖥️ Computação e Rede no Azure
 
-## 🌐 Serviços de Aplicativos (App Services)  
-- Plataforma para hospedar e gerenciar aplicações web, APIs e aplicativos móveis **sem se preocupar com infraestrutura subjacente**.  
+A computação do Azure é um serviço sob demanda que fornece recursos de computação como discos, processadores, memória, rede e sistemas operacionais.
 
----  
+Entre os principais serviços estão:
 
-## 🐳 Instâncias de Contêiner (Container Instances)  
-- Solução prática para executar contêineres no Azure **sem gerenciar servidores ou clusters**.  
-- **Containers são leves, efêmeros e descartáveis** — uma das grandes vantagens deles.  
+## 🖥️ Máquinas Virtuais (Virtual Machines)
 
-### ❓ Por que containers são leves e descartáveis?  
+-   Permitem a criação de instâncias de computação configuráveis, facilitando a execução de aplicativos e cargas de trabalho específicas.
+-   É possível fazer o balanceamento de carga para dimensionar os recursos das máquinas virtuais através de **conjuntos de dimensionamento**.
+
+### 🔄 Conjuntos de Dimensionamento de Máquinas Virtuais (VM Scale Sets)
+
+-   Permitem criar e gerenciar um grupo de VMs com balanceamento de carga.
+-   Ajustam automaticamente o número de instâncias conforme a demanda.
+-   Oferecem **alta disponibilidade** e **resiliência** ao distribuir VMs entre **zonas de disponibilidade** ou **domínios de falha**.
+
+### 🛡️ Conjuntos de Disponibilidade (Availability Sets)
+
+-   Garantem que as VMs sejam distribuídas entre múltiplos **domínios de falha** dentro de um datacenter.
+-   Reduzem o impacto de falhas de hardware.
+-   Melhoram a **confiabilidade do sistema**.
+
+### ⚠️ Domínios de Falha (Fault Domains)
+
+-   Grupos de VMs distribuídas entre diferentes racks de hardware dentro de um datacenter.
+-   Se um rack falhar, as VMs em outros racks continuam operando normalmente.
+
+### 🔄 Domínios de Atualização (Update Domains)
+
+-   Garantem que as VMs sejam atualizadas em momentos diferentes.
+-   Evitam reinicializações simultâneas durante manutenção.
+
+---
+
+## 🌐 Serviços de Aplicativos (App Services)
+
+-   Plataforma para hospedar e gerenciar aplicações web, APIs e aplicativos móveis **sem se preocupar com infraestrutura subjacente**.
+
+---
+
+## 🐳 Instâncias de Contêiner (Container Instances)
+
+-   Solução prática para executar contêineres no Azure **sem gerenciar servidores ou clusters**.
+-   **Containers são leves, efêmeros e descartáveis** — uma das grandes vantagens deles.
+
+### ❓ Por que containers são leves e descartáveis?
+
 ✔ **Compartilham o kernel do sistema operacional**: diferente de VMs, que precisam de um sistema completo.  
 ✔ **Isolamento leve**: isolam a aplicação e suas dependências sem a sobrecarga de um SO completo.  
 ✔ **Rápida inicialização e parada**: criados, iniciados, parados e deletados em segundos.  
-✔ **Descarte seguro**: apagar um container não afeta o SO nem outros containers.  
+✔ **Descarte seguro**: apagar um container não afeta o SO nem outros containers.
 
-### ❓ O que acontece ao apagar um container?  
+### ❓ O que acontece ao apagar um container?
+
 🗑️ O container é removido, junto com o estado e dados não persistidos.  
 💾 **Dados importantes devem usar volumes externos (armazenamento persistente)**.  
-📦 A **imagem do container** (template) permanece intacta, a menos que apagada separadamente.  
+📦 A **imagem do container** (template) permanece intacta, a menos que apagada separadamente.
 
----  
+---
 
-## 🐳 **Principais Serviços de Containers no Azure**  
+## 🐳 **Principais Serviços de Containers no Azure**
 
-| Serviço                          | Descrição                                                                 | Ideal para                                                                 |
-|----------------------------------|---------------------------------------------------------------------------|----------------------------------------------------------------------------|
-| **⚙️ Azure Kubernetes Service (AKS)** | Serviço gerenciado de Kubernetes.                                        | Aplicações complexas, microserviços, produção em escala.                  |
-| **🧪 Azure Container Instances (ACI)** | Execução rápida de containers individuais **sem orquestrador**.          | Tarefas pontuais, jobs batch, APIs simples, testes, automações.           |
-| **🚢 App Service com Docker Support** | Implantação de containers personalizados diretamente em um App Service.  | Web apps em container com menor complexidade que o AKS.                   |
-| **🧱 Azure Container Registry (ACR)** | Registro privado para armazenar imagens Docker.                          | Armazenar e gerenciar imagens em ambientes corporativos.                  |
-| **🧰 Azure Red Hat OpenShift (ARO)**  | Plataforma de containers baseada em OpenShift (Red Hat).                 | Empresas que já adotam o ecossistema Red Hat.                             |
+| Serviço                                | Descrição                                                               | Ideal para                                                      |
+| -------------------------------------- | ----------------------------------------------------------------------- | --------------------------------------------------------------- |
+| **⚙️ Azure Kubernetes Service (AKS)**  | Serviço gerenciado de Kubernetes.                                       | Aplicações complexas, microserviços, produção em escala.        |
+| **🧪 Azure Container Instances (ACI)** | Execução rápida de containers individuais **sem orquestrador**.         | Tarefas pontuais, jobs batch, APIs simples, testes, automações. |
+| **🚢 App Service com Docker Support**  | Implantação de containers personalizados diretamente em um App Service. | Web apps em container com menor complexidade que o AKS.         |
+| **🧱 Azure Container Registry (ACR)**  | Registro privado para armazenar imagens Docker.                         | Armazenar e gerenciar imagens em ambientes corporativos.        |
+| **🧰 Azure Red Hat OpenShift (ARO)**   | Plataforma de containers baseada em OpenShift (Red Hat).                | Empresas que já adotam o ecossistema Red Hat.                   |
 
----  
+---
 
-## 🖥️ Área de Trabalho Virtual do Azure (Azure Virtual Desktop)  
-- Serviço para **virtualização de desktops e aplicativos**.  
-- Útil para ambientes corporativos que demandam **acesso remoto**.  
-- **Reduz riscos** (ex: evitar perda de notebooks com colaboradores desligados).  
+## 🖥️ Área de Trabalho Virtual do Azure (Azure Virtual Desktop)
 
-### 🔄 **Múltiplas Sessões**  
-- Várias pessoas podem usar a mesma máquina virtual simultaneamente.  
-- **Reduz custos** e otimiza recursos.  
-- **Microsoft Intune** suporta gestão de ambientes de várias sessões.  
+-   Serviço para **virtualização de desktops e aplicativos**.
+-   Útil para ambientes corporativos que demandam **acesso remoto**.
+-   **Reduz riscos** (ex: evitar perda de notebooks com colaboradores desligados).
 
----  
+### 🔄 **Múltiplas Sessões**
 
-## 🔥 **Azure Functions**  
-- Serviço **serverless** para executar pequenos trechos de código (“funções”) em resposta a eventos.  
+-   Várias pessoas podem usar a mesma máquina virtual simultaneamente.
+-   **Reduz custos** e otimiza recursos.
+-   **Microsoft Intune** suporta gestão de ambientes de várias sessões.
 
-### 🚀 Principais características:  
+---
+
+## 🔥 **Azure Functions**
+
+-   Serviço **serverless** para executar pequenos trechos de código (“funções”) em resposta a eventos.
+
+### 🚀 Principais características:
+
 ✔ **Serverless**: sem gerenciar servidores, SO ou clusters.  
 ✔ **Event-driven**: acionado por HTTP requests, mensagens em filas, mudanças em bancos, timers.  
 ✔ **Escalabilidade automática**: ajusta instâncias conforme demanda.  
-✔ **Suporta várias linguagens**: C#, JavaScript, Python, Java, PowerShell.  
+✔ **Suporta várias linguagens**: C#, JavaScript, Python, Java, PowerShell.
 
-### 💡 Exemplos de uso:  
-- APIs simples e endpoints RESTful.  
-- Processamento de dados em background.  
-- Automação de workflows.  
-- Tarefas agendadas (ex: limpar bases de dados).  
+### 💡 Exemplos de uso:
 
-### 📈 Benefícios:  
+-   APIs simples e endpoints RESTful.
+-   Processamento de dados em background.
+-   Automação de workflows.
+-   Tarefas agendadas (ex: limpar bases de dados).
+
+### 📈 Benefícios:
+
 ✔ **Custo eficiente**: paga apenas pelo tempo de execução.  
 ✔ **Rápida implementação**: foca só na lógica, sem infraestrutura.  
-✔ **Flexível e escalável**: ideal para cargas variáveis.  
+✔ **Flexível e escalável**: ideal para cargas variáveis.
 
----  
+---
 
-## 🏗️ **Lift and Shift**  
-- Migração de aplicações do ambiente local (**on-premises**) para a nuvem **sem mudanças significativas**.  
+## 🏗️ **Lift and Shift**
 
-### 🔄 Como funciona?  
+-   Migração de aplicações do ambiente local (**on-premises**) para a nuvem **sem mudanças significativas**.
+
+### 🔄 Como funciona?
+
 1️⃣ **Lift (levantar)**: pega a aplicação exatamente como está.  
-2️⃣ **Shift (mover)**: muda para a nuvem (ex: VMs no Azure).  
+2️⃣ **Shift (mover)**: muda para a nuvem (ex: VMs no Azure).
 
-### ✔ Prós:  
-- Rápido e simples (não exige reescrever código).  
-- Pode ser um primeiro passo para modernização futura.  
+### ✔ Prós:
 
-### ❌ Contras:  
-- Nem sempre otimizado para a nuvem.  
-- Pode gerar custos maiores ou desempenho subótimo.  
+-   Rápido e simples (não exige reescrever código).
+-   Pode ser um primeiro passo para modernização futura.
 
-**Exemplo**: Mover um servidor físico para uma VM no Azure sem alterar o sistema.  
+### ❌ Contras:
 
----  
+-   Nem sempre otimizado para a nuvem.
+-   Pode gerar custos maiores ou desempenho subótimo.
 
-## 🌐 **Principais Recursos de Rede do Azure**  
+**Exemplo**: Mover um servidor físico para uma VM no Azure sem alterar o sistema.
 
-| Serviço                     | Função Principal                                      |
-|----------------------------|------------------------------------------------------|
+---
+
+## 🌐 **Principais Recursos de Rede do Azure**
+
+| Serviço                    | Função Principal                                      |
+| -------------------------- | ----------------------------------------------------- |
 | **Virtual Network (VNet)** | Rede privada na nuvem para conectar recursos.         |
-| **Load Balancer**          | Balanceamento de carga básico (TCP/UDP).             |
-| **Application Gateway**    | Balanceamento HTTP/HTTPS + WAF + roteamento avançado.|
-| **VPN Gateway**            | Conexão segura via VPN (IPsec/IKE).                  |
-| **ExpressRoute**           | Conexão privada dedicada (baixa latência, mais cara).|
-| **Azure DNS**              | Gerenciamento de domínios e resolução.               |
-| **Azure Firewall**         | Firewall gerenciado para proteger redes Azure.       |
-| **Azure Front Door**       | CDN + balanceamento global para aplicações web.      |
-| **Azure DDoS Protection**  | Proteção contra ataques DDoS.                        |
+| **Load Balancer**          | Balanceamento de carga básico (TCP/UDP).              |
+| **Application Gateway**    | Balanceamento HTTP/HTTPS + WAF + roteamento avançado. |
+| **VPN Gateway**            | Conexão segura via VPN (IPsec/IKE).                   |
+| **ExpressRoute**           | Conexão privada dedicada (baixa latência, mais cara). |
+| **Azure DNS**              | Gerenciamento de domínios e resolução.                |
+| **Azure Firewall**         | Firewall gerenciado para proteger redes Azure.        |
+| **Azure Front Door**       | CDN + balanceamento global para aplicações web.       |
+| **Azure DDoS Protection**  | Proteção contra ataques DDoS.                         |
 
----  
+---
 
-## 🛠️ **Criação de Máquinas Virtuais**  
+## 🛠️ **Criação de Máquinas Virtuais**
 
-### 01 - Encontre VMs na aba **"Computação"** no painel do Azure.  
+### 01 - Encontre VMs na aba **"Computação"** no painel do Azure.
 
-### 02 - Escolha entre máquinas **predefinidas** ou **customizadas**:  
-| Tipo                     | Descrição                                                                 |
-|--------------------------|---------------------------------------------------------------------------|
-| **Customizada**          | Escolha SO, tamanho (CPU, RAM), disco, rede. Flexível para cargas específicas. |
+### 02 - Escolha entre máquinas **predefinidas** ou **customizadas**:
+
+| Tipo                     | Descrição                                                                       |
+| ------------------------ | ------------------------------------------------------------------------------- |
+| **Customizada**          | Escolha SO, tamanho (CPU, RAM), disco, rede. Flexível para cargas específicas.  |
 | **Predefinida (imagem)** | Imagens prontas (Windows Server, Ubuntu, SQL Server, etc.). Valores mais altos. |
 
-### 03 - **Aba "Básico"**:  
-- Nome da VM, grupo de recursos (obrigatório), região, zona de disponibilidade.  
-- Imagem do SO ou app.  
-- **Spot do Azure** (uso de capacidade ociosa, não recomendado para produção).  
-- Tamanho da VM (CPU, RAM, disco).  
-- Nome de usuário e senha.  
-- Portas de entrada.  
+### 03 - **Aba "Básico"**:
 
-### 04 - **Aba "Discos"**:  
-- Tamanho e tipo de discos.  
-- **"Excluir com VM"** (evita discos órfãos).  
-- Adicionar/anexar discos novos ou existentes.  
+-   Nome da VM, grupo de recursos (obrigatório), região, zona de disponibilidade.
+-   Imagem do SO ou app.
+-   **Spot do Azure** (uso de capacidade ociosa, não recomendado para produção).
+-   Tamanho da VM (CPU, RAM, disco).
+-   Nome de usuário e senha.
+-   Portas de entrada.
 
-### 05 - **Aba "Rede"**:  
-- Configuração de rede virtual.  
-- **"Excluir IP público e a NIC quando a VM for excluída"** (evita recursos órfãos).  
+### 04 - **Aba "Discos"**:
 
-### 06 - **Aba "Gerenciamento"**:  
-- Atribuições de identidade.  
-- **Desligamento automático** (não há ligamento automático).  
-- Backup (configurável separadamente).  
+-   Tamanho e tipo de discos.
+-   **"Excluir com VM"** (evita discos órfãos).
+-   Adicionar/anexar discos novos ou existentes.
 
-### 07 - **Aba "Monitoramento"**:  
-- Alertas (notificações para eventos).  
-- Diagnóstico (pode consumir recursos).  
+### 05 - **Aba "Rede"**:
 
-### 08 - **Aba "Avançado"**:  
-- Extensões, aplicativos de VM (opcional).  
+-   Configuração de rede virtual.
+-   **"Excluir IP público e a NIC quando a VM for excluída"** (evita recursos órfãos).
 
-### 09 - **Aba "Marcas"**:  
-- Tags para classificar recursos (facilita gestão de custos).  
+### 06 - **Aba "Gerenciamento"**:
 
-### 10 - **Aba "Revisar + criar"**:  
-- Confirme as configurações antes de criar a VM.  
+-   Atribuições de identidade.
+-   **Desligamento automático** (não há ligamento automático).
+-   Backup (configurável separadamente).
+
+### 07 - **Aba "Monitoramento"**:
+
+-   Alertas (notificações para eventos).
+-   Diagnóstico (pode consumir recursos).
+
+### 08 - **Aba "Avançado"**:
+
+-   Extensões, aplicativos de VM (opcional).
+
+### 09 - **Aba "Marcas"**:
+
+-   Tags para classificar recursos (facilita gestão de custos).
+
+### 10 - **Aba "Revisar + criar"**:
+
+-   Confirme as configurações antes de criar a VM.
 
 ---
 
@@ -1088,8 +1184,7 @@ Entre os principais serviços estão:
 
 🔐 **O que é o Microsoft Entra ID?**
 
-O Microsoft Entra ID é uma solução de gerenciamento de identidade e acesso (IAM) baseada em nuvem da Microsoft. Ele permite que organizações controlem o acesso a aplicativos e recursos, tanto na nuvem quanto locais, por meio de autenticação e autorização centralizadas. Isso inclui serviços como Microsoft 365, Azure, Dynamics 365 e milhares de outros aplicativos SaaS. 
-
+O Microsoft Entra ID é uma solução de gerenciamento de identidade e acesso (IAM) baseada em nuvem da Microsoft. Ele permite que organizações controlem o acesso a aplicativos e recursos, tanto na nuvem quanto locais, por meio de autenticação e autorização centralizadas. Isso inclui serviços como Microsoft 365, Azure, Dynamics 365 e milhares de outros aplicativos SaaS.
 
 🛡️ **Principais Funcionalidades**
 
@@ -1105,7 +1200,6 @@ O Microsoft Entra ID é uma solução de gerenciamento de identidade e acesso (I
 
 **Integração com Diretórios Locais:** Conecta-se ao Active Directory local por meio do Microsoft Entra Connect.
 
-
 🧩 **Planos e Licenciamento**
 
 O Microsoft Entra ID oferece diferentes planos para atender às necessidades das organizações:
@@ -1117,7 +1211,6 @@ O Microsoft Entra ID oferece diferentes planos para atender às necessidades das
 **P2:** Inclui funcionalidades avançadas como PIM e proteção de identidade.
 
 **Governança:** Focado em governança de identidade e acesso, com recursos adicionais de auditoria e conformidade.
-
 
 🌐 **Casos de Uso Comuns**
 
@@ -1132,8 +1225,7 @@ O Microsoft Entra ID oferece diferentes planos para atender às necessidades das
 Ele traz recursos como autenticação, logon único (SSO), gerenciamento de aplicativos, negócios para negócios (B2B) e gerenciamento de dispositivos.
 Isso significa que ele ajuda empresas a garantir que seus funcionários e parceiros possam acessar recursos com segurança, sem precisar de múltiplas senhas e gerenciando tudo de forma centralizada.
 
-
-## Microsoft Entra Domain Services 
+## Microsoft Entra Domain Services
 
 🔐 **O que é o Microsoft Entra Domain Services?**
 
@@ -1141,38 +1233,36 @@ O Microsoft Entra Domain Services (Entra DS) é um serviço gerenciado da Micros
 
 Ele faz parte do portfólio Microsoft Entra, que é o conjunto de soluções de identidade e acesso da Microsoft.
 
-
 🛠️ **Para que serve o Entra Domain Services?**
 
 Ele permite que máquinas virtuais (VMs) e serviços no Azure se autentiquem e façam uso de políticas de domínio, como:
 
-- Autenticação LDAP e Kerberos
-- Políticas de grupo (GPO)
-- Administração baseada em grupos de segurança
-- Integração com aplicações que dependem do LDAP/AD tradicional
+-   Autenticação LDAP e Kerberos
+-   Políticas de grupo (GPO)
+-   Administração baseada em grupos de segurança
+-   Integração com aplicações que dependem do LDAP/AD tradicional
 
 Tudo isso sem que você precise instalar, configurar e manter servidores de Active Directory.
 
-
 ⚙️ **Como funciona na prática?**
 
-- Você cria um domínio gerenciado no Azure, que é automaticamente replicado e gerenciado pela Microsoft.
-- Você conecta suas VMs e recursos Azure a esse domínio para autenticação.
-- Você pode sincronizar identidades do Azure AD para o Entra Domain Services, assim os usuários do Azure AD podem usar as mesmas credenciais.
-- Isso facilita o uso de aplicações legadas e serviços que dependem do AD, mas dentro da infraestrutura cloud do Azure.
-
+-   Você cria um domínio gerenciado no Azure, que é automaticamente replicado e gerenciado pela Microsoft.
+-   Você conecta suas VMs e recursos Azure a esse domínio para autenticação.
+-   Você pode sincronizar identidades do Azure AD para o Entra Domain Services, assim os usuários do Azure AD podem usar as mesmas credenciais.
+-   Isso facilita o uso de aplicações legadas e serviços que dependem do AD, mas dentro da infraestrutura cloud do Azure.
 
 ✅ **Principais benefícios**
 
-- Zero gerenciamento de infraestrutura de domínio: sem servidores para manter, atualizar ou corrigir.
-- Alta disponibilidade e escalabilidade: a Microsoft cuida da resiliência.
-- Integração direta com Azure AD: simplifica o gerenciamento de identidades.
-- Suporte a protocolos tradicionais: LDAP, Kerberos e NTLM.
+-   Zero gerenciamento de infraestrutura de domínio: sem servidores para manter, atualizar ou corrigir.
+-   Alta disponibilidade e escalabilidade: a Microsoft cuida da resiliência.
+-   Integração direta com Azure AD: simplifica o gerenciamento de identidades.
+-   Suporte a protocolos tradicionais: LDAP, Kerberos e NTLM.
 
 🏢 **Casos de uso típicos**
-- Aplicações legadas na nuvem que precisam de autenticação via AD.
-- Cenários híbridos onde você quer estender o domínio para o Azure sem VPNs complicadas.
-- Ambientes onde o cliente quer usar políticas de grupo e controles de acesso baseados em domínio sem a complexidade de gerenciar DCs.
+
+-   Aplicações legadas na nuvem que precisam de autenticação via AD.
+-   Cenários híbridos onde você quer estender o domínio para o Azure sem VPNs complicadas.
+-   Ambientes onde o cliente quer usar políticas de grupo e controles de acesso baseados em domínio sem a complexidade de gerenciar DCs.
 
 ### 🔒 Diferença Entre Autenticação e Autorização
 
@@ -1190,14 +1280,15 @@ No Azure, primeiro você se autentica (via Azure AD, por exemplo), depois o sist
 
 Em vez de só usar uma senha (fator único), o MFA pede pelo menos dois fatores diferentes, que podem ser:
 
-- Algo que você sabe (senha, PIN)
-- Algo que você tem (celular, token, app autenticador)
-- Algo que você é (impressão digital, reconhecimento facial)
+-   Algo que você sabe (senha, PIN)
+-   Algo que você tem (celular, token, app autenticador)
+-   Algo que você é (impressão digital, reconhecimento facial)
 
 **Por que usar MFA no Azure?**
-- Aumenta muito a segurança da conta.
-- Mesmo que a senha seja roubada, o invasor não consegue entrar sem o segundo fator.
-- É padrão em muitos serviços de identidade, incluindo o Azure AD.
+
+-   Aumenta muito a segurança da conta.
+-   Mesmo que a senha seja roubada, o invasor não consegue entrar sem o segundo fator.
+-   É padrão em muitos serviços de identidade, incluindo o Azure AD.
 
 ### 🤝 B2B do Microsoft Entra External ID
 
@@ -1205,10 +1296,9 @@ O Entra External ID é uma solução da Microsoft para gerenciar identidades ext
 
 O B2B (Business-to-Business) do Entra External ID permite que você:
 
-- Convide usuários externos (como parceiros, fornecedores, clientes) para acessar seus apps, dados ou serviços.
-- Esses usuários usam suas próprias credenciais (Azure AD, Microsoft Accounts, Google, etc.) para se autenticar.
-- Você mantém o controle do acesso, definindo permissões e políticas para esses usuários externos.
-
+-   Convide usuários externos (como parceiros, fornecedores, clientes) para acessar seus apps, dados ou serviços.
+-   Esses usuários usam suas próprias credenciais (Azure AD, Microsoft Accounts, Google, etc.) para se autenticar.
+-   Você mantém o controle do acesso, definindo permissões e políticas para esses usuários externos.
 
 ⚙️ **Como funciona na prática?**
 
@@ -1217,24 +1307,23 @@ O B2B (Business-to-Business) do Entra External ID permite que você:
 3. O acesso é controlado pelo seu Azure AD, com políticas de segurança e conformidade.
 4. Você pode monitorar e gerenciar esses usuários sem precisar criar contas internas para cada um.
 
-
 ✅ **Principais benefícios**
 
-- Simplifica o acesso para parceiros sem complicar o gerenciamento de identidades.
-- Mantém o ambiente seguro, com controles e auditorias.
-- Integração fácil com múltiplos provedores de identidade.
-- Escalável para grandes parcerias ou clientes.
+-   Simplifica o acesso para parceiros sem complicar o gerenciamento de identidades.
+-   Mantém o ambiente seguro, com controles e auditorias.
+-   Integração fácil com múltiplos provedores de identidade.
+-   Escalável para grandes parcerias ou clientes.
 
 ### 🚦 Acesso Condicional
 
 O Acesso Condicional é um mecanismo inteligente de controle de acesso que permite aplicar políticas com base em condições específicas, como:
 
-- Quem está tentando acessar
-- De onde (local, IP)
-- De qual dispositivo
-- Qual aplicativo
-- Se passou pela MFA
-- Se o dispositivo está em conformidade
+-   Quem está tentando acessar
+-   De onde (local, IP)
+-   De qual dispositivo
+-   Qual aplicativo
+-   Se passou pela MFA
+-   Se o dispositivo está em conformidade
 
 Ele é dinâmico: em vez de simplesmente permitir ou bloquear acesso, ele avalia o contexto e toma decisões automatizadas.
 
@@ -1244,19 +1333,21 @@ Política: Se um usuário está tentando acessar fora do país e não passou pel
 Outro exemplo: Só permitir acesso ao portal do Azure se o usuário estiver com um dispositivo corporativo e registrado.
 
 🔧 **Ações que o Acesso Condicional pode aplicar**
-- Exigir MFA
-- Exigir dispositivo em conformidade
-- Exigir aplicativo aprovado
-- Bloquear acesso
-- Permitir acesso (com ou sem restrições)
+
+-   Exigir MFA
+-   Exigir dispositivo em conformidade
+-   Exigir aplicativo aprovado
+-   Bloquear acesso
+-   Permitir acesso (com ou sem restrições)
 
 🧠 **Como funciona?**
+
 1. O usuário tenta acessar um recurso (por exemplo, o Microsoft Teams).
 2. O Azure AD avalia a tentativa com base nas políticas de acesso condicional.
 3. Com base nos critérios, ele decide se:
-   - Permite o acesso
-   - Bloqueia
-   - Ou exige uma ação (como autenticação multifator)
+    - Permite o acesso
+    - Bloqueia
+    - Ou exige uma ação (como autenticação multifator)
 
 ⚙️ **Onde configurar?**
 No portal do Azure: Azure Active Directory > Segurança > Acesso Condicional
@@ -1269,6 +1360,7 @@ RBAC (Role-Based Access Control) é uma forma de controlar quem pode fazer o qu�
 Em vez de dar permissões diretamente a cada usuário, você dá permissões a uma função, e depois atribui essa função ao usuário.
 
 🧠 **Como funciona?**
+
 1. Você define "quem" (usuário, grupo, aplicativo)
 2. Atribui uma função (role) — que define as permissões (ex: leitura, gravação, gerenciamento)
 3. Associa isso a um escopo (subscription, resource group ou recurso específico)
@@ -1281,12 +1373,12 @@ Em vez de dar permissões diretamente a cada usuário, você dá permissões a u
 | Equipe DevOps | `Contributor`              | Subscription inteira  | Pode **criar e editar** recursos               |
 | App Web XYZ   | `Storage Blob Data Reader` | Conta de Storage      | Pode **ler blobs** (acesso controlado por app) |
 
-
 📋 **Tipos de funções comuns no Azure**
-- **Owner:** controle total (inclusive delegar permissões)
-- **Contributor:** pode criar e gerenciar recursos, mas não dar permissões
-- **Reader:** só leitura
-- **Funções específicas:** ex: Virtual Machine Contributor, Storage Blob Data Reader, etc.
+
+-   **Owner:** controle total (inclusive delegar permissões)
+-   **Contributor:** pode criar e gerenciar recursos, mas não dar permissões
+-   **Reader:** só leitura
+-   **Funções específicas:** ex: Virtual Machine Contributor, Storage Blob Data Reader, etc.
 
 Você também pode criar funções personalizadas, com permissões sob medida.
 
@@ -1295,8 +1387,9 @@ No portal do Azure:
 Vá até o recurso → Controle de Acesso (IAM) → + Adicionar atribuição de função
 
 🛡 **RBAC x Acesso Condicional**
-- **RBAC** define o que o usuário pode fazer (permissões).
-- **Acesso Condicional** define quando e como o usuário pode acessar (contexto de acesso).
+
+-   **RBAC** define o que o usuário pode fazer (permissões).
+-   **Acesso Condicional** define quando e como o usuário pode acessar (contexto de acesso).
 
 ### 🛡️ Modelo de Confiança Zero
 
@@ -1308,17 +1401,20 @@ O Modelo de Confiança Zero parte do princípio de:
 Ou seja, ninguém ou nenhum dispositivo tem acesso garantido por padrão, mesmo que já esteja "dentro" da rede corporativa.
 
 🔑 **Princípios do Zero Trust**
+
 1. **Verificar explicitamente**
-   - Sempre autenticar e autorizar com base em identidade, localização, status do dispositivo, sensibilidade dos dados e outros sinais contextuais.
-   - Ex: Acesso condicional + MFA + conformidade do dispositivo.
+
+    - Sempre autenticar e autorizar com base em identidade, localização, status do dispositivo, sensibilidade dos dados e outros sinais contextuais.
+    - Ex: Acesso condicional + MFA + conformidade do dispositivo.
 
 2. **Conceder acesso com o menor privilégio necessário**
-   - Usar RBAC (controle baseado em função) e acesso Just-In-Time (JIT) para limitar o que o usuário pode fazer e por quanto tempo.
-   - Ex: Azure Privileged Identity Management (PIM).
+
+    - Usar RBAC (controle baseado em função) e acesso Just-In-Time (JIT) para limitar o que o usuário pode fazer e por quanto tempo.
+    - Ex: Azure Privileged Identity Management (PIM).
 
 3. **Assumir violação**
-   - Monitorar continuamente, registrar atividades e estar preparado para resposta rápida.
-   - Ex: Microsoft Defender, Microsoft Sentinel, auditorias de acesso.
+    - Monitorar continuamente, registrar atividades e estar preparado para resposta rápida.
+    - Ex: Microsoft Defender, Microsoft Sentinel, auditorias de acesso.
 
 🧱 **Componentes em um ambiente Zero Trust (na Microsoft)**
 
@@ -1332,14 +1428,16 @@ Ou seja, ninguém ou nenhum dispositivo tem acesso garantido por padrão, mesmo 
 | **Rede**           | Azure Firewall, Private Link, VPN, Segmentação |
 
 ✅ **Benefícios do Zero Trust**
-- Redução do risco de ataques de ransomware, phishing e acesso indevido.
-- Melhor visibilidade e controle.
-- Adaptação à força de trabalho híbrida/remota.
-- Conformidade com normas como LGPD, ISO, NIST, etc.
+
+-   Redução do risco de ataques de ransomware, phishing e acesso indevido.
+-   Melhor visibilidade e controle.
+-   Adaptação à força de trabalho híbrida/remota.
+-   Conformidade com normas como LGPD, ISO, NIST, etc.
 
 🧭 **Resumo prático**
-- Antes: usuário dentro da rede = confiável
-- Agora (Zero Trust): usuário precisa provar constantemente que é confiável, mesmo dentro da rede
+
+-   Antes: usuário dentro da rede = confiável
+-   Agora (Zero Trust): usuário precisa provar constantemente que é confiável, mesmo dentro da rede
 
 ### 🛡️ Microsoft Defender for Cloud
 
@@ -1347,16 +1445,18 @@ Ou seja, ninguém ou nenhum dispositivo tem acesso garantido por padrão, mesmo 
 O Microsoft Defender for Cloud é uma plataforma de proteção de carga de trabalho na nuvem (CWPP) + Postura de segurança (CSPM).
 
 Ele ajuda você a:
-- Avaliar e melhorar a segurança do seu ambiente (Azure, AWS, GCP, híbrido)
-- Detectar ameaças em tempo real
-- Proteger recursos como VMs, bancos de dados, storage, containers, etc.
+
+-   Avaliar e melhorar a segurança do seu ambiente (Azure, AWS, GCP, híbrido)
+-   Detectar ameaças em tempo real
+-   Proteger recursos como VMs, bancos de dados, storage, containers, etc.
 
 🧩 **Componentes principais**
 
 🔍 **Secure Score (CSPM)**
-- Avalia sua postura de segurança e dá recomendações (ex: ativar MFA, criptografar discos).
-- Pontuação baseada em conformidade com boas práticas.
-- Ajuda a priorizar ações de segurança.
+
+-   Avalia sua postura de segurança e dá recomendações (ex: ativar MFA, criptografar discos).
+-   Pontuação baseada em conformidade com boas práticas.
+-   Ajuda a priorizar ações de segurança.
 
 🛡 **Proteção ativa (Defender Plans – CWPP)**
 Planos específicos que protegem cargas de trabalho diferentes, como:
@@ -1372,10 +1472,11 @@ Planos específicos que protegem cargas de trabalho diferentes, como:
 | Defender for ARM          | Atividades suspeitas no plano de controle do Azure     |
 
 🔐 **Funcionalidades adicionais**
-- Análise de conformidade regulatória (como ISO 27001, NIST, LGPD)
-- Integração com SIEM/SOAR (ex: Microsoft Sentinel)
-- Alertas de segurança e automação de resposta
-- Workbooks e painéis personalizáveis
+
+-   Análise de conformidade regulatória (como ISO 27001, NIST, LGPD)
+-   Integração com SIEM/SOAR (ex: Microsoft Sentinel)
+-   Alertas de segurança e automação de resposta
+-   Workbooks e painéis personalizáveis
 
 🌍 **Multicloud e Híbrido**
 Você pode proteger recursos em outras nuvens (AWS, GCP) e on-premises, usando o Azure Arc.
@@ -1404,65 +1505,68 @@ Os planos Defender (proteção ativa) são pagos por recurso protegido (ex: por 
 ## Conceitos Fundamentais de IA 🤖
 
 1. **O que é Inteligência Artificial (IA)?**  
-   Capacidade de uma máquina imitar funções humanas como raciocínio, aprendizado, percepção e tomada de decisão.  
+   Capacidade de uma máquina imitar funções humanas como raciocínio, aprendizado, percepção e tomada de decisão.
 
-   **Objetivo:** permitir que sistemas executem tarefas inteligentes com pouca ou nenhuma intervenção humana.  
+    **Objetivo:** permitir que sistemas executem tarefas inteligentes com pouca ou nenhuma intervenção humana.
 
 2. **Principais tipos de IA**  
-   | Tipo de IA                            | Descrição                                                                                  | Exemplo                                                |  
+   | Tipo de IA | Descrição | Exemplo |  
    | ------------------------------------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------ |  
-   | **IA fraca (Narrow AI)**              | Focada em tarefas específicas                                                              | Assistentes virtuais (Cortana, Siri)                   |  
-   | **IA forte (General AI)**             | Teoricamente, executa qualquer tarefa humana                                               | Ainda em pesquisa                                      |  
-   | **IA simbólica vs. baseada em dados** | IA tradicional baseada em regras (simbólica) vs. IA moderna baseada em aprendizado (dados) | Diagnóstico médico baseado em regras vs. modelos de ML |  
+   | **IA fraca (Narrow AI)** | Focada em tarefas específicas | Assistentes virtuais (Cortana, Siri) |  
+   | **IA forte (General AI)** | Teoricamente, executa qualquer tarefa humana | Ainda em pesquisa |  
+   | **IA simbólica vs. baseada em dados** | IA tradicional baseada em regras (simbólica) vs. IA moderna baseada em aprendizado (dados) | Diagnóstico médico baseado em regras vs. modelos de ML |
 
 3. **Áreas da IA**  
-   | Área                                         | O que faz                                   | Exemplo                                |  
+   | Área | O que faz | Exemplo |  
    | -------------------------------------------- | ------------------------------------------- | -------------------------------------- |  
-   | **Machine Learning (ML)**                    | Ensina a máquina a aprender com dados       | Previsão de vendas, análise de crédito |  
-   | **Visão Computacional (CV)**                 | Interpreta imagens e vídeos                 | Reconhecimento facial, OCR             |  
-   | **Processamento de Linguagem Natural (NLP)** | Entende e gera linguagem humana             | Chatbots, tradução automática          |  
-   | **Sistemas de Recomendação**                 | Sugerem conteúdos com base em comportamento | Netflix, Spotify                       |  
-   | **IA Conversacional**                        | Interage por voz ou texto                   | Chatbots, assistentes virtuais         |  
+   | **Machine Learning (ML)** | Ensina a máquina a aprender com dados | Previsão de vendas, análise de crédito |  
+   | **Visão Computacional (CV)** | Interpreta imagens e vídeos | Reconhecimento facial, OCR |  
+   | **Processamento de Linguagem Natural (NLP)** | Entende e gera linguagem humana | Chatbots, tradução automática |  
+   | **Sistemas de Recomendação** | Sugerem conteúdos com base em comportamento | Netflix, Spotify |  
+   | **IA Conversacional** | Interage por voz ou texto | Chatbots, assistentes virtuais |
 
 4. **O que é Machine Learning (ML)?**  
    Subcampo da IA que permite que modelos aprendam com dados sem serem programados explicitamente, modelos preditivos baseados em dados e estatísticas
 
-   **Ciclo de vida básico:**  
-   - Coleta de dados  
-   - Preparação de dados  
-   - Treinamento do modelo  
-   - Avaliação  
-   - Implantação  
-   - Monitoramento  
+    **Ciclo de vida básico:**
+
+    - Coleta de dados
+    - Preparação de dados
+    - Treinamento do modelo
+    - Avaliação
+    - Implantação
+    - Monitoramento
 
 5. **Tipos de Aprendizado de Máquina**  
-   | Tipo                        | Descrição                                   | Exemplo                              |  
+   | Tipo | Descrição | Exemplo |  
    | --------------------------- | ------------------------------------------- | ------------------------------------ |  
-   | **Supervisionado**          | Dados rotulados (entrada + saída conhecida) | Classificação de e-mails como spam   |  
-   | **Não supervisionado**      | Dados sem rótulos                           | Agrupamento de clientes (clustering) |  
-   | **Aprendizado por reforço** | Baseado em recompensas                      | Robôs aprendendo a andar             |  
+   | **Supervisionado** | Dados rotulados (entrada + saída conhecida) | Classificação de e-mails como spam |  
+   | **Não supervisionado** | Dados sem rótulos | Agrupamento de clientes (clustering) |  
+   | **Aprendizado por reforço** | Baseado em recompensas | Robôs aprendendo a andar |
 
-6. **Conceitos importantes**  
-   - **Modelo:** resultado do aprendizado  
-   - **Rótulo (Label):** valor conhecido usado em aprendizado supervisionado  
-   - **Feature (atributo):** característica usada para treinar o modelo  
-   - **Treinamento:** processo de ensinar o modelo  
-   - **Inferência/predição:** uso do modelo treinado para prever resultados  
+6. **Conceitos importantes**
 
-7. **Ética e Responsabilidade em IA**  
-   - Imparcialidade (fairness)  
-   - Privacidade e segurança  
-   - Explicabilidade (por que o modelo tomou certa decisão?)  
-   - Transparência  
-   - Impacto social  
+    - **Modelo:** resultado do aprendizado
+    - **Rótulo (Label):** valor conhecido usado em aprendizado supervisionado
+    - **Feature (atributo):** característica usada para treinar o modelo
+    - **Treinamento:** processo de ensinar o modelo
+    - **Inferência/predição:** uso do modelo treinado para prever resultados
+
+7. **Ética e Responsabilidade em IA**
+
+    - Imparcialidade (fairness)
+    - Privacidade e segurança
+    - Explicabilidade (por que o modelo tomou certa decisão?)
+    - Transparência
+    - Impacto social
 
 8. **Serviços de IA no Azure (visão geral)**  
-   | Serviço                    | Função                                                             |  
+   | Serviço | Função |  
    | -------------------------- | ------------------------------------------------------------------ |  
-   | **Azure Machine Learning** | Plataforma completa de ML                                          |  
-   | **Cognitive Services**     | APIs pré-treinadas para visão, linguagem, fala e tomada de decisão |  
-   | **Azure OpenAI Service**   | Modelos avançados como GPT                                         |  
-   | **Bot Framework**          | Criação de chatbots inteligentes                                   |  
+   | **Azure Machine Learning** | Plataforma completa de ML |  
+   | **Cognitive Services** | APIs pré-treinadas para visão, linguagem, fala e tomada de decisão |  
+   | **Azure OpenAI Service** | Modelos avançados como GPT |  
+   | **Bot Framework** | Criação de chatbots inteligentes |
 
 ### 🧾 Inteligência de Documentos
 
@@ -1492,12 +1596,12 @@ Estrutura de documentos (campos, tabelas, layout)
 É o serviço da Microsoft criado para esse tipo de tarefa. Ele:
 
 📌 **Funcionalidades principais:**
-| Função                          | O que faz                                                     |
+| Função | O que faz |
 | ------------------------------- | ------------------------------------------------------------- |
-| **Extração de texto com OCR**   | Lê texto de PDFs e imagens                                    |
-| **Extração de layout**          | Detecta tabelas, colunas, posições                            |
-| **Modelos pré-treinados**       | Para faturas, recibos, identidades, contratos, etc.           |
-| **Modelos personalizados**      | Você treina um modelo com seus próprios documentos            |
+| **Extração de texto com OCR** | Lê texto de PDFs e imagens |
+| **Extração de layout** | Detecta tabelas, colunas, posições |
+| **Modelos pré-treinados** | Para faturas, recibos, identidades, contratos, etc. |
+| **Modelos personalizados** | Você treina um modelo com seus próprios documentos |
 | **Classificação de documentos** | Identifica o tipo de documento (ex: nota fiscal vs. contrato) |
 
 ⚙️ **Exemplo prático**
@@ -1531,7 +1635,6 @@ Jurídico (extração de cláusulas de contratos)
 
 Financeiro (processamento de extratos, recibos)
 
-
 ### 🧠 Mineração de Conhecimento
 
 🧠 **O que é Mineração de Conhecimentos no Azure?**
@@ -1541,17 +1644,17 @@ No Azure, Mineração de Conhecimentos (Knowledge Mining) é o uso combinado de 
 A mineração de conhecimento é viabilizada principalmente por três serviços principais:
 
 1. **Azure AI Search**
-Um serviço de busca inteligente.
+   Um serviço de busca inteligente.
 
 Indexa documentos e permite pesquisa com linguagem natural.
 
 2. **Azure AI Vision + Document Intelligence**
-Faz OCR (leitura de texto em imagens/PDFs).
+   Faz OCR (leitura de texto em imagens/PDFs).
 
 Extrai texto, tabelas, formulários, entidades (como nomes, datas, valores).
 
 3. **Cognitive Skills**
-APIs de IA que enriquecem os dados durante a indexação:
+   APIs de IA que enriquecem os dados durante a indexação:
 
 Detecção de idioma
 
@@ -1588,7 +1691,6 @@ Dificuldade em localizar informações críticas
 
 Desejo de automatizar análise de documentos
 
-
 ### 🤖 IA Generativa
 
 🤖 **O que é IA Generativa?**
@@ -1604,22 +1706,22 @@ No Azure, a IA Generativa é oferecida principalmente por meio do:
 Permite usar IA generativa de forma segura, escalável e corporativa.
 
 📌 **Funcionalidades principais com Azure OpenAI:**
-| Função                          | O que faz                                    |
+| Função | O que faz |
 | ------------------------------- | -------------------------------------------- |
-| **Chatbot com GPT**             | Cria assistentes de conversação              |
-| **Geração de texto**            | Completa, reescreve, resume, traduz          |
-| **Análise de linguagem**        | Classificação, extração, insights            |
-| **Geração de código**           | Gera scripts, funções, ajuda na programação  |
+| **Chatbot com GPT** | Cria assistentes de conversação |
+| **Geração de texto** | Completa, reescreve, resume, traduz |
+| **Análise de linguagem** | Classificação, extração, insights |
+| **Geração de código** | Gera scripts, funções, ajuda na programação |
 | **Criação de imagens (DALL·E)** | Gera imagens a partir de descrições em texto |
 
 🧩 **Como a IA Generativa se encaixa no Azure?**
-| Serviço                    | Papel                                                                                    |
+| Serviço | Papel |
 | -------------------------- | ---------------------------------------------------------------------------------------- |
-| **Azure OpenAI**           | Fornece os modelos (GPT, Codex, DALL·E)                                                  |
-| **Azure AI Studio**        | Ambiente visual para construir soluções com IA generativa                                |
+| **Azure OpenAI** | Fornece os modelos (GPT, Codex, DALL·E) |
+| **Azure AI Studio** | Ambiente visual para construir soluções com IA generativa |
 | **Azure Cognitive Search** | Pode ser combinado com IA generativa para fazer **RAG** (Retrieval-Augmented Generation) |
-| **Azure Machine Learning** | Treinamento, tuning e monitoramento de modelos de IA generativa personalizados           |
-| **Azure Content Safety**   | Avalia e modera o conteúdo gerado (toxicidade, violência, etc.)                          |
+| **Azure Machine Learning** | Treinamento, tuning e monitoramento de modelos de IA generativa personalizados |
+| **Azure Content Safety** | Avalia e modera o conteúdo gerado (toxicidade, violência, etc.) |
 
 ✅ **Exemplos de uso no Azure**
 Copilot interno: Ajuda funcionários a buscar informações internas com linguagem natural
@@ -1649,7 +1751,6 @@ Criar experiências conversacionais
 Transformar texto, código ou imagens com alta qualidade
 
 Ter controle seguro e governado da IA em ambientes corporativos
-
 
 ### ⚖️ Imparcialidade
 
@@ -1696,13 +1797,12 @@ Faz parte do esforço da Microsoft de promover IA confiável e responsável.
 A Microsoft aplica princípios de IA Responsável em todos os seus serviços de IA. No Azure, isso se reflete em:
 
 🛠️ **Ferramentas e práticas:**
-| Recurso                                                 | Função                                                  |
+| Recurso | Função |
 | ------------------------------------------------------- | ------------------------------------------------------- |
-| **Azure Machine Learning – Responsible AI dashboard**   | Permite visualizar, medir e mitigar vieses no modelo    |
-| **Fairlearn toolkit (open-source)**                     | Usado para detectar e corrigir desigualdade em modelos  |
-| **Model interpretability tools**                        | Ajudam a entender por que o modelo toma certas decisões |
-| **Avaliação de métricas de justiça (fairness metrics)** | Permite comparar o desempenho entre grupos diferentes   |
-
+| **Azure Machine Learning – Responsible AI dashboard** | Permite visualizar, medir e mitigar vieses no modelo |
+| **Fairlearn toolkit (open-source)** | Usado para detectar e corrigir desigualdade em modelos |
+| **Model interpretability tools** | Ajudam a entender por que o modelo toma certas decisões |
+| **Avaliação de métricas de justiça (fairness metrics)** | Permite comparar o desempenho entre grupos diferentes |
 
 ### 🔒 Confiabilidade e Segurança
 
@@ -1723,7 +1823,6 @@ Confiabilidade garante que a IA funcione corretamente e consistentemente.
 Segurança protege os dados, modelos e acesso ao sistema de IA.
 
 Azure incorpora esses princípios para oferecer soluções de IA seguras e confiáveis.
-
 
 ### 🔐 Privacidade e Segurança
 
@@ -1757,7 +1856,6 @@ Azure oferece recursos integrados para proteger dados e sistemas.
 
 Garantir a privacidade ajuda a manter a confiança dos usuários e cumprir a legislação.
 
-
 ### 🤝 Inclusão e Transparência
 
 🤝 **Inclusão em IA**
@@ -1776,7 +1874,6 @@ A inclusão garante que a IA beneficie toda a sociedade.
 A transparência cria confiança e responsabilidade no uso da IA.
 
 Juntas, elas ajudam a construir sistemas de IA éticos e responsáveis.
-
 
 ### ⚖️ Responsabilidade
 
@@ -1804,673 +1901,1028 @@ Azure fornece recursos para apoiar essa responsabilidade.
 
 ---
 
-## 🤖 Processamento de Linguagem Natural (PLN)  
+## 🤖 Processamento de Linguagem Natural (PLN)
 
-### ❓ O que é Processamento de Linguagem Natural (PLN)?  
-Processamento de Linguagem Natural (PLN) é uma área da inteligência artificial que permite que computadores entendam, interpretem, gerem e respondam à linguagem humana — seja escrita ou falada.  
+### ❓ O que é Processamento de Linguagem Natural (PLN)?
 
-### 🎯 Para que serve?  
-O PLN ajuda máquinas a lidar com textos e falas do jeito que as pessoas usam no dia a dia, possibilitando coisas como:  
+Processamento de Linguagem Natural (PLN) é uma área da inteligência artificial que permite que computadores entendam, interpretem, gerem e respondam à linguagem humana — seja escrita ou falada.
 
-- Traduzir idiomas automaticamente  
-- Entender perguntas feitas em linguagem natural  
-- Resumir textos longos  
-- Analisar sentimentos em avaliações ou redes sociais  
-- Reconhecer comandos de voz  
+### 🎯 Para que serve?
 
-### ⚙️ Como funciona?  
-Ele combina várias técnicas, como:  
+O PLN ajuda máquinas a lidar com textos e falas do jeito que as pessoas usam no dia a dia, possibilitando coisas como:
 
-- Análise gramatical para entender estrutura das frases  
-- Extração de significado para captar o sentido das palavras e frases  
-- Modelos estatísticos e de aprendizado de máquina para interpretar contextos  
-- Geração de texto para responder ou criar conteúdos coerentes  
+-   Traduzir idiomas automaticamente
+-   Entender perguntas feitas em linguagem natural
+-   Resumir textos longos
+-   Analisar sentimentos em avaliações ou redes sociais
+-   Reconhecer comandos de voz
 
----
+### ⚙️ Como funciona?
 
-## ☁️ Processamento de Linguagem Natural (PLN) no Azure  
-No Azure, o PLN é oferecido principalmente por meio do **Azure Cognitive Services - Language**. Esse serviço permite que aplicações entendam e processem texto em linguagem natural. Ele inclui funcionalidades como:  
+Ele combina várias técnicas, como:
 
-- Análise de sentimento  
-- Reconhecimento de entidades (pessoas, lugares, datas)  
-- Extração de frases-chave  
-- Tradução automática  
-- Resposta a perguntas (QnA)  
-
-Essas capacidades ajudam a transformar textos e conversas em dados estruturados e úteis.  
+-   Análise gramatical para entender estrutura das frases
+-   Extração de significado para captar o sentido das palavras e frases
+-   Modelos estatísticos e de aprendizado de máquina para interpretar contextos
+-   Geração de texto para responder ou criar conteúdos coerentes
 
 ---
 
-## 💬 **IA Conversacional no Azure**  
-A IA Conversacional é a aplicação prática do PLN para criar interfaces que interagem com humanos por meio de linguagem natural — como chatbots e assistentes virtuais.  
+## ☁️ Processamento de Linguagem Natural (PLN) no Azure
 
-No Azure, essa área é atendida pelo **Azure Bot Service** e pelo **Azure Cognitive Services - Language**, além da integração com o **Azure OpenAI Service** para capacidades avançadas, como o uso de modelos GPT.  
+No Azure, o PLN é oferecido principalmente por meio do **Azure Cognitive Services - Language**. Esse serviço permite que aplicações entendam e processem texto em linguagem natural. Ele inclui funcionalidades como:
 
-Com essas ferramentas, você pode criar:  
+-   Análise de sentimento
+-   Reconhecimento de entidades (pessoas, lugares, datas)
+-   Extração de frases-chave
+-   Tradução automática
+-   Resposta a perguntas (QnA)
 
-- Chatbots para atendimento ao cliente  
-- Assistentes virtuais internos  
-- Interfaces conversacionais que entendem perguntas complexas e respondem de forma natural  
-- Suporte automatizado para tarefas específicas  
-
----
-
-### 📌 Em resumo  
-- **PLN no Azure** processa e entende textos e linguagem natural.  
-- **IA Conversacional** usa PLN para criar diálogos naturais entre humanos e máquinas.  
-- **Azure** oferece serviços integrados para construir, treinar e implantar essas soluções de forma escalável e segura.  
+Essas capacidades ajudam a transformar textos e conversas em dados estruturados e úteis.
 
 ---
 
-## 🔍 **Reconhecimento de Entidade Nomeada**  
+## 💬 **IA Conversacional no Azure**
+
+A IA Conversacional é a aplicação prática do PLN para criar interfaces que interagem com humanos por meio de linguagem natural — como chatbots e assistentes virtuais.
+
+No Azure, essa área é atendida pelo **Azure Bot Service** e pelo **Azure Cognitive Services - Language**, além da integração com o **Azure OpenAI Service** para capacidades avançadas, como o uso de modelos GPT.
+
+Com essas ferramentas, você pode criar:
+
+-   Chatbots para atendimento ao cliente
+-   Assistentes virtuais internos
+-   Interfaces conversacionais que entendem perguntas complexas e respondem de forma natural
+-   Suporte automatizado para tarefas específicas
+
+---
+
+### 📌 Em resumo
+
+-   **PLN no Azure** processa e entende textos e linguagem natural.
+-   **IA Conversacional** usa PLN para criar diálogos naturais entre humanos e máquinas.
+-   **Azure** oferece serviços integrados para construir, treinar e implantar essas soluções de forma escalável e segura.
+
+---
+
+## 🔍 **Reconhecimento de Entidade Nomeada**
 
 Imagine que uma imagem mostra uma frase:  
-*"I had a wonderful trip to Seattle last week."*  
+_"I had a wonderful trip to Seattle last week."_
 
-O Azure usa PLN para analisar esse texto e identificar entidades nomeadas, que são partes importantes da frase com significado específico. Esse processo é chamado de **NER — Named Entity Recognition**, ou em português, **Reconhecimento de Entidade Nomeada**.  
+O Azure usa PLN para analisar esse texto e identificar entidades nomeadas, que são partes importantes da frase com significado específico. Esse processo é chamado de **NER — Named Entity Recognition**, ou em português, **Reconhecimento de Entidade Nomeada**.
 
-### 🧩 Entidades identificadas  
-O Azure extrai e classifica três tipos de entidade no texto:  
+### 🧩 Entidades identificadas
 
-1. **Event (Evento):**  
-   - Palavra: *trip*  
-   - Confiança: *74%*  
-   - Representa uma ação ou atividade (viagem, nesse caso).  
+O Azure extrai e classifica três tipos de entidade no texto:
 
-2. **Location (Localização):**  
-   - Palavra: *Seattle*  
-   - Confiança: *100%*  
-   - Reconhecida como uma cidade (GPE = geopolitical entity).  
+1. **Event (Evento):**
 
-3. **DateTime (Data/Tempo):**  
-   - Expressão: *last week*  
-   - Confiança: *80%*  
-   - Indica um intervalo de tempo recente.  
+    - Palavra: _trip_
+    - Confiança: _74%_
+    - Representa uma ação ou atividade (viagem, nesse caso).
 
-### 🎯 Para que isso serve?  
-O NER é usado para estruturar informações em textos. Exemplos práticos:  
+2. **Location (Localização):**
 
-- Um chatbot que entende quando o usuário fala datas, locais ou eventos.  
-- Um sistema que analisa e classifica e-mails, contratos ou mensagens automaticamente.  
-- Ferramentas de busca que destacam entidades para melhorar os resultados.  
+    - Palavra: _Seattle_
+    - Confiança: _100%_
+    - Reconhecida como uma cidade (GPE = geopolitical entity).
 
-### 🤖 No Azure  
-Esse tipo de análise pode ser feito com o **Azure Cognitive Services – Language**, usando o recurso de **Named Entity Recognition**. É muito útil em IA conversacional, pois permite que os sistemas entendam a intenção e o contexto de forma mais rica.  
+3. **DateTime (Data/Tempo):**
+    - Expressão: _last week_
+    - Confiança: _80%_
+    - Indica um intervalo de tempo recente.
+
+### 🎯 Para que isso serve?
+
+O NER é usado para estruturar informações em textos. Exemplos práticos:
+
+-   Um chatbot que entende quando o usuário fala datas, locais ou eventos.
+-   Um sistema que analisa e classifica e-mails, contratos ou mensagens automaticamente.
+-   Ferramentas de busca que destacam entidades para melhorar os resultados.
+
+### 🤖 No Azure
+
+Esse tipo de análise pode ser feito com o **Azure Cognitive Services – Language**, usando o recurso de **Named Entity Recognition**. É muito útil em IA conversacional, pois permite que os sistemas entendam a intenção e o contexto de forma mais rica.
 
 ---
 
-## 🔐 **Detecção de PII e PHI**  
+## 🔐 **Detecção de PII e PHI**
 
-### 🔎 O que é PII e PHI?  
+### 🔎 O que é PII e PHI?
+
 **PII – Personally Identifiable Information**  
-Informações de identificação pessoal. São dados que podem identificar uma pessoa diretamente ou indiretamente, como:  
+Informações de identificação pessoal. São dados que podem identificar uma pessoa diretamente ou indiretamente, como:
 
-- Nome completo  
-- CPF / RG  
-- Endereço  
-- Telefone  
-- Número de cartão de crédito  
-- E-mail pessoal  
+-   Nome completo
+-   CPF / RG
+-   Endereço
+-   Telefone
+-   Número de cartão de crédito
+-   E-mail pessoal
 
 **PHI – Protected Health Information**  
-Informações de saúde protegidas. São dados médicos vinculados a uma pessoa, como:  
+Informações de saúde protegidas. São dados médicos vinculados a uma pessoa, como:
 
-- Diagnósticos  
-- Resultados de exames  
-- Históricos médicos  
-- Dados de planos de saúde  
-- Informações clínicas com identificação pessoal  
+-   Diagnósticos
+-   Resultados de exames
+-   Históricos médicos
+-   Dados de planos de saúde
+-   Informações clínicas com identificação pessoal
 
-### 🧠 Por que detectar isso?  
-Em aplicações de IA, como chatbots, análise de texto, e processamento de documentos, é comum trabalhar com dados sensíveis. A detecção automática de PII/PHI ajuda a:  
+### 🧠 Por que detectar isso?
 
-- Evitar vazamentos de dados  
-- Cumprir leis de privacidade, como LGPD, GDPR, HIPAA  
-- Reduzir riscos legais e reputacionais  
-- Anonimizar dados antes de treinar modelos ou expor textos  
+Em aplicações de IA, como chatbots, análise de texto, e processamento de documentos, é comum trabalhar com dados sensíveis. A detecção automática de PII/PHI ajuda a:
 
-### 🔍 Como o Azure ajuda?  
-O **Azure Cognitive Services – Language** inclui funcionalidades de detecção automática de PII e PHI. Ele consegue:  
+-   Evitar vazamentos de dados
+-   Cumprir leis de privacidade, como LGPD, GDPR, HIPAA
+-   Reduzir riscos legais e reputacionais
+-   Anonimizar dados antes de treinar modelos ou expor textos
 
-- Identificar dados pessoais e de saúde em textos  
-- Classificar os tipos de informação encontrados  
-- Oferecer ferramentas para anonimização (ex: substituir por *"𝑅𝐸𝐷𝐴𝐶𝑇𝐸𝐷"*)  
+### 🔍 Como o Azure ajuda?
 
-Você pode usar isso para:  
+O **Azure Cognitive Services – Language** inclui funcionalidades de detecção automática de PII e PHI. Ele consegue:
 
-- Processar textos médicos com segurança  
-- Monitorar conteúdo sensível em documentos, e-mails, ou sistemas de atendimento  
+-   Identificar dados pessoais e de saúde em textos
+-   Classificar os tipos de informação encontrados
+-   Oferecer ferramentas para anonimização (ex: substituir por _"𝑅𝐸𝐷𝐴𝐶𝑇𝐸𝐷"_)
 
-### 📌 Exemplo prático  
+Você pode usar isso para:
+
+-   Processar textos médicos com segurança
+-   Monitorar conteúdo sensível em documentos, e-mails, ou sistemas de atendimento
+
+### 📌 Exemplo prático
+
 **Texto:**  
-*“Maria Souza fez um exame de sangue no dia 15 de abril e seu CPF é 123.456.789-00.”*  
+_“Maria Souza fez um exame de sangue no dia 15 de abril e seu CPF é 123.456.789-00.”_
 
-**Resultado:**  
-- Nome: *Maria Souza* → **PII**  
-- Data: *15 de abril* → **PII**  
-- CPF: *123.456.789-00* → **PII**  
-- Tipo de exame: *sangue* → **PHI**  
+**Resultado:**
+
+-   Nome: _Maria Souza_ → **PII**
+-   Data: _15 de abril_ → **PII**
+-   CPF: _123.456.789-00_ → **PII**
+-   Tipo de exame: _sangue_ → **PHI**
 
 ---
 
-## 🌍 **Detecção de Idioma**  
+## 🌍 **Detecção de Idioma**
 
-### ❓ O que é detecção de idioma?  
-Detecção de idioma (ou *language detection*) é a capacidade de um sistema identificar automaticamente em qual idioma um texto foi escrito.  
+### ❓ O que é detecção de idioma?
+
+Detecção de idioma (ou _language detection_) é a capacidade de um sistema identificar automaticamente em qual idioma um texto foi escrito.
 
 **Exemplo:**  
 Ao receber a frase:  
-*"Bonjour, comment ça va?"*  
+_"Bonjour, comment ça va?"_
 
-Um sistema de detecção de idioma reconhece que isso está em **francês**, mesmo sem ninguém dizer isso diretamente.  
+Um sistema de detecção de idioma reconhece que isso está em **francês**, mesmo sem ninguém dizer isso diretamente.
 
-### 🤖 Como o Azure faz isso?  
-O Azure oferece essa funcionalidade através do:  
-- **Azure Cognitive Services – Language**  
-- **Serviço de Tradução (Translator)**  
+### 🤖 Como o Azure faz isso?
 
-Esses serviços permitem:  
-- Detectar automaticamente o idioma de qualquer texto enviado  
-- Retornar o código do idioma (por exemplo, *"fr"* para francês ou *"pt"* para português)  
-- Indicar um nível de confiança na detecção (ex: *99%*)  
+O Azure oferece essa funcionalidade através do:
 
-### 📦 Para que serve?  
-- Tradução automática (saber de onde para onde traduzir)  
-- Chatbots multilíngues (responder no idioma do usuário)  
-- Análise de sentimento por idioma  
-- Organizar ou filtrar conteúdo com base em idioma  
+-   **Azure Cognitive Services – Language**
+-   **Serviço de Tradução (Translator)**
+
+Esses serviços permitem:
+
+-   Detectar automaticamente o idioma de qualquer texto enviado
+-   Retornar o código do idioma (por exemplo, _"fr"_ para francês ou _"pt"_ para português)
+-   Indicar um nível de confiança na detecção (ex: _99%_)
+
+### 📦 Para que serve?
+
+-   Tradução automática (saber de onde para onde traduzir)
+-   Chatbots multilíngues (responder no idioma do usuário)
+-   Análise de sentimento por idioma
+-   Organizar ou filtrar conteúdo com base em idioma
 
 ---
 
-## 💬 **Análise de Sentimentos**  
+## 💬 **Análise de Sentimentos**
 
-### ❓ O que é Análise de Sentimentos?  
-Análise de sentimentos é uma técnica de Processamento de Linguagem Natural (PLN) que permite que sistemas entendam a emoção ou opinião expressa em um texto.  
+### ❓ O que é Análise de Sentimentos?
 
-Ela identifica se um texto é:  
-- **Positivo** (ex: *"Adorei o serviço!"*)  
-- **Negativo** (ex: *"Foi uma experiência terrível."*)  
-- **Neutro** (ex: *"Recebi o pedido ontem."*)  
-- **Misto** (ex: *"A comida era boa, mas o atendimento ruim."*)  
+Análise de sentimentos é uma técnica de Processamento de Linguagem Natural (PLN) que permite que sistemas entendam a emoção ou opinião expressa em um texto.
 
-### 🧠 Como o Azure faz isso?  
+Ela identifica se um texto é:
+
+-   **Positivo** (ex: _"Adorei o serviço!"_)
+-   **Negativo** (ex: _"Foi uma experiência terrível."_)
+-   **Neutro** (ex: _"Recebi o pedido ontem."_)
+-   **Misto** (ex: _"A comida era boa, mas o atendimento ruim."_)
+
+### 🧠 Como o Azure faz isso?
+
 Através do serviço:  
-🔹 **Azure Cognitive Services – Language**, usando a funcionalidade de **Sentiment Analysis**  
+🔹 **Azure Cognitive Services – Language**, usando a funcionalidade de **Sentiment Analysis**
 
-Esse serviço:  
-- Analisa textos em vários idiomas  
-- Retorna o sentimento geral e também por frase  
-- Indica escores de confiança (ex: *85% de certeza de que o texto é positivo*)  
+Esse serviço:
 
-### 🧪 Exemplo  
+-   Analisa textos em vários idiomas
+-   Retorna o sentimento geral e também por frase
+-   Indica escores de confiança (ex: _85% de certeza de que o texto é positivo_)
+
+### 🧪 Exemplo
+
 **Texto:**  
-*"A entrega foi rápida, mas o produto veio quebrado."*  
+_"A entrega foi rápida, mas o produto veio quebrado."_
 
-**Resultado:**  
-- Sentimento geral: **Misto**  
-  - Frase 1: *"A entrega foi rápida."* → **Positivo**  
-  - Frase 2: *"O produto veio quebrado."* → **Negativo**  
+**Resultado:**
 
-### 📌 Para que serve?  
-- Avaliar feedback de clientes  
-- Monitorar redes sociais  
-- Entender opiniões em pesquisas e comentários  
-- Automatizar respostas (ex: alertar sobre críticas negativas)  
+-   Sentimento geral: **Misto**
+    -   Frase 1: _"A entrega foi rápida."_ → **Positivo**
+    -   Frase 2: _"O produto veio quebrado."_ → **Negativo**
+
+### 📌 Para que serve?
+
+-   Avaliar feedback de clientes
+-   Monitorar redes sociais
+-   Entender opiniões em pesquisas e comentários
+-   Automatizar respostas (ex: alertar sobre críticas negativas)
 
 ---
 
-## ❓ **Respostas a Perguntas**  
+## ❓ **Respostas a Perguntas**
 
-### ❓ O que é o recurso de Respostas a Perguntas (Question Answering)?  
-É uma funcionalidade de IA que permite que um sistema encontre respostas exatas para perguntas feitas em linguagem natural, a partir de conteúdo já existente, como:  
+### ❓ O que é o recurso de Respostas a Perguntas (Question Answering)?
 
-- Documentos  
-- FAQs  
-- Manuais  
-- Sites  
+É uma funcionalidade de IA que permite que um sistema encontre respostas exatas para perguntas feitas em linguagem natural, a partir de conteúdo já existente, como:
 
-### 🔍 Como funciona no Azure?  
+-   Documentos
+-   FAQs
+-   Manuais
+-   Sites
+
+### 🔍 Como funciona no Azure?
+
 No **Azure Cognitive Services – Language**, esse recurso é chamado de:  
-👉 **Azure Question Answering**  
+👉 **Azure Question Answering**
 
-Ele funciona assim:  
-1. Você envia uma pergunta (ex: *"Qual o horário de funcionamento?"*)  
-2. O serviço procura nos conteúdos fornecidos (base de conhecimento)  
-3. Ele retorna a resposta mais relevante, com pontuação de confiança  
+Ele funciona assim:
 
-### 🧠 Tipos de uso  
-- Chatbots inteligentes que respondem dúvidas frequentes  
-- Assistentes virtuais internos (RH, TI, suporte)  
-- Sistemas de busca inteligente em bases de documentos  
+1. Você envia uma pergunta (ex: _"Qual o horário de funcionamento?"_)
+2. O serviço procura nos conteúdos fornecidos (base de conhecimento)
+3. Ele retorna a resposta mais relevante, com pontuação de confiança
 
-### 🧪 Exemplo  
+### 🧠 Tipos de uso
+
+-   Chatbots inteligentes que respondem dúvidas frequentes
+-   Assistentes virtuais internos (RH, TI, suporte)
+-   Sistemas de busca inteligente em bases de documentos
+
+### 🧪 Exemplo
+
 **Pergunta:**  
-*"Como faço para redefinir minha senha?"*  
+_"Como faço para redefinir minha senha?"_
 
 **Resposta extraída do conteúdo:**  
-*"Você pode redefinir sua senha acessando o portal de segurança e clicando em 'Esqueci minha senha'."*  
+_"Você pode redefinir sua senha acessando o portal de segurança e clicando em 'Esqueci minha senha'."_
 
-### ✅ Benefícios  
-- Respostas rápidas e consistentes  
-- Redução da carga em atendentes humanos  
-- Facilidade de integração com bots no Microsoft Teams, web e apps  
+### ✅ Benefícios
 
----
-
-## 🗣️ **Recurso de Fala**  
-
-### ❓ O que são os recursos de fala?  
-São serviços que permitem que os aplicativos ouçam, falem e entendam linguagem falada, usando inteligência artificial. Eles conectam a fala humana com sistemas computacionais.  
-
-### 🔧 Funcionalidades principais  
-1. **Reconhecimento de fala (Speech to Text)**  
-   - Converte fala em texto em tempo real ou a partir de gravações.  
-   - Ex: Transcrever reuniões ou comandos de voz.  
-
-2. **Síntese de fala (Text to Speech)**  
-   - Converte texto em voz natural.  
-   - Ex: Criar narradores virtuais, assistentes que falam, ou ler conteúdo para usuários.  
-
-3. **Tradução de fala (Speech Translation)**  
-   - Traduz a fala de um idioma para outro com voz ou texto.  
-   - Ex: Conversas multilíngues em tempo real.  
-
-4. **Reconhecimento de fala personalizado**  
-   - Treine modelos para entender sotaques, termos técnicos ou nomes próprios específicos.  
-
-5. **Verificação e identificação de locutor (Speaker Recognition)**  
-   - Verifica ou identifica quem está falando com base na voz.  
-
-### � Para que serve?  
-- Chatbots por voz  
-- Leitura automatizada de documentos  
-- Acessibilidade (ex: leitores de tela)  
-- Tradução em tempo real  
-- Comandos de voz em apps e dispositivos  
-
-### 🧠 Integração com IA conversacional  
-Você pode combinar **fala + linguagem natural** no Azure para criar assistentes conversacionais completos, que entendem, falam e respondem em voz.  
+-   Respostas rápidas e consistentes
+-   Redução da carga em atendentes humanos
+-   Facilidade de integração com bots no Microsoft Teams, web e apps
 
 ---
 
-## 🌍 **Recurso de Tradução**  
+## 🗣️ **Recurso de Fala**
 
-### ❓ O que é a tradução no Azure?  
+### ❓ O que são os recursos de fala?
+
+São serviços que permitem que os aplicativos ouçam, falem e entendam linguagem falada, usando inteligência artificial. Eles conectam a fala humana com sistemas computacionais.
+
+### 🔧 Funcionalidades principais
+
+1. **Reconhecimento de fala (Speech to Text)**
+
+    - Converte fala em texto em tempo real ou a partir de gravações.
+    - Ex: Transcrever reuniões ou comandos de voz.
+
+2. **Síntese de fala (Text to Speech)**
+
+    - Converte texto em voz natural.
+    - Ex: Criar narradores virtuais, assistentes que falam, ou ler conteúdo para usuários.
+
+3. **Tradução de fala (Speech Translation)**
+
+    - Traduz a fala de um idioma para outro com voz ou texto.
+    - Ex: Conversas multilíngues em tempo real.
+
+4. **Reconhecimento de fala personalizado**
+
+    - Treine modelos para entender sotaques, termos técnicos ou nomes próprios específicos.
+
+5. **Verificação e identificação de locutor (Speaker Recognition)**
+    - Verifica ou identifica quem está falando com base na voz.
+
+### � Para que serve?
+
+-   Chatbots por voz
+-   Leitura automatizada de documentos
+-   Acessibilidade (ex: leitores de tela)
+-   Tradução em tempo real
+-   Comandos de voz em apps e dispositivos
+
+### 🧠 Integração com IA conversacional
+
+Você pode combinar **fala + linguagem natural** no Azure para criar assistentes conversacionais completos, que entendem, falam e respondem em voz.
+
+---
+
+## 🌍 **Recurso de Tradução**
+
+### ❓ O que é a tradução no Azure?
+
 É um serviço de tradução automática oferecido pelo **Azure Cognitive Services**, chamado:  
-👉 **Azure Translator**  
+👉 **Azure Translator**
 
-Ele permite que aplicativos e sistemas traduzam texto ou fala de um idioma para outro com rapidez e precisão.  
+Ele permite que aplicativos e sistemas traduzam texto ou fala de um idioma para outro com rapidez e precisão.
 
-### 🧠 O que ele faz?  
-- Tradução de texto entre mais de 100 idiomas  
-- Detecção automática do idioma original  
-- Tradução de documentos inteiros (como PDFs, DOCX)  
-- Tradução em tempo real de conversas faladas (Speech Translation)  
-- Suporte a gírias, expressões locais e termos personalizados  
+### 🧠 O que ele faz?
 
-### 🧪 Exemplo  
+-   Tradução de texto entre mais de 100 idiomas
+-   Detecção automática do idioma original
+-   Tradução de documentos inteiros (como PDFs, DOCX)
+-   Tradução em tempo real de conversas faladas (Speech Translation)
+-   Suporte a gírias, expressões locais e termos personalizados
+
+### 🧪 Exemplo
+
 **Texto original:**  
-*"Olá, como você está?"*  
+_"Olá, como você está?"_
 
 **Tradução para inglês (usando o serviço):**  
-*"Hello, how are you?"*  
+_"Hello, how are you?"_
 
-### 💡 Para que serve?  
-- Sites multilíngues  
-- Aplicativos globais  
-- Chatbots que atendem em vários idiomas  
-- Tradução de manuais, contratos e mensagens  
-- Acessibilidade para pessoas de diferentes nacionalidades  
+### 💡 Para que serve?
 
-### 📌 Como usar?  
-Você pode usar a tradução no Azure de três formas:  
-1. Via **API REST** (em apps e sistemas)  
-2. Pelo **Azure Language Studio**  
-3. Integrado com outros serviços, como bots, Power Automate e Microsoft 365  
+-   Sites multilíngues
+-   Aplicativos globais
+-   Chatbots que atendem em vários idiomas
+-   Tradução de manuais, contratos e mensagens
+-   Acessibilidade para pessoas de diferentes nacionalidades
 
----
+### 📌 Como usar?
 
-## 🧠 **Azure Language Studio**  
+Você pode usar a tradução no Azure de três formas:
 
-O **Azure Language Studio** é uma ferramenta da Microsoft Azure projetada para interagir, testar e explorar os serviços de Processamento de Linguagem Natural (NLP) oferecidos pelo Azure por meio do serviço **Azure AI Language**. Ele oferece uma interface gráfica amigável para criar, treinar, testar e implantar modelos de linguagem sem necessidade de escrever código extensivo.  
-
-### 🔍 Principais Funcionalidades do Azure Language Studio  
-1. **Análise de Texto (Text Analytics)**  
-   - Detecção de idioma  
-   - Extração de entidades nomeadas (NER)  
-   - Análise de sentimento  
-   - Extração de frases-chave  
-   - Reconhecimento de PII (informações pessoais identificáveis)  
-
-2. **Classificação de Texto**  
-   - Criação de classificadores personalizados com aprendizado supervisionado.  
-   - Ideal para categorizar e classificar textos conforme regras de negócio.  
-
-3. **Extração de Entidades Personalizadas**  
-   - Permite treinar modelos próprios para identificar entidades específicas em documentos (por exemplo: nomes de produtos, códigos internos, etc.).  
-
-4. **Análise de Opiniões**  
-   - Vai além da análise de sentimento, identificando quem disse o quê sobre o quê, útil para analisar feedbacks de clientes.  
-
-5. **Consulta de Conhecimento com QnA Maker (agora parte do Language Service)**  
-   - Criação de sistemas de pergunta e resposta baseados em documentos e FAQs.  
-
-6. **Tradução com Azure Translator**  
-   - Tradução de textos em diversos idiomas com suporte a detecção automática.  
-
-7. **Summarization (Resumos automáticos)**  
-   - Resumo de textos longos, disponível com os modelos mais avançados.  
-
-### ✅ Vantagens  
-- **Interface intuitiva**: ideal para desenvolvedores e analistas não técnicos.  
-- **Pré-treinamento de modelos**: muitos recursos funcionam imediatamente sem necessidade de treino.  
-- **Integração com APIs REST**: tudo o que é feito no Language Studio pode ser exportado como chamadas de API.  
-- **Recursos personalizáveis**: permite o treinamento de modelos com dados próprios.  
-- **Suporte multilíngue**: útil para aplicações globais.  
-
-### 📌 Casos de uso comuns  
-- Análise de feedback de clientes  
-- Classificação automática de e-mails ou tíquetes  
-- Extração de informações de contratos  
-- Chatbots e assistentes virtuais  
-- Tradução e localização de conteúdo  
-- Processamento de documentos legais, médicos, técnicos  
+1. Via **API REST** (em apps e sistemas)
+2. Pelo **Azure Language Studio**
+3. Integrado com outros serviços, como bots, Power Automate e Microsoft 365
 
 ---
 
-## 🤖 **Serviço de Bots do Azure**  
+## 🧠 **Azure Language Studio**
 
-O **Azure Bot Service** é a plataforma da Microsoft Azure para criar, hospedar e gerenciar bots inteligentes, que podem se comunicar com usuários por meio de texto ou voz, em canais como Microsoft Teams, WhatsApp, Facebook Messenger, Telegram, Web Chat, entre outros.  
+O **Azure Language Studio** é uma ferramenta da Microsoft Azure projetada para interagir, testar e explorar os serviços de Processamento de Linguagem Natural (NLP) oferecidos pelo Azure por meio do serviço **Azure AI Language**. Ele oferece uma interface gráfica amigável para criar, treinar, testar e implantar modelos de linguagem sem necessidade de escrever código extensivo.
 
-### ❓ O que é o Azure Bot Service?  
-É um serviço gerenciado que permite:  
-- Desenvolver bots com inteligência artificial usando ferramentas como o **Bot Framework SDK**.  
-- Integrar com o **Language Studio** (ex-LUIS) para compreensão de linguagem natural.  
-- Publicar bots em múltiplos canais com configuração simplificada.  
-- Monitorar e escalar bots com facilidade usando os recursos do Azure.  
+### 🔍 Principais Funcionalidades do Azure Language Studio
 
-### 🧩 Principais Componentes  
-1. **Bot Framework SDK**  
-   - Conjunto de bibliotecas para criar bots em C#, JavaScript/TypeScript ou Python.  
-   - Permite controlar fluxos de conversa, integrar com APIs e armazenar estado de usuário/conversa.  
+1. **Análise de Texto (Text Analytics)**
 
-2. **Azure Bot Channels Registration**  
-   - Registro que conecta seu bot com canais como Web Chat, Teams, WhatsApp, etc.  
+    - Detecção de idioma
+    - Extração de entidades nomeadas (NER)
+    - Análise de sentimento
+    - Extração de frases-chave
+    - Reconhecimento de PII (informações pessoais identificáveis)
 
-3. **Bot Framework Composer**  
-   - Ferramenta visual low-code para criação de bots.  
-   - Permite criar fluxos conversacionais e integrar com QnA, LUIS, etc., de forma visual.  
+2. **Classificação de Texto**
 
-4. **Azure AI Services**  
-   - Integrações com:  
-     - **Azure Language Studio** (inteligência de linguagem natural)  
-     - **QnA Maker** (respostas baseadas em conhecimento)  
-     - **Azure Cognitive Services** (visão, voz, tradução etc.)  
+    - Criação de classificadores personalizados com aprendizado supervisionado.
+    - Ideal para categorizar e classificar textos conforme regras de negócio.
 
-5. **Direct Line Channel**  
-   - Canal seguro e personalizável para integrar bots a aplicações web ou móveis.  
+3. **Extração de Entidades Personalizadas**
 
-### 🧠 Capacidades Inteligentes  
-- **NLP com Language Understanding (LUIS)** ou serviços de linguagem do Azure.  
-- **Respostas automáticas com QnA Maker** (agora integrado ao Azure AI Language).  
-- **Reconhecimento de voz** (usando Azure Speech).  
-- **Tradução em tempo real** (Azure Translator).  
-- **Gerenciamento de diálogos complexos** com o Dialog System.  
+    - Permite treinar modelos próprios para identificar entidades específicas em documentos (por exemplo: nomes de produtos, códigos internos, etc.).
 
-### 📊 Monitoramento e Análise  
-- **App Insights**: permite acompanhar métricas como volume de mensagens, intenções reconhecidas, erros e performance.  
-- **Diagnóstico integrado**: ajuda na identificação de falhas e melhorias no bot.  
+4. **Análise de Opiniões**
 
-### 📌 Casos de Uso  
-- Atendimento ao cliente automatizado  
-- Assistentes virtuais corporativos  
-- Chatbots de e-commerce  
-- Bots para agendamento (ex: clínicas, restaurantes)  
-- Bots para RH ou suporte técnico interno  
+    - Vai além da análise de sentimento, identificando quem disse o quê sobre o quê, útil para analisar feedbacks de clientes.
 
-### 🚀 Como Começar?  
-1. Crie um recurso do **Azure Bot** no portal.  
-2. Desenvolva o bot com:  
-   - **Bot Framework SDK** ou  
-   - **Bot Framework Composer** (ferramenta visual)  
-3. Teste localmente com o **Bot Framework Emulator**  
-4. Publique no Azure e conecte aos canais desejados  
-5. Monitore e itere com base no feedback  
+5. **Consulta de Conhecimento com QnA Maker (agora parte do Language Service)**
+
+    - Criação de sistemas de pergunta e resposta baseados em documentos e FAQs.
+
+6. **Tradução com Azure Translator**
+
+    - Tradução de textos em diversos idiomas com suporte a detecção automática.
+
+7. **Summarization (Resumos automáticos)**
+    - Resumo de textos longos, disponível com os modelos mais avançados.
+
+### ✅ Vantagens
+
+-   **Interface intuitiva**: ideal para desenvolvedores e analistas não técnicos.
+-   **Pré-treinamento de modelos**: muitos recursos funcionam imediatamente sem necessidade de treino.
+-   **Integração com APIs REST**: tudo o que é feito no Language Studio pode ser exportado como chamadas de API.
+-   **Recursos personalizáveis**: permite o treinamento de modelos com dados próprios.
+-   **Suporte multilíngue**: útil para aplicações globais.
+
+### 📌 Casos de uso comuns
+
+-   Análise de feedback de clientes
+-   Classificação automática de e-mails ou tíquetes
+-   Extração de informações de contratos
+-   Chatbots e assistentes virtuais
+-   Tradução e localização de conteúdo
+-   Processamento de documentos legais, médicos, técnicos
 
 ---
 
-## 🗣️ **Compreensão da Linguagem Coloquial**  
+## 🤖 **Serviço de Bots do Azure**
 
-A compreensão da linguagem coloquial é um dos maiores desafios (e avanços) no campo do Processamento de Linguagem Natural (PLN). Envolve a capacidade de um sistema entender formas informais e naturais de se expressar, como:  
+O **Azure Bot Service** é a plataforma da Microsoft Azure para criar, hospedar e gerenciar bots inteligentes, que podem se comunicar com usuários por meio de texto ou voz, em canais como Microsoft Teams, WhatsApp, Facebook Messenger, Telegram, Web Chat, entre outros.
 
-- Gírias  
-- Abreviações  
-- Erros gramaticais  
-- Figuras de linguagem  
-- Regionalismos  
-- Emojis ou onomatopeias (*"haha", "aff", etc.*)  
+### ❓ O que é o Azure Bot Service?
 
-### 🧠 Como a linguagem coloquial é tratada nos sistemas da Microsoft Azure?  
-No ecossistema da Microsoft Azure, o entendimento da linguagem coloquial pode ser alcançado principalmente por meio do:  
+É um serviço gerenciado que permite:
 
-1. **Azure AI Language (antes LUIS + Text Analytics)**  
-   - Os modelos de análise de sentimento e detecção de entidades estão treinados com dados do mundo real, incluindo linguagem informal.  
-   - **Custom Named Entity Recognition**: permite treinar o sistema com exemplos de termos que você quer reconhecer, mesmo se forem gírias.  
-   - **Classificação personalizada de texto**: você pode ensinar o modelo a entender e categorizar expressões informais.  
+-   Desenvolver bots com inteligência artificial usando ferramentas como o **Bot Framework SDK**.
+-   Integrar com o **Language Studio** (ex-LUIS) para compreensão de linguagem natural.
+-   Publicar bots em múltiplos canais com configuração simplificada.
+-   Monitorar e escalar bots com facilidade usando os recursos do Azure.
 
-2. **QnA Maker / Language Studio Q&A**  
-   - A compreensão aqui depende da variação de perguntas que você fornece.  
-   - Você pode adicionar formas alternativas de perguntar algo, como:  
-     - Formal: *“Qual é o horário de funcionamento?”*  
-     - Coloquial: *“Vocês tão abertos hoje?”* ou *“Funciona de noite?”*  
+### 🧩 Principais Componentes
 
-3. **Bot Framework com pré-processamento**  
-   - É comum usar pré-processamento com regras ou modelos para:  
-     - Corrigir erros de digitação  
-     - Expandir gírias (ex: *"vc" → "você"*)  
-     - Traduzir emojis para emoções ou intenções  
-   - Você pode integrar um modelo de Machine Learning ou até usar o **Azure Cognitive Search** com sinônimos customizados para isso.  
+1. **Bot Framework SDK**
 
-### 📦 Estratégias para melhorar a compreensão de linguagem coloquial  
-- Fornecer dados reais (ex: conversas de WhatsApp, chats de atendimento) ao treinar modelos personalizados.  
-- Aumentar o dataset com variações informais de frases.  
-- Normalizar a linguagem antes de enviar ao modelo (ex: substituir *“vc”* por *“você”*, *“hj”* por *“hoje”*).  
-- Usar embeddings contextuais (como BERT, que já são usados nos bastidores do Azure AI).  
+    - Conjunto de bibliotecas para criar bots em C#, JavaScript/TypeScript ou Python.
+    - Permite controlar fluxos de conversa, integrar com APIs e armazenar estado de usuário/conversa.
+
+2. **Azure Bot Channels Registration**
+
+    - Registro que conecta seu bot com canais como Web Chat, Teams, WhatsApp, etc.
+
+3. **Bot Framework Composer**
+
+    - Ferramenta visual low-code para criação de bots.
+    - Permite criar fluxos conversacionais e integrar com QnA, LUIS, etc., de forma visual.
+
+4. **Azure AI Services**
+
+    - Integrações com:
+        - **Azure Language Studio** (inteligência de linguagem natural)
+        - **QnA Maker** (respostas baseadas em conhecimento)
+        - **Azure Cognitive Services** (visão, voz, tradução etc.)
+
+5. **Direct Line Channel**
+    - Canal seguro e personalizável para integrar bots a aplicações web ou móveis.
+
+### 🧠 Capacidades Inteligentes
+
+-   **NLP com Language Understanding (LUIS)** ou serviços de linguagem do Azure.
+-   **Respostas automáticas com QnA Maker** (agora integrado ao Azure AI Language).
+-   **Reconhecimento de voz** (usando Azure Speech).
+-   **Tradução em tempo real** (Azure Translator).
+-   **Gerenciamento de diálogos complexos** com o Dialog System.
+
+### 📊 Monitoramento e Análise
+
+-   **App Insights**: permite acompanhar métricas como volume de mensagens, intenções reconhecidas, erros e performance.
+-   **Diagnóstico integrado**: ajuda na identificação de falhas e melhorias no bot.
+
+### 📌 Casos de Uso
+
+-   Atendimento ao cliente automatizado
+-   Assistentes virtuais corporativos
+-   Chatbots de e-commerce
+-   Bots para agendamento (ex: clínicas, restaurantes)
+-   Bots para RH ou suporte técnico interno
+
+### 🚀 Como Começar?
+
+1. Crie um recurso do **Azure Bot** no portal.
+2. Desenvolva o bot com:
+    - **Bot Framework SDK** ou
+    - **Bot Framework Composer** (ferramenta visual)
+3. Teste localmente com o **Bot Framework Emulator**
+4. Publique no Azure e conecte aos canais desejados
+5. Monitore e itere com base no feedback
 
 ---
 
-## 🎙️ **Speech Studio & Language Studio**  
+## 🗣️ **Compreensão da Linguagem Coloquial**
 
-### 🗣️ **Azure Speech Studio**  
-**Foco:** Processamento de fala (voz)  
+A compreensão da linguagem coloquial é um dos maiores desafios (e avanços) no campo do Processamento de Linguagem Natural (PLN). Envolve a capacidade de um sistema entender formas informais e naturais de se expressar, como:
 
-**Principais funções:**  
-- Reconhecimento de fala (Speech to Text)  
-- Síntese de fala (Text to Speech) com vozes neurais  
-- Tradução de fala em tempo real  
-- Treinamento de voz personalizada  
-- Reconhecimento de fala por palavras-chave  
+-   Gírias
+-   Abreviações
+-   Erros gramaticais
+-   Figuras de linguagem
+-   Regionalismos
+-   Emojis ou onomatopeias (_"haha", "aff", etc._)
 
-**Usos comuns:**  
-- Assistentes de voz  
-- Transcrição automática  
-- Leitura de textos com voz humana  
-- Legendas automáticas em vídeos  
+### 🧠 Como a linguagem coloquial é tratada nos sistemas da Microsoft Azure?
 
-### 🧠 **Azure Language Studio**  
-**Foco:** Processamento de linguagem escrita (texto)  
+No ecossistema da Microsoft Azure, o entendimento da linguagem coloquial pode ser alcançado principalmente por meio do:
 
-**Principais funções:**  
-- Análise de sentimento e emoções  
-- Extração de entidades e frases-chave  
-- Classificação de texto personalizada  
-- Extração de entidades personalizadas (NER)  
-- Resumos automáticos e tradução textual  
-- Criação de Q&A com base em documentos  
+1. **Azure AI Language (antes LUIS + Text Analytics)**
 
-**Usos comuns:**  
-- Análise de feedbacks e reviews  
-- Classificação automática de e-mails ou chats  
-- Chatbots inteligentes  
-- Processamento de documentos complexos  
+    - Os modelos de análise de sentimento e detecção de entidades estão treinados com dados do mundo real, incluindo linguagem informal.
+    - **Custom Named Entity Recognition**: permite treinar o sistema com exemplos de termos que você quer reconhecer, mesmo se forem gírias.
+    - **Classificação personalizada de texto**: você pode ensinar o modelo a entender e categorizar expressões informais.
 
-### 🧩 Integração  
+2. **QnA Maker / Language Studio Q&A**
+
+    - A compreensão aqui depende da variação de perguntas que você fornece.
+    - Você pode adicionar formas alternativas de perguntar algo, como:
+        - Formal: _“Qual é o horário de funcionamento?”_
+        - Coloquial: _“Vocês tão abertos hoje?”_ ou _“Funciona de noite?”_
+
+3. **Bot Framework com pré-processamento**
+    - É comum usar pré-processamento com regras ou modelos para:
+        - Corrigir erros de digitação
+        - Expandir gírias (ex: _"vc" → "você"_)
+        - Traduzir emojis para emoções ou intenções
+    - Você pode integrar um modelo de Machine Learning ou até usar o **Azure Cognitive Search** com sinônimos customizados para isso.
+
+### 📦 Estratégias para melhorar a compreensão de linguagem coloquial
+
+-   Fornecer dados reais (ex: conversas de WhatsApp, chats de atendimento) ao treinar modelos personalizados.
+-   Aumentar o dataset com variações informais de frases.
+-   Normalizar a linguagem antes de enviar ao modelo (ex: substituir _“vc”_ por _“você”_, _“hj”_ por _“hoje”_).
+-   Usar embeddings contextuais (como BERT, que já são usados nos bastidores do Azure AI).
+
+---
+
+## 🎙️ **Speech Studio & Language Studio**
+
+### 🗣️ **Azure Speech Studio**
+
+**Foco:** Processamento de fala (voz)
+
+**Principais funções:**
+
+-   Reconhecimento de fala (Speech to Text)
+-   Síntese de fala (Text to Speech) com vozes neurais
+-   Tradução de fala em tempo real
+-   Treinamento de voz personalizada
+-   Reconhecimento de fala por palavras-chave
+
+**Usos comuns:**
+
+-   Assistentes de voz
+-   Transcrição automática
+-   Leitura de textos com voz humana
+-   Legendas automáticas em vídeos
+
+### 🧠 **Azure Language Studio**
+
+**Foco:** Processamento de linguagem escrita (texto)
+
+**Principais funções:**
+
+-   Análise de sentimento e emoções
+-   Extração de entidades e frases-chave
+-   Classificação de texto personalizada
+-   Extração de entidades personalizadas (NER)
+-   Resumos automáticos e tradução textual
+-   Criação de Q&A com base em documentos
+
+**Usos comuns:**
+
+-   Análise de feedbacks e reviews
+-   Classificação automática de e-mails ou chats
+-   Chatbots inteligentes
+-   Processamento de documentos complexos
+
+### 🧩 Integração
+
 Você pode combinar os dois estúdios para criar experiências completas:  
-**Fala → Texto → Entendimento → Resposta → Texto → Fala**  
+**Fala → Texto → Entendimento → Resposta → Texto → Fala**
 
-**Exemplo:** Um bot de voz inteligente que:  
-1. Entende perguntas faladas (Speech Studio),  
-2. Processa o texto com o Language Studio,  
-3. Responde com voz natural via Speech Studio.  
+**Exemplo:** Um bot de voz inteligente que:
 
-### ✅ Resumo Final  
-| Recurso          | Speech Studio                  | Language Studio                       |  
-| ---------------- | ------------------------------ | ------------------------------------- |  
-| Tipo de entrada  | Áudio (voz)                    | Texto                                 |  
-| Principal função | Conversão e síntese de fala    | Compreensão e análise de texto        |  
-| Personalização   | Voz personalizada              | Classificação e NER personalizada     |  
-| Casos de uso     | Assistente de voz, transcrição | Chatbots, análise de sentimento, Q&A  |  
+1. Entende perguntas faladas (Speech Studio),
+2. Processa o texto com o Language Studio,
+3. Responde com voz natural via Speech Studio.
+
+### ✅ Resumo Final
+
+| Recurso          | Speech Studio                  | Language Studio                      |
+| ---------------- | ------------------------------ | ------------------------------------ |
+| Tipo de entrada  | Áudio (voz)                    | Texto                                |
+| Principal função | Conversão e síntese de fala    | Compreensão e análise de texto       |
+| Personalização   | Voz personalizada              | Classificação e NER personalizada    |
+| Casos de uso     | Assistente de voz, transcrição | Chatbots, análise de sentimento, Q&A |
 
 ---
 
-## 🔍 Soluções de Pesquisa Cognitiva do Azure  
+## 🔍 Soluções de Pesquisa Cognitiva do Azure
 
 ✅ **Enriquecimento e Índice de IA**  
-Refere-se ao uso de inteligência artificial para processar e transformar dados brutos em informações pesquisáveis e úteis, antes ou durante o processo de indexação.  
+Refere-se ao uso de inteligência artificial para processar e transformar dados brutos em informações pesquisáveis e úteis, antes ou durante o processo de indexação.
 
 🔹 **"Permite uma compreensão mais profunda"**  
-O enriquecimento com IA permite entender melhor o conteúdo por trás dos dados. Por exemplo:  
+O enriquecimento com IA permite entender melhor o conteúdo por trás dos dados. Por exemplo:
 
-- Extração de entidades (pessoas, locais, datas).  
-- Classificação automática de documentos.  
-- Tradução ou correção linguística para textos em diferentes idiomas.  
+-   Extração de entidades (pessoas, locais, datas).
+-   Classificação automática de documentos.
+-   Tradução ou correção linguística para textos em diferentes idiomas.
 
-No Azure Search, isso é possível através da **Skillset Pipeline**, que aplica **Cognitive Skills** (habilidades cognitivas) ao conteúdo antes da indexação.  
+No Azure Search, isso é possível através da **Skillset Pipeline**, que aplica **Cognitive Skills** (habilidades cognitivas) ao conteúdo antes da indexação.
 
 🔹 **"Visão, Processamento de Linguagem Natural, etc."**  
-Isso se refere a múltiplas habilidades que podem ser aplicadas ao conteúdo, como:  
+Isso se refere a múltiplas habilidades que podem ser aplicadas ao conteúdo, como:
 
-- **Visão computacional**: extrair texto de imagens (OCR), identificar objetos ou cenas.  
-- **Processamento de Linguagem Natural (PLN)**: detectar idioma, analisar sentimento, extrair frases-chave.  
-- **Custom Skills**: lógica personalizada para enriquecer os dados.  
+-   **Visão computacional**: extrair texto de imagens (OCR), identificar objetos ou cenas.
+-   **Processamento de Linguagem Natural (PLN)**: detectar idioma, analisar sentimento, extrair frases-chave.
+-   **Custom Skills**: lógica personalizada para enriquecer os dados.
 
-O Azure AI Search permite encadear essas habilidades para enriquecer documentos automaticamente.  
+O Azure AI Search permite encadear essas habilidades para enriquecer documentos automaticamente.
 
 🔹 **"A indexação torna o conteúdo pesquisável"**  
-Depois do enriquecimento, o conteúdo é:  
+Depois do enriquecimento, o conteúdo é:
 
-- Organizado em um índice de busca estruturado.  
-- Consultável com filtros, ranking por relevância e inteligência semântica.  
+-   Organizado em um índice de busca estruturado.
+-   Consultável com filtros, ranking por relevância e inteligência semântica.
 
-No Azure Search, esse índice pode ser consultado com:  
+No Azure Search, esse índice pode ser consultado com:
 
-- Consulta full-text (como no Google).  
-- Facetas e filtros estruturados (como num e-commerce).  
-- Pesquisa semântica e de perguntas e respostas com integração a OpenAI.  
+-   Consulta full-text (como no Google).
+-   Facetas e filtros estruturados (como num e-commerce).
+-   Pesquisa semântica e de perguntas e respostas com integração a OpenAI.
 
 ---
 
-### 🔎 **Azure Search**  
+### 🔎 **Azure Search**
 
 ⚙️ **O que é o Azure AI Search?**  
-É um serviço de busca inteligente da Microsoft Azure que permite:  
+É um serviço de busca inteligente da Microsoft Azure que permite:
 
-- Indexar grandes volumes de dados (documentos, PDFs, sites, bancos de dados, etc).  
-- Aplicar inteligência artificial para entender e enriquecer esse conteúdo.  
-- Realizar buscas rápidas e relevantes com linguagem natural.  
-- Integrar com aplicações (web, mobile, bots, etc).  
+-   Indexar grandes volumes de dados (documentos, PDFs, sites, bancos de dados, etc).
+-   Aplicar inteligência artificial para entender e enriquecer esse conteúdo.
+-   Realizar buscas rápidas e relevantes com linguagem natural.
+-   Integrar com aplicações (web, mobile, bots, etc).
 
-É como criar um **"Google privado"** para os seus dados.  
+É como criar um **"Google privado"** para os seus dados.
 
 ⚙️ **Como funciona o Azure AI Search?**  
-O processo é dividido em **3 etapas principais**:  
+O processo é dividido em **3 etapas principais**:
 
 1. **Importação de dados (data ingestion)**  
-   Você conecta sua fonte de dados:  
-   - Armazenamento no Azure (Blob Storage, Cosmos DB, SQL, etc).  
-   - Arquivos (PDF, DOCX, TXT).  
-   - APIs personalizadas.  
+   Você conecta sua fonte de dados:
+
+    - Armazenamento no Azure (Blob Storage, Cosmos DB, SQL, etc).
+    - Arquivos (PDF, DOCX, TXT).
+    - APIs personalizadas.
 
 2. **Enriquecimento com IA (AI enrichment)**  
-   Antes de indexar os dados, o serviço pode aplicar um conjunto de **Cognitive Skills**:  
-   - OCR (extrair texto de imagens ou PDFs escaneados).  
-   - Detecção de idioma.  
-   - Extração de frases-chave.  
-   - Análise de sentimento.  
-   - Reconhecimento de entidades (nomes, datas, lugares).  
-   - Tradução.  
-   - Classificação de texto.  
+   Antes de indexar os dados, o serviço pode aplicar um conjunto de **Cognitive Skills**:
 
-   Essas habilidades são executadas em uma **Skillset**, que é uma espécie de pipeline de enriquecimento.  
+    - OCR (extrair texto de imagens ou PDFs escaneados).
+    - Detecção de idioma.
+    - Extração de frases-chave.
+    - Análise de sentimento.
+    - Reconhecimento de entidades (nomes, datas, lugares).
+    - Tradução.
+    - Classificação de texto.
+
+    Essas habilidades são executadas em uma **Skillset**, que é uma espécie de pipeline de enriquecimento.
 
 3. **Indexação e Pesquisa**  
-   O conteúdo enriquecido é indexado em um **search index**. A partir daí:  
-   - Você pode buscar com texto livre, como no Google.  
-   - Pode aplicar filtros, facetas, ordenações.  
-   - Pode usar pesquisa semântica e até Q&A com GPT-4 (se integrado com OpenAI no Azure).  
+   O conteúdo enriquecido é indexado em um **search index**. A partir daí:
+    - Você pode buscar com texto livre, como no Google.
+    - Pode aplicar filtros, facetas, ordenações.
+    - Pode usar pesquisa semântica e até Q&A com GPT-4 (se integrado com OpenAI no Azure).
 
 🔍 **Exemplo de uso**  
-Imagine que você tenha **10 mil documentos jurídicos em PDF**:  
-- O Azure Search lê os PDFs do Azure Blob Storage.  
-- Usa OCR + NLP para extrair texto e entender entidades (cliente, data, valor).  
-- Cria um índice com os documentos enriquecidos.  
-- Um usuário faz uma busca: **"decisões judiciais sobre rescisão contratual em 2022"**.  
-- O sistema retorna os documentos mais relevantes, com trechos destacados e filtros aplicáveis (ano, tribunal, tipo de ação).  
+Imagine que você tenha **10 mil documentos jurídicos em PDF**:
+
+-   O Azure Search lê os PDFs do Azure Blob Storage.
+-   Usa OCR + NLP para extrair texto e entender entidades (cliente, data, valor).
+-   Cria um índice com os documentos enriquecidos.
+-   Um usuário faz uma busca: **"decisões judiciais sobre rescisão contratual em 2022"**.
+-   O sistema retorna os documentos mais relevantes, com trechos destacados e filtros aplicáveis (ano, tribunal, tipo de ação).
 
 ---
 
-### 🧠 **Busca Cognitiva no Azure**  
+### 🧠 **Busca Cognitiva no Azure**
 
 🔄 **O que é busca cognitiva?**  
-É um tipo de busca inteligente que vai além da simples correspondência de palavras. A busca cognitiva combina IA com mecanismos de indexação para:  
-- Entender o conteúdo (compreensão semântica).  
-- Extrair conhecimento de documentos.  
-- Enriquecer e transformar dados brutos em informação estruturada.  
-- Responder perguntas complexas com base no contexto.  
+É um tipo de busca inteligente que vai além da simples correspondência de palavras. A busca cognitiva combina IA com mecanismos de indexação para:
 
-No Azure, isso é feito com o serviço **Azure AI Search**, que integra:  
-- **Azure Cognitive Services** (visão, linguagem, tradução, etc).  
-- **Azure OpenAI** (modelos como GPT-4 para perguntas e respostas ou geração de texto).  
+-   Entender o conteúdo (compreensão semântica).
+-   Extrair conhecimento de documentos.
+-   Enriquecer e transformar dados brutos em informação estruturada.
+-   Responder perguntas complexas com base no contexto.
 
-🔄 **Como funciona o processo de busca cognitiva?**  
+No Azure, isso é feito com o serviço **Azure AI Search**, que integra:
+
+-   **Azure Cognitive Services** (visão, linguagem, tradução, etc).
+-   **Azure OpenAI** (modelos como GPT-4 para perguntas e respostas ou geração de texto).
+
+🔄 **Como funciona o processo de busca cognitiva?**
+
 1. **Ingestão dos dados**  
-   Você conecta fontes como:  
-   - Azure Blob Storage (PDFs, DOCX, imagens, JSON).  
-   - Bancos de dados (Cosmos DB, Azure SQL).  
-   - APIs personalizadas.  
+   Você conecta fontes como:
+
+    - Azure Blob Storage (PDFs, DOCX, imagens, JSON).
+    - Bancos de dados (Cosmos DB, Azure SQL).
+    - APIs personalizadas.
 
 2. **Enriquecimento cognitivo**  
-   É aqui que entra a inteligência artificial. O Azure usa **skillsets** com **Cognitive Skills** para:  
-   - OCR (extrair texto de imagens e PDFs escaneados).  
-   - Extração de entidades (pessoas, locais, datas, números).  
-   - Análise de sentimento.  
-   - Tradução automática.  
-   - Detecção de linguagem.  
-   - Classificação e categorização de texto.  
+   É aqui que entra a inteligência artificial. O Azure usa **skillsets** com **Cognitive Skills** para:
 
-   Também é possível usar **skills personalizadas**, com seu próprio código (Azure Functions, por exemplo).  
+    - OCR (extrair texto de imagens e PDFs escaneados).
+    - Extração de entidades (pessoas, locais, datas, números).
+    - Análise de sentimento.
+    - Tradução automática.
+    - Detecção de linguagem.
+    - Classificação e categorização de texto.
+
+    Também é possível usar **skills personalizadas**, com seu próprio código (Azure Functions, por exemplo).
 
 3. **Criação do índice**  
-   O conteúdo enriquecido é transformado em um **índice pesquisável**. Você pode definir:  
-   - Campos pesquisáveis.  
-   - Campos filtráveis/facetáveis.  
-   - Campos com autocompletar.  
-   - Relevância personalizada.  
+   O conteúdo enriquecido é transformado em um **índice pesquisável**. Você pode definir:
+
+    - Campos pesquisáveis.
+    - Campos filtráveis/facetáveis.
+    - Campos com autocompletar.
+    - Relevância personalizada.
 
 4. **Pesquisa e consulta**  
-   O usuário pode então buscar usando:  
-   - Consulta full-text simples: **"relatórios financeiros 2022"**.  
-   - Busca semântica: entende o contexto e sinônimos.  
-   - Busca por perguntas (Q&A): **"Qual foi o lucro da empresa no segundo trimestre?"**.  
-   - Filtros avançados: por datas, autor, categoria, etc.  
-   - Integração com GPT: para chatbots com conhecimento dos seus próprios documentos.  
+   O usuário pode então buscar usando:
+    - Consulta full-text simples: **"relatórios financeiros 2022"**.
+    - Busca semântica: entende o contexto e sinônimos.
+    - Busca por perguntas (Q&A): **"Qual foi o lucro da empresa no segundo trimestre?"**.
+    - Filtros avançados: por datas, autor, categoria, etc.
+    - Integração com GPT: para chatbots com conhecimento dos seus próprios documentos.
 
-✅ **Benefícios da Busca Cognitiva no Azure**  
+✅ **Benefícios da Busca Cognitiva no Azure**
 
-| Benefício                             | Descrição                                                                             |  
-| ------------------------------------- | ------------------------------------------------------------------------------------- |  
-| **🚀 IA pronta para uso**             | Não precisa treinar modelos — usa habilidades cognitivas já treinadas pela Microsoft. |  
-| **⚡ Alta performance e escalabilidade** | Ideal para grandes volumes de documentos.                                             |  
-| **🔒 Segurança corporativa**          | Integra com Azure AD, roles e permissões.                                             |  
-| **💡 Busca semântica e Q&A**         | Busca mais parecida com linguagem natural, e integração com GPT.                      |  
-| **🌐 Visão unificada**               | Une dados de diversas fontes em um só ponto de consulta inteligente.                  |  
+| Benefício                                | Descrição                                                                             |
+| ---------------------------------------- | ------------------------------------------------------------------------------------- |
+| **🚀 IA pronta para uso**                | Não precisa treinar modelos — usa habilidades cognitivas já treinadas pela Microsoft. |
+| **⚡ Alta performance e escalabilidade** | Ideal para grandes volumes de documentos.                                             |
+| **🔒 Segurança corporativa**             | Integra com Azure AD, roles e permissões.                                             |
+| **💡 Busca semântica e Q&A**             | Busca mais parecida com linguagem natural, e integração com GPT.                      |
+| **🌐 Visão unificada**                   | Une dados de diversas fontes em um só ponto de consulta inteligente.                  |
+
+---
+
+## 🧠 IA Generativa
+
+### 🔍 Conceitos básicos de IA generativa
+
+A IA generativa é uma classe de modelos de inteligência artificial que pode criar novos dados semelhantes aos dados com os quais foi treinada. Essa geração pode incluir texto, imagens, áudio, vídeo, código, entre outros.
+
+**Fundamentos técnicos:**  
+Modelos baseados em redes neurais, especialmente redes neurais profundas como transformers.
+
+Os modelos generativos aprendem padrões nos dados durante o treinamento e os usam para criar novas instâncias.
+
+Utilizam tarefas como modelagem de linguagem, reconstrução de imagens ou tradução para aprender.
+
+**Exemplos de modelos:**  
+📝 **GPT (Generative Pretrained Transformer):** gera texto.  
+
+🎨 **DALL·E:** gera imagens a partir de descrições em linguagem natural.  
+
+💻 **Codex:** gera e compreende código-fonte.  
+
+🎙️ **Whisper:** para transcrição e reconhecimento de voz.  
+
+**Casos de uso:**  
+📢 Criação de conteúdo (textos, imagens, vídeos).  
+
+🤖 Assistentes virtuais inteligentes.  
+
+👨‍💻 Geração automática de código.  
+
+🎨 Prototipação e design assistido por IA.  
+
+🌐 Simulações e testes em ambientes virtuais.  
+
+**Limitações e desafios:**  
+🌀 Alucinação (quando a IA “inventa” informações falsas).  
+
+⚡ Dependência de grandes quantidades de dados e poder computacional.  
+
+🎛️ Interpretação e controle dos modelos.  
+
+### ☁️ Conceitos básicos do Serviço OpenAI do Azure
+
+A integração da OpenAI com a Azure permite acessar modelos como GPT-4, Codex e DALL·E através de infraestrutura em nuvem gerenciada pela Microsoft, garantindo escalabilidade, segurança e integração corporativa.
+
+**Funcionalidades principais:**  
+🔑 Acesso via API REST protegida por autenticação (chave e/ou identidade Azure).  
+
+⚙️ Implantação de modelos personalizados com configurações específicas por recurso.  
+
+📊 Gerenciamento de uso com monitoramento de tokens, limites e políticas.  
+
+🔄 Integração com serviços como Azure Cognitive Services, Azure Data Factory, Power BI e mais.  
+
+**Benefícios:**  
+🔒 Segurança e conformidade corporativa (GDPR, ISO, SOC).  
+
+📈 Escalabilidade automatizada para uso em grande escala.  
+
+🛡️ Privacidade de dados: processamento pode ser feito sem retenção de dados pela OpenAI, dependendo da configuração.  
+
+**Exemplos de uso:**  
+💬 Chatbots corporativos.  
+
+⚡ Automatização de processos de atendimento.  
+
+📑 Análise de documentos com NLP (Processamento de Linguagem Natural).  
+
+👨‍💻 Suporte a desenvolvedores e DevOps com geração de código e documentação.  
+
+### 🌍 IA Gerativa Responsável
+
+Esse é um dos tópicos mais importantes hoje em IA. A IA generativa responsável foca em garantir que o uso dessas tecnologias seja ético, seguro, justo e confiável.
+
+**Princípios da IA Responsável:**  
+⚖️ **Justiça (Fairness):** evitar viéses e discriminações.  
+
+🔍 **Transparência:** os usuários devem saber quando estão interagindo com IA.  
+
+🛡️ **Segurança:** prevenir uso malicioso ou efeitos negativos imprevistos.  
+
+🔒 **Privacidade:** garantir que os dados pessoais estejam protegidos.  
+
+👨‍⚖️ **Responsabilidade:** humanos devem supervisionar e responder pelos sistemas de IA.  
+
+**Riscos comuns:**  
+📢 Geração de desinformação ou fake news.  
+
+🔄 Viés algorítmico (ex: reforço de estereótipos).  
+
+❓ Falta de rastreabilidade (não saber como uma decisão foi tomada).  
+
+⚠️ Uso para fins maliciosos (phishing, engenharia social).  
+
+**Estratégias de mitigação:**  
+🚦 Filtros de segurança e moderação no output da IA.  
+
+👨‍💼 Revisão humana em sistemas críticos.  
+
+📊 Treinamento com dados diversos e balanceados.  
+
+📝 Auditorias externas e avaliação de impacto ético.  
+
+**Iniciativas e padrões:**  
+🏢 Microsoft Responsible AI Standard.  
+
+📜 OpenAI use-case guidelines.  
+
+🌐 Princípios da OCDE, UNESCO e União Europeia.  
+
+### 📚 Modelos de Linguagens Grandes
+
+Modelos de Linguagem Grandes — ou LLMs (Large Language Models) — são modelos de inteligência artificial treinados em grandes quantidades de texto para entender, gerar e manipular linguagem natural. Eles são a base de ferramentas como o ChatGPT, Bard, Claude, entre outros.
+
+🔍 **O que é um LLM?**  
+Um LLM é um tipo de rede neural, geralmente baseada em arquiteturas transformers (como o GPT), que aprende padrões linguísticos ao ser exposto a grandes volumes de texto. Ele tenta prever a próxima palavra em uma sequência, o que acaba permitindo:  
+
+- 📝 Geração de texto coerente  
+- 🌍 Tradução de idiomas  
+- 📑 Resumo automático  
+- ❓ Respostas a perguntas  
+- 💻 Criação de código e mais  
+
+🧠 **Exemplos Populares de LLMs**  
+| Modelo                       | Empresa         | Arquitetura               | Observações             |  
+| ---------------------------- | --------------- | ------------------------- | ----------------------- |  
+| **GPT-4 / GPT-4.5 / GPT-4o** | OpenAI          | Transformer               | Base do ChatGPT         |  
+| **Gemini**                   | Google DeepMind | Transformer/MLP Mix       | Antigo Bard             |  
+| **Claude**                   | Anthropic       | Constitutional AI         | Foco em segurança       |  
+| **LLaMA**                    | Meta            | Transformer               | Open-source             |  
+| **Mistral / Mixtral**        | Mistral AI      | Sparse Mixture of Experts | Leve e eficiente        |  
+| **Command R+**               | Cohere          | Retrieval-augmented       | Foco em geração factual |  
+| **Yi**                       | 01.AI (China)   | Open-source               | Competitivo com GPT-4   |  
+
+⚙️ **Como um LLM é treinado?**  
+**Pré-treinamento:**  
+- Baseado em grandes volumes de texto da internet, livros, artigos etc.  
+- Objetivo: prever a próxima palavra.  
+
+**Ajuste fino (Fine-tuning):**  
+- Aprendizado em tarefas específicas ou com dados curados.  
+
+**RLHF (Reinforcement Learning with Human Feedback):**  
+- Otimização com base em preferências humanas, como no ChatGPT.  
+
+🧩 **Aplicações de LLMs**  
+- 🤖 Assistentes virtuais (ChatGPT, Copilot)  
+- 📑 Resumo e análise de documentos  
+- 💻 Geração de código  
+- 🌍 Tradução automática  
+- 📊 Classificação e análise de sentimento  
+- 🔍 Pesquisa semântica e Q&A  
+
+📌 **Desafios e Limitações**  
+- 🌀 Alucinações: inventar fatos que parecem reais  
+- ⚖️ Tendência a viés: reproduz preconceitos dos dados  
+- ⚡ Custo computacional: requer infraestrutura pesada para treinar  
+- 🔒 Privacidade: risco de vazar dados sensíveis se mal utilizado  
+
+### 🏗️ Arquitetura Transformer
+
+🧠 **Visão Geral da Arquitetura Transformer**  
+A arquitetura é baseada principalmente no mecanismo de atenção (attention) — mais especificamente, na atenção multi-cabeças (multi-head self-attention) — e dispensa estruturas recorrentes.  
+
+🧱 **Estrutura Básica**  
+Um Transformer completo é composto por dois blocos principais (no modelo original para tradução):  
+| Parte                       | Função                                         |  
+| --------------------------- | ---------------------------------------------- |  
+| **Codificador (Encoder)**   | Lê a entrada e gera representações contextuais |  
+| **Decodificador (Decoder)** | Gera a saída baseada na entrada codificada     |  
+
+- Modelos como o BERT usam só o encoder.  
+- Modelos como o GPT usam só o decoder.  
+
+🔄 **Detalhes de Cada Bloco**  
+✅ **Encoder Layer (repetido N vezes)**  
+- **Input Embedding**  
+  Tokens de entrada são convertidos em vetores.  
+
+- **Positional Encoding**  
+  Como o transformer não é sequencial, são somadas informações de posição aos embeddings.  
+
+- **Multi-Head Self-Attention**  
+  Permite que o modelo foque em diferentes partes da entrada ao mesmo tempo.  
+
+- **Feedforward Neural Network**  
+  Uma MLP aplicada a cada posição individualmente.  
+
+- **Normalização e Residual Connections**  
+  Estabilizam o treinamento.  
+
+✅ **Decoder Layer (também repetido N vezes)**  
+Mesma estrutura do encoder, com mais um passo:  
+- **Masked Self-Attention** (para não ver tokens futuros)  
+- **Cross-Attention** com a saída do encoder  
+
+🎯 **Vantagens do Transformer**  
+| Vantagem                  | Descrição                                             |  
+| ------------------------- | ----------------------------------------------------- |  
+| 🔄 Processamento paralelo | Ao contrário de RNNs, não depende de ordem sequencial |  
+| 🔍 Capacidade de foco     | Atenção permite captar relações distantes no texto    |  
+| 📈 Escalabilidade         | Cresce bem com dados e parâmetros                     |  
+
+📉 **Desvantagens**  
+| Limitação             | Descrição                                     |  
+| --------------------- | --------------------------------------------- |  
+| 🚀 Custo de memória   | Autoatenção tem custo O(n²)                   |  
+| 📊 Dados extensivos   | Precisa de muitos dados e poder computacional |  
+| 🧩 Interpretabilidade | Difícil entender decisões internas            |  
+
+### ✂️ Tokenização  
+Tokenização é o processo de dividir o texto em partes menores (tokens) para que o modelo possa processá-lo. Esses tokens podem ser palavras, subpalavras ou até mesmo caracteres. Modelos como GPT usam tokenizadores como o Byte Pair Encoding (BPE), que fragmentam palavras raras em partes comuns. É um passo essencial porque os modelos não entendem texto cru — eles entendem números representando esses tokens.  
+
+### ➕ Inserções  
+Inserções são uma forma específica de geração de texto onde o modelo não apenas completa uma frase, mas pode inserir palavras ou trechos no meio de um texto. Isso é útil para edição de textos, preenchimento inteligente e completamento de código ou frases com lacunas. Alguns modelos, como Codex ou GPT com modo de inserção, podem gerar texto entre dois pontos de maneira coerente.  
+
+### 👀 Atenção  
+Atenção é o mecanismo que permite ao modelo “focar” em diferentes partes da entrada ao processar cada palavra. No Transformer, o self-attention calcula como cada palavra se relaciona com as demais. Isso faz com que o modelo entenda contexto, ambiguidade e relações entre palavras em diferentes posições do texto, mesmo que estejam distantes.  
+
+### 🤖 Copilotos  
+Copilotos são assistentes baseados em IA que trabalham lado a lado com humanos para tarefas específicas — como programar (ex: GitHub Copilot), escrever textos, criar planilhas etc. Eles são alimentados por LLMs e operam com base em comandos em linguagem natural, ajudando o usuário a ser mais produtivo ao sugerir, completar ou automatizar partes do trabalho.  
+
+### 🎛️ Engenharia de Prompts  
+Engenharia de prompts é a prática de escrever comandos ou perguntas de forma estratégica para obter as melhores respostas possíveis dos LLMs. Envolve entender como estruturar o texto de entrada para guiar o comportamento do modelo, seja para gerar código, texto criativo, respostas técnicas ou resumos. É como “programar com palavras”.  
+
+## ☁️ Azure OpenAI  
+
+🧠 **OpenAI no Azure – O que é**  
+É a integração dos modelos da OpenAI (como GPT, Codex e DALL·E) com a infraestrutura de nuvem da Microsoft Azure. Isso permite que empresas usem IA generativa de forma segura, escalável e com conformidade empresarial na nuvem.  
+
+🚀 **O que você pode fazer com OpenAI no Azure**  
+- 📝 Gerar texto com GPT-4, GPT-3.5  
+- 💻 Criar e completar código com Codex  
+- 🎨 Gerar imagens com DALL·E  
+- 📊 Classificar, resumir e traduzir textos  
+- 🤖 Construir chatbots inteligentes, copilotos corporativos, buscas inteligentes, etc.  
+
+🔒 **Segurança e Privacidade (ponto forte)**  
+- Os dados não são usados para treinar modelos da OpenAI.  
+- Integração com Azure Active Directory, políticas de acesso, compliance.  
+- Conformidade com ISO, SOC, GDPR etc.  
+
+🧰 **Principais recursos e diferenciais**  
+- **Azure OpenAI Studio:** interface visual para testar prompts e treinar modelos.  
+- **Deploy privado:** modelos rodam dentro da infraestrutura da empresa.  
+- **Embeddings e Search:** combinação com Azure Cognitive Search para busca semântica.  
+- APIs altamente escaláveis.  
+
+⚙️ **Como funciona tecnicamente**  
+1. Você cria um recurso do Azure OpenAI no portal.  
+2. Solicita acesso (é aprovado manualmente pela Microsoft).  
+3. Usa a API REST ou SDK para integrar IA nos seus apps.  
+4. Pode usar com outras ferramentas Azure (Cognitive Search, Bot Service, etc).  
+
+💬 **Casos de uso comuns**  
+- 🏢 Atendimento ao cliente (chatbots, FAQ automatizados)  
+- 📑 Análise de documentos jurídicos e contratos  
+- 💻 Geração automática de código ou scripts  
+- 📧 Classificação de e-mails, análises de sentimento  
+- 🔄 Integração com Power Platform (Power Apps, Power Automate)  
+
+💡 **Diferencial: Azure + OpenAI**  
+Combina a potência dos LLMs da OpenAI com a infraestrutura corporativa e segura da Azure.  
