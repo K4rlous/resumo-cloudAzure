@@ -2926,3 +2926,47 @@ Engenharia de prompts é a prática de escrever comandos ou perguntas de forma e
 
 💡 **Diferencial: Azure + OpenAI**  
 Combina a potência dos LLMs da OpenAI com a infraestrutura corporativa e segura da Azure.  
+
+## IA Generativa Responsável
+
+O Planejamento de uma solução de IA generativa sustentável passa por quatro fases para seu desenvolvimento e implementação, eles são: Identificar, Medida, Mitigar, Operar.
+
+**Identificar**
+Nessa fase, o foco é reconhecer os possíveis riscos, impactos e usos da IA. Isso inclui:
+
+Identificar onde e como a IA será usada;
+
+Mapear os riscos éticos, legais, sociais e técnicos;
+
+Compreender as partes envolvidas (usuários, desenvolvedores, afetados).
+
+**Medir**
+Aqui, mede-se o desempenho da IA em relação a critérios como justiça, precisão, transparência e segurança. Exemplos:
+
+Avaliar viés nos dados;
+
+Verificar a explicabilidade dos modelos;
+
+Monitorar a eficácia e confiabilidade dos sistemas.
+
+**Mitigar**
+A etapa de mitigação envolve tomar medidas para reduzir ou eliminar riscos identificados e problemas medidos. Isso pode incluir:
+
+Ajuste de dados ou algoritmos para reduzir vieses;
+
+Limitação do uso da IA em cenários sensíveis;
+
+Implementação de salvaguardas e validações humanas.
+
+**Operar**
+Trata-se da fase contínua de operação responsável da IA. Aqui estão práticas sustentáveis de uso:
+
+Monitoramento constante de desempenho e riscos;
+
+Atualização de políticas de uso e segurança;
+
+Criação de canais de feedback e accountability (responsabilização).
+
+Essas fases são fundamentais para garantir que soluções de IA generativa não apenas funcionem bem tecnicamente, mas também respeitem princípios éticos, legais e sociais. É um processo cíclico e iterativo — sempre em evolução conforme a IA é aplicada em contextos reais.
+
+---
