@@ -2931,7 +2931,7 @@ Combina a potência dos LLMs da OpenAI com a infraestrutura corporativa e segura
 
 O Planejamento de uma solução de IA generativa sustentável passa por quatro fases para seu desenvolvimento e implementação, eles são: Identificar, Medida, Mitigar, Operar.
 
-**Identificar**
+### **Identificar**
 Nessa fase, o foco é reconhecer os possíveis riscos, impactos e usos da IA. Isso inclui:
 
 Identificar onde e como a IA será usada;
@@ -2940,7 +2940,7 @@ Mapear os riscos éticos, legais, sociais e técnicos;
 
 Compreender as partes envolvidas (usuários, desenvolvedores, afetados).
 
-**Medir**
+### **Medir**
 Aqui, mede-se o desempenho da IA em relação a critérios como justiça, precisão, transparência e segurança. Exemplos:
 
 Avaliar viés nos dados;
@@ -2949,7 +2949,7 @@ Verificar a explicabilidade dos modelos;
 
 Monitorar a eficácia e confiabilidade dos sistemas.
 
-**Mitigar**
+### **Mitigar**
 A etapa de mitigação envolve tomar medidas para reduzir ou eliminar riscos identificados e problemas medidos. Isso pode incluir:
 
 Ajuste de dados ou algoritmos para reduzir vieses;
@@ -2958,7 +2958,7 @@ Limitação do uso da IA em cenários sensíveis;
 
 Implementação de salvaguardas e validações humanas.
 
-**Operar**
+### **Operar**
 Trata-se da fase contínua de operação responsável da IA. Aqui estão práticas sustentáveis de uso:
 
 Monitoramento constante de desempenho e riscos;
